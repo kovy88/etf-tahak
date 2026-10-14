@@ -18,7 +18,12 @@ async function heroNumber(page: Page) {
   return num((await page.locator("h1 .marker").first().textContent()) ?? "");
 }
 
+/** Serverové odpovědi se v testech mockují (Supabase tu není). Skutečný zápis ověřuje e2e/leads.spec.ts s reálnou DB. */
+const LEAD_OK = { ok: true, lead_id: "11111111-2222-4333-8444-555555555555", downloadUrl: "/favicon.ico" };
+
 test.beforeEach(async ({ page }) => {
+  await page.route("**/api/lead", (route) => route.fulfill({ json: LEAD_OK }));
+  await page.route("**/api/lead/profile", (route) => route.fulfill({ json: { ok: true } }));
   await page.addInitScript(() => {
     (window as unknown as { __cls: number }).__cls = 0;
     new PerformanceObserver((l) => {

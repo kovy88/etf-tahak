@@ -17,7 +17,7 @@ export default defineConfig({
     command: `npm run dev -- -p ${PORT}`,
     url: `http://localhost:${PORT}/poplatky`,
     reuseExistingServer: true,
-    env: { NEXT_PUBLIC_TEST_MODE: "true" },
+    env: { NEXT_PUBLIC_TEST_MODE: "true", NEXT_PUBLIC_LEAD_PDF_PATH: "/favicon.ico" },
     timeout: 120_000,
   },
 });
