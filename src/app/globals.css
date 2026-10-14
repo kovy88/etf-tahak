@@ -109,3 +109,13 @@ body {
     animation: none;
   }
 }
+
+/* Graf kalkulačky: plynulý přechod čar při změně vstupu (300 ms, kde to prohlížeč umí) */
+.chart-line {
+  transition: d 300ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .chart-line {
+    transition: none;
+  }
+}

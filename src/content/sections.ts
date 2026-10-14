@@ -7,6 +7,7 @@ export const calc = typoDeep({
   labels: {
     monthly: "Měsíční vklad",
     monthlyCustom: "Jiná částka",
+    monthlyCustomUnit: "Kč",
     years: "Horizont",
     yearsUnit: "let",
     gross: "Hrubý výnos ročně",
@@ -16,12 +17,15 @@ export const calc = typoDeep({
     avgFund: "Průměrný akciový fond v EU",
   },
   result: {
-    difference: (years: number) => `Rozdíl za ${years} let`,
+    differencePrefix: "Rozdíl za",
     deposited: "Vložíte celkem",
     feesPaid: "Poplatky vás vyjdou na",
+    feesAvgSuffix: "(průměrný fond)",
+    feesEtfSuffix: "(ETF)",
     etfFinal: "S ETF",
     avgFinal: "S průměrným fondem",
   },
+  chartLegend: { etf: "ETF", avg: "Průměrný fond", deposited: "Vaše vklady", years: "let" },
   assumptionNote: `Modelový výpočet. Výnos ${N.gross} ročně před poplatky je předpoklad, ne předpověď. Skutečný výnos se bude lišit a může být záporný.`,
   avgFundNote: `Průměrný akciový fond v EU: průběžné náklady ${N.avgTer} ročně (ESMA, data za rok 2024). Vstupní poplatek jsme nezapočítali, rozdíl je proto spíš podhodnocený. Neplatí pro konkrétní fond.`,
   methodNote:
@@ -62,6 +66,8 @@ export const compare = typoDeep({
   gate: {
     unlock: (n: number) => `Odemknout zbylých ${n} + dvojčata`,
     hint: "Zbytek srovnání je rozmazaný. Stačí e-mail.",
+    empty: "Tomuhle filtru žádné ETF neodpovídá.",
+    filterAria: "Filtr podle typu ETF",
   },
   footnote: `Výnosy: NAV, v USD podle emitenta k 30. 9. 2026, v korunách přepočtené kurzem ČNB. Minulé výnosy nezaručují budoucí. Hvězdička (*) označuje údaj, který se nepodařilo plně ověřit.`,
 });

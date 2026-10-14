@@ -16,7 +16,7 @@ const SOURCES: { label: string; href: string }[] = [
 export function Footer() {
   return (
     <footer className="border-t border-ink bg-paper-deep">
-      <div className="mx-auto max-w-[var(--measure)] px-[var(--gutter)] py-8 text-[0.8125rem] leading-relaxed text-grey">
+      <div className="mx-auto max-w-[var(--measure)] px-[var(--gutter)] pb-28 pt-8 text-[0.8125rem] leading-relaxed text-grey">
         <p className="text-ink">{legal.disclaimerShort}</p>
         <ul className="mt-3 grid gap-1">
           {legal.disclaimerFull.slice(1).map((l) => (

@@ -2,19 +2,34 @@
 
 import { useRef } from "react";
 import { formCopy } from "@/content/form";
+import type { FormLocation } from "@/content/form";
 import { EMAIL_ENABLED } from "@/lib/flags";
+import { track } from "@/lib/track";
 import { Button } from "./Button";
 import { LeadForm } from "./LeadForm";
 
-/** Hero CTA otevře bottom sheet (<dialog>) s formulářem. Fokus se dává přímo v obsluze kliknutí (iOS). */
-export function HeroCta({ label }: { label: string }) {
+/**
+ * Tlačítko, které otevře bottom sheet (<dialog>) s formulářem (opt-in ve 2 krocích, PLAN §5).
+ * Fokus na pole se dává přímo v obsluze kliknutí, jinak ho iOS nepřijme.
+ */
+export function SheetButton({
+  label,
+  location,
+  className = "",
+}: {
+  label: string;
+  location: Extract<FormLocation, "hero" | "sticky">;
+  className?: string;
+}) {
   const ref = useRef<HTMLDialogElement>(null);
   const c = formCopy(EMAIL_ENABLED);
   return (
     <>
       <Button
         type="button"
+        className={className}
         onClick={() => {
+          track("cta_clicked", { location });
           const d = ref.current;
           if (!d) return;
           d.showModal();
@@ -26,7 +41,7 @@ export function HeroCta({ label }: { label: string }) {
       <dialog
         ref={ref}
         aria-label={c.sheet.title}
-        className="fixed inset-x-0 bottom-0 top-auto m-0 w-full max-w-none border-t-2 border-ink bg-paper p-0 backdrop:bg-ink/50"
+        className="fixed inset-x-0 bottom-0 top-auto m-0 max-h-[100dvh] w-full max-w-none overflow-y-auto border-t-2 border-ink bg-paper p-0 backdrop:bg-ink/50"
         onClick={(e) => {
           if (e.target === ref.current) ref.current?.close();
         }}
@@ -42,7 +57,7 @@ export function HeroCta({ label }: { label: string }) {
               {c.sheet.close}
             </button>
           </div>
-          <LeadForm location="hero" />
+          <LeadForm location={location} />
         </div>
       </dialog>
     </>

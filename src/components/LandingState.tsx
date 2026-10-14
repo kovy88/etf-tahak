@@ -1,0 +1,127 @@
+"use client";
+
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { scenario, type Scenario } from "@/lib/calc";
+import { getLeadEmail, setLeadEmail, subscribeLead } from "@/lib/leadStore";
+import { track } from "@/lib/track";
+
+export interface EtfOption {
+  id: string;
+  name: string;
+  /** TER v procentech (0.03 = 0,03 %) */
+  ter: number;
+}
+
+export interface CalcConfig {
+  options: EtfOption[];
+  avgTer: number;
+  avgEntry: number;
+  defaults: { monthly: number; years: number; gross: number; etfId: string };
+}
+
+export interface CalcState {
+  monthly: number;
+  years: number;
+  /** hrubý výnos v procentech (6 = 6 %) */
+  gross: number;
+  etfId: string;
+}
+
+export interface CalcResult {
+  etf: Scenario;
+  avg: Scenario;
+  difference: number;
+  etfTer: number;
+  etfName: string;
+}
+
+interface Ctx {
+  config: CalcConfig;
+  calc: CalcState;
+  result: CalcResult;
+  setCalc: (patch: Partial<CalcState>) => void;
+  unlocked: boolean;
+  leadDone: boolean;
+  /** Voláno po úspěšném odeslání formuláře. F5 sem napojí odpověď serveru. */
+  markLead: (email: string) => void;
+  email: string | null;
+}
+
+const LandingCtx = createContext<Ctx | null>(null);
+
+export function useLanding(): Ctx {
+  const c = useContext(LandingCtx);
+  if (!c) throw new Error("useLanding mimo LandingState");
+  return c;
+}
+
+export function LandingState({
+  config,
+  variant,
+  children,
+}: {
+  config: CalcConfig;
+  variant: string;
+  children: React.ReactNode;
+}) {
+  const [calc, setCalcState] = useState<CalcState>(config.defaults);
+  const email = useSyncExternalStore(subscribeLead, getLeadEmail, () => null);
+  const touched = useRef(false);
+  const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const latest = useRef(calc);
+
+  useEffect(() => {
+    document.documentElement.dataset.variant = variant;
+  }, [variant]);
+
+  const setCalc = useCallback(
+    (patch: Partial<CalcState>) => {
+      setCalcState((prev) => {
+        const next = { ...prev, ...patch };
+        latest.current = next;
+        return next;
+      });
+      if (!touched.current) {
+        touched.current = true;
+        track("calc_interacted");
+      }
+      if (debounce.current) clearTimeout(debounce.current);
+      debounce.current = setTimeout(() => {
+        const s = latest.current;
+        track("calc_changed", {
+          monthly: s.monthly,
+          years: s.years,
+          return: s.gross,
+          compare_to: s.etfId,
+        });
+      }, 1000);
+    },
+    [],
+  );
+
+  const markLead = useCallback((e: string) => setLeadEmail(e), []);
+
+  const result = useMemo<CalcResult>(() => {
+    const etf = config.options.find((o) => o.id === calc.etfId) ?? config.options[0];
+    const g = calc.gross / 100;
+    const a = scenario(calc.monthly, calc.years, g, etf.ter / 100);
+    const b = scenario(calc.monthly, calc.years, g, config.avgTer / 100, config.avgEntry / 100);
+    return { etf: a, avg: b, difference: a.final - b.final, etfTer: etf.ter, etfName: etf.name };
+  }, [calc, config]);
+
+  const value = useMemo<Ctx>(
+    () => ({
+      config,
+      calc,
+      result,
+      setCalc,
+      unlocked: email !== null,
+      leadDone: email !== null,
+      markLead,
+      email,
+    }),
+    [config, calc, result, setCalc, markLead, email],
+  );
+
+  return <LandingCtx.Provider value={value}>{children}</LandingCtx.Provider>;
+}

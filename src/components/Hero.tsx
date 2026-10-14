@@ -1,8 +1,8 @@
 import { hero } from "@/content";
 import type { VariantId } from "@/content";
-import { HeroCta } from "./HeroCta";
-import { Marker } from "./Marker";
+import { HeroAmounts, HeroNumber } from "./HeroProof";
 import { Stamp } from "./Stamp";
+import { SheetButton } from "./SheetButton";
 import { TickerBadge } from "./TickerBadge";
 import { TickerStrip } from "./TickerStrip";
 
@@ -32,20 +32,16 @@ function HeroPoplatky() {
           <span className="serif block text-[1.5rem] leading-[1.12] font-semibold tracking-[-0.01em]">
             {h.question}
           </span>
-          <span className="relative mt-2.5 block border-y border-line py-2.5">
-            <span className="mono block text-[0.75rem] text-grey">{h.proof.label}</span>
-            <span className="mono block text-[2.625rem] leading-[1.05] font-semibold tracking-[-0.035em]">
-              <Marker>{h.proof.value}</Marker>
-            </span>
-            <span className="serif absolute right-0 top-2.5 -rotate-3 text-[0.8125rem] italic leading-none text-loss">
-              modelový výpočet
-            </span>
-          </span>
+          <HeroNumber labelTemplate={h.proof.labelTemplate} annotation={h.proof.annotation} />
         </h1>
-        <p className="mt-2 text-[0.8125rem] leading-snug text-grey">{h.proof.caption}</p>
+        <HeroAmounts
+          captionTemplate={h.proof.captionTemplate}
+          amountsLabel={h.proof.amountsLabel}
+          amounts={[1000, 3000, 5000, 10000].map((v) => ({ value: v }))}
+        />
         <p className="mt-3 text-[0.9375rem] leading-snug">{h.sub}</p>
         <div className="mt-4">
-          <HeroCta label={h.cta} />
+          <SheetButton label={h.cta} location="hero" />
           <Secondary href="#kalkulacka">{h.secondary}</Secondary>
         </div>
       </div>
@@ -71,7 +67,7 @@ function HeroSrovnani() {
         </div>
         <p className="mt-3 text-[0.9375rem] leading-snug">{h.sub}</p>
         <div className="mt-4">
-          <HeroCta label={h.cta} />
+          <SheetButton label={h.cta} location="hero" />
           <Secondary href="#srovnani">{h.secondary}</Secondary>
         </div>
       </div>
