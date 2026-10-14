@@ -70,4 +70,17 @@ describe("reklamy", () => {
       }
     }
   });
+
+  it("kreativy existují ve správných rozměrech", () => {
+    for (const dir of ["A-poplatky", "B-voo"]) {
+      for (const [file, w, h] of [
+        ["feed-1080x1350.png", 1080, 1350],
+        ["story-1080x1920.png", 1080, 1920],
+      ] as const) {
+        const png = readFileSync(path.join(__dirname, dir, file));
+        expect(png.readUInt32BE(16)).toBe(w);
+        expect(png.readUInt32BE(20)).toBe(h);
+      }
+    }
+  });
 });
