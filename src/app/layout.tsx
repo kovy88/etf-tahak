@@ -1,21 +1,31 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import { legal } from "@/content/legal";
 import { openGraph, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/seo";
 import { CookieBar } from "@/components/CookieBar";
 
-const serif = Fraunces({
+// Fraunces a IBM Plex Mono zmenšené na znaky češtiny (data/subset_fonts.py): 64 kB místo 110 kB (LCP, PLAN §16)
+const serif = localFont({
+  src: [
+    { path: "./fonts/fraunces-400.woff2", weight: "400" },
+    { path: "./fonts/fraunces-600.woff2", weight: "600" },
+  ],
   variable: "--font-serif",
-  subsets: ["latin", "latin-ext"],
   display: "swap",
+  preload: false,
+  adjustFontFallback: "Times New Roman",
 });
-const mono = IBM_Plex_Mono({
+const mono = localFont({
+  src: [
+    { path: "./fonts/plex-mono-400.woff2", weight: "400" },
+    { path: "./fonts/plex-mono-600.woff2", weight: "600" },
+  ],
   variable: "--font-mono",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "600"],
   display: "swap",
+  preload: false,
+  adjustFontFallback: false,
 });
 
 /** Absolutní URL pro OG obrázky: produkční doména na Vercelu, jinak NEXT_PUBLIC_SITE_URL. */
