@@ -47,9 +47,17 @@ const Foot = ({ children }: { children: React.ReactNode }) => (
 );
 
 /** Číslo v tabulce: záporné červeně (znaménko tam je vždy, barva je jen doplněk). */
-const Val = ({ v, bold = false }: { v: string; bold?: boolean }) => (
-  <span className={`mono ${v.startsWith("−") ? "text-loss" : ""} ${bold ? "font-semibold" : ""}`}>{v}</span>
-);
+const Val = ({ v, bold = false, star = false }: { v: string; bold?: boolean; star?: boolean }) => {
+  const flagged = v.endsWith("*");
+  const text = flagged ? v.slice(0, -1) : v;
+  return (
+    <span className={`mono ${text.startsWith("−") ? "text-loss" : ""} ${bold ? "font-semibold" : ""}`}>
+      {text}
+      {/* hvězdička (neověřeno) má vyhrazené místo, aby nerozhodila zarovnání sloupce */}
+      {star || flagged ? <span className="inline-block w-[1.2ch] text-left text-loss">{flagged ? "*" : ""}</span> : null}
+    </span>
+  );
+};
 
 /** Linkované místo na vlastní poznámky, vyplní zbytek strany. */
 function Notes() {
@@ -128,18 +136,18 @@ function Compare() {
         <thead>
           <tr className="border-b border-ink align-bottom">
             <th className="mono pb-[1.5mm] text-left text-[8pt] font-normal text-grey">{c.cols.etf}</th>
-            <th className={th}>{c.cols.ter}</th>
-            <th className={th}>{c.cols.aum}</th>
-            <th className={th}>{c.cols.div}</th>
-            <th className={th} colSpan={3}>
+            <th className={`${th} pl-[3mm]`}>{c.cols.ter}</th>
+            <th className={`${th} pl-[3mm]`}>{c.cols.aum}</th>
+            <th className={`${th} pl-[3mm] pr-[3mm]`}>{c.cols.div}</th>
+            <th className={`${th} border-l border-line text-center`} colSpan={3}>
               {c.unit}
             </th>
           </tr>
           <tr className="border-b border-ink">
             <th colSpan={4} />
-            <th className={th}>{c.cols.y1}</th>
-            <th className={th}>{c.cols.y5}</th>
-            <th className={th}>{c.cols.y10}</th>
+            <th className={`${th} border-l border-line pl-[3mm]`}>{c.cols.y1}</th>
+            <th className={`${th} pl-[3mm]`}>{c.cols.y5}</th>
+            <th className={`${th} pl-[3mm]`}>{c.cols.y10}</th>
           </tr>
         </thead>
         <tbody>
@@ -150,17 +158,17 @@ function Compare() {
                 <span className="mono ml-1 text-[6.5pt] text-grey">{r.ref}</span>
                 <span className="block text-[7.5pt] leading-tight text-grey">{r.name}</span>
               </td>
-              <td className="py-[2.5mm] text-right">
+              <td className="py-[2.5mm] pl-[3mm] text-right">
                 <Val v={r.ter} bold />
               </td>
-              <td className="py-[2.5mm] text-right">
+              <td className="py-[2.5mm] pl-[3mm] text-right">
                 <Val v={r.aum} />
               </td>
-              <td className="py-[2.5mm] text-right">
-                <Val v={r.div} />
+              <td className="py-[2.5mm] pl-[3mm] pr-[3mm] text-right">
+                <Val v={r.div} star />
               </td>
               {r.usd.map((v, i) => (
-                <td key={i} className="py-[2.5mm] text-right">
+                <td key={i} className={`py-[2.5mm] pl-[3mm] text-right ${i === 0 ? "border-l border-line" : ""}`}>
                   <Val v={v} />
                 </td>
               ))}

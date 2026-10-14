@@ -6,7 +6,7 @@ Konverzní landing page (lead magnet) se srovnáním 12 ETF z NYSE pro české d
 |---|---|
 | Produkce | https://etf-tahak.vercel.app (varianta A `/poplatky`, varianta B `/srovnani` = `/`) |
 | Reklamy | [`ads/A-poplatky/`](ads/A-poplatky/copy.md), [`ads/B-voo/`](ads/B-voo/copy.md): texty, kreativy 4:5 a 9:16, UTM, cílení |
-| Lead magnet | [PDF tahák, 11 stran](public/tahak/9a91cdaed8.pdf), generovaný ze stejných dat jako web |
+| Lead magnet | [PDF tahák, 11 stran, 483 kB](public/tahak/c616ae54ee.pdf), generovaný ze stejných dat jako web |
 | Lighthouse mobil (produkce) | výkon 99, přístupnost 100, best practices 100, SEO 100. LCP 1,4–2,0 s, CLS ≈ 0 |
 | AI log | [`ai-log/`](ai-log/): exporty chatů s Claude Code |
 
