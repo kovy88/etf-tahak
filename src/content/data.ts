@@ -2,10 +2,14 @@
  * Čísla pro texty. Vše pochází ze src/data/*.json (generuje data/build.py).
  * Žádné číslo v textech se nepíše natvrdo, bere se odsud.
  */
-import examples from "@/data/examples.json";
-import etfsData from "@/data/etfs.json";
-import facts from "@/data/facts.json";
+import examplesJson from "@/data/examples.json";
+import etfsJson from "@/data/etfs.json";
+import factsJson from "@/data/facts.json";
 import { czk, czkRounded, dateCs, num, pct } from "@/lib/format";
+
+export const examples = examplesJson;
+export const etfsData = etfsJson;
+export const facts = factsJson;
 
 const def = examples.default;
 const etfs = etfsData.etfs;
@@ -30,10 +34,11 @@ export const N = {
   deposited: czk(def.deposited_czk),
   diffExact: czk(def.difference_czk),
   diffHeadline: czkRounded(def.difference_czk),
-  etfFinal: czk(def.etf_final_czk),
-  avgFinal: czk(def.avg_fund_final_czk),
-  feeCostEtf: czk(def.etf_fee_cost_czk),
-  feeCostAvg: czk(def.avg_fund_fee_cost_czk),
+  /** Výsledky kalkulačky se zobrazují zaokrouhlené na tisíce, shodně s hero a reklamami */
+  etfFinal: czkRounded(def.etf_final_czk),
+  avgFinal: czkRounded(def.avg_fund_final_czk),
+  feeCostEtf: czkRounded(def.etf_fee_cost_czk),
+  feeCostAvg: czkRounded(def.avg_fund_fee_cost_czk),
   etfTer: pct(examples.inputs.etf.ter_pct.value),
   avgTer: pct(examples.inputs.avg_fund.ter_pct.value),
   etfName: examples.inputs.etf.name,
@@ -56,4 +61,4 @@ export const N = {
   valueTestCzk: czk(facts.taxes.value_test_czk.value as number),
 } as const;
 
-export { num, examples, etfsData, facts };
+export { num };

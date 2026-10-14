@@ -16,7 +16,7 @@ export const formCopy = (emailEnabled: boolean) =>
       final: "Chci tahák zdarma",
     } satisfies Record<FormLocation, string>,
     sheet: {
-      title: "Kam tahák poslat?",
+      title: emailEnabled ? "Kam tahák poslat?" : "Stáhněte si tahák",
       close: "Zavřít",
     },
     micro: emailEnabled

@@ -43,7 +43,7 @@ export const compare = typoDeep({
   },
   card: {
     ter: "Roční náklady (TER)",
-    aum: "Velikost fondu",
+    aum: "Velikost v USD",
     yield: "Dividendový výnos",
     ret5Usd: "Výnos za 5 let p. a. v USD",
     ret5Czk: "Výnos za 5 let p. a. v Kč",
@@ -63,7 +63,7 @@ export const compare = typoDeep({
     unlock: (n: number) => `Odemknout zbylých ${n} + dvojčata`,
     hint: "Zbytek srovnání je rozmazaný. Stačí e-mail.",
   },
-  footnote: `Výnosy: NAV, v USD podle emitenta k 30. 9. 2026, v korunách přepočtené kurzem ČNB. Minulé výnosy nezaručují budoucí.`,
+  footnote: `Výnosy: NAV, v USD podle emitenta k 30. 9. 2026, v korunách přepočtené kurzem ČNB. Minulé výnosy nezaručují budoucí. Hvězdička (*) označuje údaj, který se nepodařilo plně ověřit.`,
 });
 
 export const threeThings = typoDeep({

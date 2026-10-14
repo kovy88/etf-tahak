@@ -6,12 +6,13 @@ export const hero = typoDeep({
   poplatky: {
     eyebrow: `Kalkulačka + srovnání ${N.etfCount} ETF z NYSE · data k ${N.dataDate}`,
     h1: `Rozdíl mezi poplatkem ${N.avgTer} a ${N.etfTer} ročně? Za ${N.years} let ${N.diffHeadline}.`,
-    sub: `Modelový výpočet: ${N.monthly} měsíčně, výnos ${N.gross} ročně před poplatky. Spočítejte si to na svých číslech a stáhněte si tahák: ${N.etfCount} ETF z newyorské burzy, co z nich koupíte z Česka a jak je danit.`,
+    sub: `Při ${N.monthly} měsíčně a výnosu ${N.gross} ročně před poplatky. Spočítejte si to na svých číslech a stáhněte si tahák: ${N.etfCount} ETF z newyorské burzy, co z nich koupíte z Česka a jak je danit.`,
     proof: {
       label: `Za ${N.years} let`,
       value: N.diffHeadline,
       caption: `rozdíl mezi průměrným akciovým fondem v EU (${N.avgTer} ročně) a ETF na S&P 500 (${N.etfTer} ročně)`,
     },
+    question: `Rozdíl mezi poplatkem ${N.avgTer} a ${N.etfTer} ročně?`,
     cta: "Chci tahák zdarma",
     secondary: "Nejdřív si to spočítám ↓",
     thumbCaption: `Tahák: ${N.etfCount} ETF, zdroje u každého čísla`,
@@ -26,6 +27,8 @@ export const hero = typoDeep({
     eyebrow: `Srovnání ${N.etfCount} ETF z NYSE pro české investory · data k ${N.dataDate}`,
     h1: "VOO, SPY, VTI. Z Česka je běžně nekoupíte. Tady je, co místo nich.",
     sub: `U ${N.exactTwins} z ${N.etfCount} ETF existuje evropské dvojče se stejným indexem, u dalších ${N.similarTwins} aspoň podobná alternativa. S poplatky, výnosy v korunách a českými daněmi.`,
+    boardCaption: "z ČR běžně nekoupíte",
+    boardTickers: ["VOO", "SPY", "VTI", "SCHD"],
     cta: "Chci tahák zdarma",
     secondary: "Nejdřív srovnání ↓",
     thumbCaption: `Tahák: ${N.etfCount} ETF, zdroje u každého čísla`,

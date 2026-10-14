@@ -65,3 +65,11 @@ export function typoDeep<T>(value: T): T {
   }
   return value;
 }
+
+/** 1.0e12 -> "1,0 bil. USD", 689.2e9 -> "689 mld. USD" (česká měřítka: mld. = 10^9, bil. = 10^12) */
+export function usdShort(n: number, unit = true): string {
+  const u = unit ? `${NBSP}USD` : "";
+  if (n >= 1e12) return `${num(n / 1e12, 1)}${NBSP}bil.${u}`;
+  if (n >= 1e9) return `${num(n / 1e9, n >= 1e11 ? 0 : 1)}${NBSP}mld.${u}`;
+  return `${num(n / 1e6, 0)}${NBSP}mil.${u}`;
+}

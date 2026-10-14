@@ -109,12 +109,13 @@ describe("texty v src/content", () => {
 
   it("bez e-mailu nic neslibují e-mailem (PLAN §11)", () => {
     const off = strings({
-      form: formCopy(false),
+      // sdílení odkazu kamarádovi („Pošlete kamarádovi…“) není slib e-mailu
+      form: { ...formCopy(false), share: null },
       faq: faq(false),
       finalCta: finalCta(false),
       tahak: tahak(false),
     }).join("\n");
-    expect(off).not.toMatch(/pošleme|posíláme|do schránky|odhlášení|odhlásit se|e-mailem|Promoakc|Newsletter/i);
+    expect(off).not.toMatch(/pošle|posla|posíl|do schránky|odhlášení|odhlásit se|e-mailem|Promoakc|Newsletter/i);
   });
 
   it("s e-mailem ho zmiňují a mají odhlášení", () => {
