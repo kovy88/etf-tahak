@@ -1,0 +1,389 @@
+# UCITS dvojčata a alternativy k ETF z NYSE. Hodnoty z webů emitentů k 13. 10. 2026.
+# match: exact = stejný index, similar = podobná expozice (ne dvojče), none = nenalezeno.
+# Ověřeno je jen to, co je v polích value/source. Tickery u listings jsou jen ty, které stránka emitenta uvádí.
+funds:
+  CSPX:
+    name: iShares Core S&P 500 UCITS ETF USD (Acc)
+    issuer: iShares (BlackRock)
+    type: UCITS ETF
+    isin:
+      value: IE00B5BMR087
+      source: https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.07
+      source: https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund
+      as_of: '2026-10-13'
+    index:
+      value: S&P 500 Index
+      source: https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund
+      as_of: '2026-10-13'
+    listings:
+      xetra: SXR8
+      lse: CSPX
+    aum_usd:
+      value: 161426552370
+      source: https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund
+      as_of: '2026-10-13'
+    launch:
+      value: '2010-05-19'
+      source: https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund
+      as_of: '2010-05-19'
+    note: Ticker CSPX se obchoduje v USD v Londýně i v EUR v Amsterdamu, SXR8 je eurová linie na Xetře. Londýnský listing stránka v použitém výpisu neuvedla, ověřte u brokera.
+  VUAA:
+    name: Vanguard S&P 500 UCITS ETF (USD) Accumulating
+    issuer: Vanguard
+    type: UCITS ETF
+    isin:
+      value: IE00BFMXXD54
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.07
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    index:
+      value: S&P 500 Index
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    listings:
+      xetra: VUAA
+      lse: null
+    launch:
+      value: '2019-05-14'
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating
+      as_of: '2019-05-14'
+  SPYL:
+    name: State Street SPDR S&P 500 UCITS ETF (Acc)
+    issuer: State Street (SPDR)
+    type: UCITS ETF
+    isin:
+      value: IE000XZSV718
+      source: https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.03
+      source: https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy
+      as_of: '2026-10-13'
+    index:
+      value: S&P 500 Index
+      source: https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy
+      as_of: '2026-10-13'
+    listings:
+      xetra: SPYL
+      lse: SPYL
+    aum_usd:
+      value: 45161510000
+      source: https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy
+      as_of: '2026-10-13'
+    launch:
+      value: '2023-10-31'
+      source: https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy
+      as_of: '2023-10-31'
+    note: Stránka emitenta uvádí registraci pro Českou republiku.
+  XD9U:
+    name: Xtrackers MSCI USA UCITS ETF 1C
+    issuer: DWS (Xtrackers)
+    type: UCITS ETF
+    isin:
+      value: IE00BJ0KDR00
+      source: https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.03
+      source: https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    index:
+      value: MSCI USA Index (cca 85 % tržní kapitalizace USA)
+      source: https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    listings:
+      xetra: null
+      lse: XD9U
+    launch:
+      value: '2014-05-09'
+      source: https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/
+      as_of: '2014-05-09'
+    note: Domicil odvozen z ISIN (IE) a popisu emitenta. Xetra ticker stránka neuvádí.
+  VWCE:
+    name: Vanguard FTSE All-World UCITS ETF (USD) Accumulating
+    issuer: Vanguard
+    type: UCITS ETF
+    isin:
+      value: IE00BK5BQT80
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.14
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    index:
+      value: FTSE All-World Index
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    listings:
+      xetra: VWCE
+      lse: VWRA
+    launch:
+      value: '2019-07-23'
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating
+      as_of: '2019-07-23'
+  VFEA:
+    name: Vanguard FTSE Emerging Markets UCITS ETF (USD) Accumulating
+    issuer: Vanguard
+    type: UCITS ETF
+    isin:
+      value: IE00BK5BR733
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.17
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    index:
+      value: FTSE Emerging Index
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    listings:
+      xetra: VFEA
+      lse: VFEA
+  VHYA:
+    name: Vanguard FTSE All-World High Dividend Yield UCITS ETF (USD) Accumulating
+    issuer: Vanguard
+    type: UCITS ETF
+    isin:
+      value: IE00BK5BR626
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.29
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    index:
+      value: FTSE All-World High Dividend Yield Index
+      source: https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating
+      as_of: '2026-10-13'
+    listings:
+      xetra: VGWE
+      lse: VHYA
+  EXUS:
+    name: Xtrackers MSCI World ex USA UCITS ETF 1C
+    issuer: DWS (Xtrackers)
+    type: UCITS ETF
+    isin:
+      value: IE0006WW1TQ4
+      source: https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.15
+      source: https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    index:
+      value: MSCI World ex USA Index
+      source: https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/
+      as_of: '2026-10-13'
+    listings:
+      xetra: null
+      lse: EXUS
+    launch:
+      value: '2024-03-06'
+      source: https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/
+      as_of: '2024-03-06'
+    note: Domicil odvozen z ISIN (IE) a popisu emitenta. Xetra ticker stránka neuvádí.
+  IUAA:
+    name: iShares US Aggregate Bond UCITS ETF USD (Acc)
+    issuer: iShares (BlackRock)
+    type: UCITS ETF
+    isin:
+      value: IE00BYXYYM63
+      source: https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.25
+      source: https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf
+      as_of: '2026-10-13'
+    distribution:
+      value: accumulating
+      source: https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf
+      as_of: '2026-10-13'
+    index:
+      value: Bloomberg U.S. Aggregate Bond Index
+      source: https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf
+      as_of: '2026-10-13'
+    listings:
+      xetra: null
+      lse: IUAA
+    aum_usd:
+      value: 6019881997
+      source: https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf
+      as_of: '2026-10-13'
+    note: 'AUM je celého fondu (všechny třídy). Distribuční třída IE00B44CGS96 (Xetra: EUNX, TER 0,25 %) viz https://www.ishares.com/uk/individual/en/products/251750/ishares-us-aggregate-bond-ucits-etf'
+  SGLN:
+    name: iShares Physical Gold ETC
+    issuer: iShares (BlackRock)
+    type: 'ETC (dluhový cenný papír zajištěný zlatem, nikoli UCITS ETF; stránka emitenta uvádí UCITS: No, UCITS eligible: Yes)'
+    isin:
+      value: IE00B4ND3602
+      source: https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund
+      as_of: '2026-10-13'
+    ter_pct:
+      value: 0.12
+      source: https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund
+      as_of: '2026-10-13'
+    distribution:
+      value: no income
+      source: https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund
+      as_of: '2026-10-13'
+    domicile:
+      value: Ireland
+      source: https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund
+      as_of: '2026-10-13'
+    index:
+      value: LBMA Gold Price
+      source: https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund
+      as_of: '2026-10-13'
+    listings:
+      xetra: PPFB
+      lse: SGLN
+    aum_usd:
+      value: 38646271084
+      source: https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund
+      as_of: '2026-10-13'
+    launch:
+      value: '2011-04-08'
+      source: https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund
+      as_of: '2011-04-08'
+twins:
+  VOO:
+    match: exact
+    funds:
+    - CSPX
+    - VUAA
+    - SPYL
+    note: Stejný index S&P 500.
+  SPY:
+    match: exact
+    funds:
+    - CSPX
+    - VUAA
+    - SPYL
+    note: Stejný index S&P 500.
+  IVV:
+    match: exact
+    funds:
+    - CSPX
+    - VUAA
+    - SPYL
+    note: Stejný index S&P 500.
+  VTI:
+    match: similar
+    funds:
+    - XD9U
+    note: Celý trh USA (CRSP/Morningstar) v UCITS neexistuje. MSCI USA pokrývá cca 85 % tržní kapitalizace a neobsahuje malé firmy. Nejde o dvojče.
+  VT:
+    match: similar
+    funds:
+    - VWCE
+    note: Vanguard VT sleduje FTSE Global All Cap (obsahuje malé firmy), UCITS FTSE All-World je bez malých firem. Stejný emitent a podobné pokrytí.
+  VEA:
+    match: similar
+    funds:
+    - EXUS
+    note: Index FTSE Developed ex US v UCITS nenalezen. MSCI World ex USA je nejbližší ověřená alternativa.
+  VWO:
+    match: similar
+    funds:
+    - VFEA
+    note: Vanguard UCITS sleduje FTSE Emerging Index. Složení se může od VWO mírně lišit.
+  VYM:
+    match: similar
+    funds:
+    - VHYA
+    note: VYM drží jen USA, UCITS verze je globální (FTSE All-World High Dividend Yield). Nejde o dvojče.
+  VUG:
+    match: none
+    funds: []
+    note: UCITS dvojče ani blízká alternativa nebyla ověřena.
+  SCHD:
+    match: none
+    funds: []
+    note: UCITS dvojče sledující Dow Jones U.S. Dividend 100 nebylo nalezeno. Nalezený iShares Dow Jones U.S. Select Dividend (DE000A0D8Q49) sleduje jiný index a je domicilovaný v Německu, proto ho neuvádíme
+      jako dvojče.
+  AGG:
+    match: exact
+    funds:
+    - IUAA
+    note: Stejný index Bloomberg U.S. Aggregate. Třída v USD, akumulační.
+  GLD:
+    match: similar
+    funds:
+    - SGLN
+    note: Stejné podkladové aktivum (zlato, LBMA Gold Price). Jde o ETC, ne o UCITS ETF.
