@@ -156,3 +156,14 @@ test("lišta nezvyšuje CLS", async ({ page }) => {
   await page.waitForTimeout(1500);
   expect(await page.evaluate(() => (window as unknown as { cls: number }).cls)).toBeLessThan(0.05);
 });
+
+test("skrytá lepivá lišta nevykukuje nad lištou cookies", async ({ page }) => {
+  await page.goto("/poplatky");
+  await showBar(page);
+  // zpět do hero: lepivá lišta je skrytá, lišta cookies zůstává
+  await page.evaluate(() => window.scrollTo(0, 0));
+  const sticky = page.locator("[data-past-hero]");
+  await expect(sticky).toHaveAttribute("data-visible", "false");
+  await page.waitForTimeout(400); // přechod
+  await expect(sticky).not.toBeInViewport();
+});

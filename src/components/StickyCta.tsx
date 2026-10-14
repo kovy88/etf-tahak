@@ -75,7 +75,8 @@ export function StickyCta() {
       aria-hidden={!show}
       inert={!show}
       className={`fixed inset-x-0 bottom-[var(--cookie-h,0px)] z-20 border-t border-ink bg-paper px-[var(--gutter)] py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] transition-transform duration-200 motion-reduce:transition-none ${
-        show ? "translate-y-0" : "translate-y-full"
+        // skrytá lišta musí odjet i pod lištu cookies, nad kterou stojí
+        show ? "translate-y-0" : "translate-y-[calc(100%+var(--cookie-h,0px))]"
       }`}
     >
       <div className="mx-auto max-w-[var(--measure)]">

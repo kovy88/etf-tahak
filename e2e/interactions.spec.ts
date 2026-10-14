@@ -133,6 +133,8 @@ test("hero CTA otevře sheet s fokusem na poli a odeslání přepne všechna mí
   // lepivá lišta po odeslání zmizí, PDF je v děkovném stavu i v hero
   await page.locator("main > section").nth(1).scrollIntoViewIfNeeded();
   await expect(page.locator("[data-past-hero]")).toHaveAttribute("data-visible", "false");
+  // skrytá lišta nesmí vykukovat nad lištou cookies
+  await expect(page.locator("[data-past-hero]")).not.toBeInViewport();
 });
 
 test("sticky lišta: schovaná v hero a u formuláře, ukáže se mezi nimi", async ({ page }) => {
