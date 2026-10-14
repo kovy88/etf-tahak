@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { hero } from "@/content";
 import type { VariantId } from "@/content";
+import { PDF_PREVIEW_SIZE, PDF_PREVIEWS } from "@/lib/leadPdf";
 import { HeroAmounts, HeroNumber, HeroSub } from "./HeroProof";
-import { Stamp } from "./Stamp";
 import { SheetButton } from "./SheetButton";
 import { TickerBadge } from "./TickerBadge";
 import { TickerStrip } from "./TickerStrip";
@@ -14,6 +15,21 @@ function Secondary({ href, children }: { href: string; children: React.ReactNode
     >
       {children}
     </a>
+  );
+}
+
+/** Miniatura skutečné strany taháku vedle věty o nabídce: návštěvník vidí, co dostane, ještě před formulářem. */
+function Thumb({ alt }: { alt: string }) {
+  const { width, height } = PDF_PREVIEW_SIZE;
+  return (
+    <Image
+      src={PDF_PREVIEWS.compare}
+      alt={alt}
+      width={width}
+      height={height}
+      sizes="56px"
+      className="float-right mb-1 ml-3 mt-1 h-auto w-14 rotate-2 border border-line bg-paper shadow-[0_1px_0_var(--line)]"
+    />
   );
 }
 
@@ -39,7 +55,10 @@ function HeroPoplatky() {
           amountsLabel={h.proof.amountsLabel}
           amounts={[1000, 3000, 5000, 10000].map((v) => ({ value: v }))}
         />
-        <HeroSub template={h.subTemplate} />
+        <div className="mt-3 flow-root">
+          <Thumb alt={h.thumbCaption} />
+          <HeroSub template={h.subTemplate} />
+        </div>
         <div className="mt-4">
           <SheetButton label={h.cta} location="hero" />
           <Secondary href="#kalkulacka">{h.secondary}</Secondary>
@@ -63,9 +82,11 @@ function HeroSrovnani() {
               {t}
             </TickerBadge>
           ))}
-          <Stamp tone="loss">{h.boardCaption}</Stamp>
         </div>
-        <p className="mt-3 text-[0.9375rem] leading-snug">{h.sub}</p>
+        <div className="mt-3 flow-root">
+          <Thumb alt={h.thumbCaption} />
+          <p className="text-[0.9375rem] leading-snug">{h.sub}</p>
+        </div>
         <div className="mt-4">
           <SheetButton label={h.cta} location="hero" />
           <Secondary href="#srovnani">{h.secondary}</Secondary>

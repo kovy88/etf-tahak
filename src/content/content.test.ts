@@ -133,8 +133,15 @@ describe("texty v src/content", () => {
     expect(hero.poplatky.subTemplate.replace("{monthly}", N.monthly).replace("{gross}", N.gross)).toBe(hero.poplatky.sub);
   });
 
+  it("hero říká, co návštěvník dostane: PDF a počet stran", () => {
+    // „stran“ platí od 5 stran výš, jinak by se musel změnit tvar slova
+    expect(N.pdfPages).toBeGreaterThanOrEqual(5);
+    expect(plain(hero.poplatky.sub)).toContain(`PDF, ${N.pdfPages} stran`);
+  });
+
   it("každé číslo v hero B pochází z dat", () => {
-    expect(plain(hero.srovnani.sub)).toContain(`${N.exactTwins} z ${N.etfCount}`);
+    expect(plain(hero.srovnani.sub)).toContain(`${N.withAlternative} z ${N.etfCount}`);
+    expect(plain(hero.srovnani.sub)).toContain(`${N.pdfPages} stran`);
     expect(N.exactTwins + N.similarTwins + N.noTwins).toBe(N.etfCount);
   });
 

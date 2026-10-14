@@ -5,6 +5,7 @@
 import examplesJson from "@/data/examples.json";
 import etfsJson from "@/data/etfs.json";
 import factsJson from "@/data/facts.json";
+import leadPdfJson from "@/data/leadPdf.json";
 import { czk, czkRounded, dateCs, num, pct } from "@/lib/format";
 
 export const examples = examplesJson;
@@ -48,6 +49,10 @@ export const N = {
   exactTwins: count("exact"),
   similarTwins: count("similar"),
   noTwins: count("none"),
+  /** ETF, ke kterým existuje evropská alternativa (dvojče nebo podobný fond) */
+  withAlternative: count("exact") + count("similar"),
+  /** Počet stran PDF taháku (scripts/render-pdf.ts) */
+  pdfPages: leadPdfJson.pages,
   /** Tři ETF na stejný index S&P 500 (micro-insight) */
   sp500Ters: {
     VOO: pct(voo.ter_pct.value, 4),

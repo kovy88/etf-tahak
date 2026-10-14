@@ -65,5 +65,5 @@ export function HeroAmounts({
 export function HeroSub({ template }: { template: string }) {
   const { calc } = useLanding();
   const text = template.replace("{monthly}", czk(calc.monthly)).replace("{gross}", pct(calc.gross, 0));
-  return <p className="mt-3 text-[0.9375rem] leading-snug">{text}</p>;
+  return <p className="text-[0.9375rem] leading-snug">{text}</p>;
 }
