@@ -35,7 +35,11 @@ export function Footer() {
           ))}
         </ul>
         <p className="mt-4">
-          {legal.footer.operator} · {legal.footer.dataNote} ·{" "}
+          {legal.footer.operatorLabel}{" "}
+          <a href={`mailto:${legal.footer.operatorEmail}`} className="underline underline-offset-2">
+            {legal.footer.operatorEmail}
+          </a>{" "}
+          · {legal.footer.dataNote} ·{" "}
           <a href="/zasady-ochrany-udaju" className="underline underline-offset-2">
             {legal.footer.privacy}
           </a>{" "}

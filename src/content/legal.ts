@@ -1,4 +1,5 @@
 import { typoDeep } from "@/lib/format";
+import { OPERATOR } from "./author";
 import { N } from "./data";
 
 /** Povinná upozornění (CLAUDE.md, PLAN §14, §15). */
@@ -20,7 +21,8 @@ export const legal = typoDeep({
     label: "Souhlas s cookies",
   },
   footer: {
-    operator: "Provozovatel: [doplní zadavatel]",
+    operatorLabel: `Provozovatel: ${OPERATOR.name},`,
+    operatorEmail: OPERATOR.email,
     sources: "Zdroje dat",
     privacy: "Zásady ochrany údajů",
     dataNote: `Data k ${N.dataDate}`,

@@ -1,17 +1,17 @@
 import { typoDeep } from "@/lib/format";
+import { OPERATOR } from "./author";
 
 /**
  * Zásady ochrany osobních údajů. NÁVRH textu pro landing page, před spuštěním ho má projít právník.
- * Provozovatel je placeholder (doplní zadavatel). Doba uchování je návrh k odsouhlasení.
+ * Doba uchování je návrh k odsouhlasení.
  */
 export const privacy = typoDeep({
   title: "Zásady ochrany osobních údajů",
   updated: "Verze 2026-10-a",
-  operatorPlaceholder: "[doplní zadavatel: název, sídlo, IČO, kontakt]",
   sections: [
     {
       h: "Kdo údaje zpracovává",
-      p: ["Správcem je provozovatel stránky: [doplní zadavatel: název, sídlo, IČO, kontakt]."],
+      p: [`Správcem je provozovatel stránky ${OPERATOR.name} (fyzická osoba). Kontakt: ${OPERATOR.email}.`],
     },
     {
       h: "Jaké údaje a proč",
@@ -48,7 +48,7 @@ export const privacy = typoDeep({
     {
       h: "Vaše práva",
       p: [
-        "Máte právo na přístup k údajům, opravu, výmaz, omezení zpracování, přenositelnost a vznést námitku. Souhlas odvoláte odhlášením z e-mailů nebo zprávou provozovateli. Stížnost můžete podat u Úřadu pro ochranu osobních údajů (uoou.gov.cz).",
+        `Máte právo na přístup k údajům, opravu, výmaz, omezení zpracování, přenositelnost a vznést námitku. Souhlas odvoláte odhlášením z e-mailů nebo zprávou na ${OPERATOR.email}. Stížnost můžete podat u Úřadu pro ochranu osobních údajů (uoou.gov.cz).`,
       ],
     },
   ],

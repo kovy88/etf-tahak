@@ -208,7 +208,7 @@ H3 je při testovacím rozpočtu (5 000 Kč ≈ 330 kliků na variantu) neprůka
 
 **Před spuštěním reklamy zbývá (na provozovateli):**
 
-- [ ] Doplnit provozovatele v patičce a v zásadách (teď placeholder).
+- [x] Doplnit provozovatele v patičce a v zásadách (Matěj Koval, fyzická osoba, e-mail).
 - [ ] Ověřit, že název „ETF tahák“ ani doména nejsou obsazené. Ideálně koupit doménu.
 - [ ] S doménou: ověřit ji v Resend (SPF, DKIM), nastavit `NEXT_PUBLIC_EMAIL_ENABLED=true` a `EMAIL_FROM`.
 - [ ] Meta Business: Pixel ID do `NEXT_PUBLIC_META_PIXEL_ID`, ověřená doména, konverze Lead.
@@ -296,7 +296,6 @@ Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log
 
 * Rozpočet JS 120 kB nesplňuji (165 kB, z toho 119 kB je samotný React a Next.js). LCP i výkon 99 jsou v pořádku, takže jsem to neřešil přepisem.
 * E-mail je hotový, ale vypnutý, dokud nebude vlastní doména. Hodnotu návštěvník dostane hned na stránce.
-* Provozovatel v patičce je placeholder, doplní ho ten, kdo stránku spustí.
 * Ruční test jsem udělal v Instagramu na iPhonu. Android a Facebook ještě zbývají.
 * Testy A/B hypotéz z §11 nemají v kódu rozdělení provozu. Varianty A a B jsou zatím dvě URL podle reklamy. Na split stačí feature flag v PostHogu, je to asi hodina práce.
 * Meta Pixel je připravený, ale bez ID účtu se nenačte. Konverze pro Metu tedy zatím chybí, leady se počítají v PostHogu a v databázi.

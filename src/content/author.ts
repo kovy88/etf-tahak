@@ -12,3 +12,9 @@ export const AUTHOR = typoDeep({
   text: "Tahák jsem sestavil, protože srovnání ETF z NYSE jsou psaná pro Američany. Čech řeší jiné věci: co u brokera vůbec koupí, kolik z výnosu sní kurz dolaru a jak se to daní. Každé číslo má u sebe zdroj a datum.",
   sourcesLink: "Odkud jsou data",
 });
+
+/** Provozovatel stránky a správce osobních údajů (fyzická osoba). Jeden zdroj pro patičku i zásady. */
+export const OPERATOR = {
+  name: AUTHOR.name,
+  email: "koval.macek@gmail.com",
+} as const;
