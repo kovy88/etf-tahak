@@ -56,8 +56,27 @@ export function StickyCta() {
       },
       { threshold: 0.5 },
     );
-    document.querySelectorAll("main form[data-location]").forEach((f) => io.observe(f));
-    return () => io.disconnect();
+    // Formuláře se vykreslují i později (gate ve srovnání po ťuknutí), proto se hledají znovu při každé změně DOM.
+    // Odebraný formulář IntersectionObserver neohlásí, takže se z „vidět“ vyřadí ručně.
+    const sync = () => {
+      document.querySelectorAll("main form[data-location]").forEach((f) => io.observe(f));
+      let changed = false;
+      for (const f of visible)
+        if (!f.isConnected) {
+          visible.delete(f);
+          io.unobserve(f);
+          changed = true;
+        }
+      if (changed) setFormsVisible(visible.size);
+    };
+    sync();
+    const main = document.querySelector("main");
+    const mo = new MutationObserver(sync);
+    if (main) mo.observe(main, { childList: true, subtree: true });
+    return () => {
+      mo.disconnect();
+      io.disconnect();
+    };
   }, []);
 
   useEffect(() => {

@@ -149,6 +149,16 @@ test("sticky lišta: schovaná v hero a u formuláře, ukáže se mezi nimi", as
   await expect(bar).toHaveAttribute("data-visible", "false");
 });
 
+test("sticky lišta: schová se i u formuláře, který se vykreslí až po odemknutí gate", async ({ page }) => {
+  await page.goto("/poplatky");
+  const bar = page.locator("[data-past-hero]");
+  await page.getByRole("button", { name: /Odemknout zbylých/ }).click();
+  const gate = page.locator("main form[data-location=compare_gate]");
+  await gate.scrollIntoViewIfNeeded();
+  await expect(gate).toBeInViewport();
+  await expect(bar).toHaveAttribute("data-visible", "false");
+});
+
 test("bez posunů layoutu při interakcích (CLS < 0,05)", async ({ page }) => {
   await page.goto("/poplatky");
   await page.waitForLoadState("networkidle");
