@@ -25,7 +25,7 @@ export interface CalcLabels {
   feesAvgSuffix: string;
   feesEtfSuffix: string;
   and: string;
-  chartLegend: { etf: string; avg: string; deposited: string; years: string; unitMil: string; unitTis: string; aria: (years: number, etf: string, avg: string, dep: string) => string };
+  chartLegend: { etf: string; avg: string; deposited: string; years: string; unitMil: string; unitTis: string; ariaTemplate: string };
 }
 
 const AMOUNTS = [1000, 3000, 5000, 10000];

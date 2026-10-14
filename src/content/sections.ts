@@ -35,8 +35,8 @@ export const calc = typoDeep({
     years: "let",
     unitMil: "mil. Kč",
     unitTis: "tis. Kč",
-    aria: (years: number, etf: string, avg: string, dep: string) =>
-      `Graf za ${years} let: ETF ${etf}, průměrný fond ${avg}, vklady ${dep}`,
+    /** šablona, funkce nejde předat klientské komponentě */
+    ariaTemplate: "Graf za {years}\u00a0let: ETF {etf}, průměrný fond {avg}, vklady {dep}",
   },
   assumptionNote: `Modelový výpočet. Výnos ${N.gross} ročně před poplatky je předpoklad, ne předpověď. Skutečný výnos se bude lišit a může být záporný.`,
   avgFundNote: `Průměrný akciový fond v EU: průběžné náklady ${N.avgTer} ročně (ESMA, data za rok 2024). Vstupní poplatek jsme nezapočítali, rozdíl je proto spíš podhodnocený. Neplatí pro konkrétní fond.`,
