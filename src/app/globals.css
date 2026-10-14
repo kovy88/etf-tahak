@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
+/* Tokeny „anotovaného taháku“ (PLAN §13). Jen světlý režim kvůli in-app prohlížečům. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6da;
+  --ink: #15140f;
+  --grey: #6b665c;
+  --line: #d9d3c7;
+  --marker: #ffe066;
+  --loss: #c2410c;
+  --gain: #0f7b4a;
+  /* tmavší zelená pro text na papíře a tónovaném pozadí (kontrast AA) */
+  --gain-text: #0a6038;
+
+  --gutter: 20px;
+  --measure: 40rem;
+  --btn-h: 52px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-grey: var(--grey);
+  --color-line: var(--line);
+  --color-marker: var(--marker);
+  --color-loss: var(--loss);
+  --color-gain: var(--gain);
+  --color-gain-text: var(--gain-text);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-optical-sizing: auto;
+}
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Tah fixou: pruh zvýrazňovače, který se jednou „natáhne“ pod číslem. */
+.marker {
+  position: relative;
+  display: inline;
+  white-space: nowrap;
+  background-image: linear-gradient(
+    176deg,
+    transparent 0 48%,
+    var(--marker) 48% 92%,
+    transparent 92%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 0 0.12em;
+  margin: 0 -0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: marker-draw 0.7s 0.25s cubic-bezier(0.3, 0.7, 0.2, 1) both;
+}
+@keyframes marker-draw {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+/* Burzovní pruh */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 48s linear infinite;
+}
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker {
+    animation: none;
+  }
+  .ticker-track {
+    animation: none;
+  }
 }
