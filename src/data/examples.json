@@ -1,0 +1,178 @@
+{
+  "default": {
+    "monthly_czk": 3000,
+    "years": 25,
+    "gross_pct": 6.0,
+    "deposited_czk": 900000,
+    "etf_final_czk": 2029836,
+    "avg_fund_final_czk": 1652523,
+    "difference_czk": 377313,
+    "etf_fee_cost_czk": 8907,
+    "avg_fund_fee_cost_czk": 386219
+  },
+  "by_amount": [
+    {
+      "monthly_czk": 1000,
+      "years": 25,
+      "gross_pct": 6.0,
+      "deposited_czk": 300000,
+      "etf_final_czk": 676612,
+      "avg_fund_final_czk": 550841,
+      "difference_czk": 125771,
+      "etf_fee_cost_czk": 2969,
+      "avg_fund_fee_cost_czk": 128740
+    },
+    {
+      "monthly_czk": 3000,
+      "years": 25,
+      "gross_pct": 6.0,
+      "deposited_czk": 900000,
+      "etf_final_czk": 2029836,
+      "avg_fund_final_czk": 1652523,
+      "difference_czk": 377313,
+      "etf_fee_cost_czk": 8907,
+      "avg_fund_fee_cost_czk": 386219
+    },
+    {
+      "monthly_czk": 5000,
+      "years": 25,
+      "gross_pct": 6.0,
+      "deposited_czk": 1500000,
+      "etf_final_czk": 3383060,
+      "avg_fund_final_czk": 2754205,
+      "difference_czk": 628855,
+      "etf_fee_cost_czk": 14844,
+      "avg_fund_fee_cost_czk": 643699
+    },
+    {
+      "monthly_czk": 10000,
+      "years": 25,
+      "gross_pct": 6.0,
+      "deposited_czk": 3000000,
+      "etf_final_czk": 6766120,
+      "avg_fund_final_czk": 5508410,
+      "difference_czk": 1257709,
+      "etf_fee_cost_czk": 29689,
+      "avg_fund_fee_cost_czk": 1287398
+    }
+  ],
+  "by_horizon": [
+    {
+      "monthly_czk": 3000,
+      "years": 10,
+      "gross_pct": 6.0,
+      "deposited_czk": 360000,
+      "etf_final_czk": 489028,
+      "avg_fund_final_czk": 454025,
+      "difference_czk": 35003,
+      "etf_fee_cost_czk": 765,
+      "avg_fund_fee_cost_czk": 35768
+    },
+    {
+      "monthly_czk": 3000,
+      "years": 20,
+      "gross_pct": 6.0,
+      "deposited_czk": 720000,
+      "etf_final_czk": 1362326,
+      "avg_fund_final_czk": 1161815,
+      "difference_czk": 200511,
+      "etf_fee_cost_czk": 4611,
+      "avg_fund_fee_cost_czk": 205122
+    },
+    {
+      "monthly_czk": 3000,
+      "years": 25,
+      "gross_pct": 6.0,
+      "deposited_czk": 900000,
+      "etf_final_czk": 2029836,
+      "avg_fund_final_czk": 1652523,
+      "difference_czk": 377313,
+      "etf_fee_cost_czk": 8907,
+      "avg_fund_fee_cost_czk": 386219
+    },
+    {
+      "monthly_czk": 3000,
+      "years": 30,
+      "gross_pct": 6.0,
+      "deposited_czk": 1080000,
+      "etf_final_czk": 2921851,
+      "avg_fund_final_czk": 2265206,
+      "difference_czk": 656645,
+      "etf_fee_cost_czk": 15919,
+      "avg_fund_fee_cost_czk": 672563
+    }
+  ],
+  "by_gross": [
+    {
+      "monthly_czk": 3000,
+      "years": 25,
+      "gross_pct": 4.0,
+      "deposited_czk": 900000,
+      "etf_final_czk": 1525128,
+      "avg_fund_final_czk": 1253011,
+      "difference_czk": 272117,
+      "etf_fee_cost_czk": 6413,
+      "avg_fund_fee_cost_czk": 278530
+    },
+    {
+      "monthly_czk": 3000,
+      "years": 25,
+      "gross_pct": 6.0,
+      "deposited_czk": 900000,
+      "etf_final_czk": 2029836,
+      "avg_fund_final_czk": 1652523,
+      "difference_czk": 377313,
+      "etf_fee_cost_czk": 8907,
+      "avg_fund_fee_cost_czk": 386219
+    },
+    {
+      "monthly_czk": 3000,
+      "years": 25,
+      "gross_pct": 8.0,
+      "deposited_czk": 900000,
+      "etf_final_czk": 2732106,
+      "avg_fund_final_czk": 2206853,
+      "difference_czk": 525253,
+      "etf_fee_cost_czk": 12413,
+      "avg_fund_fee_cost_czk": 537665
+    }
+  ],
+  "inputs": {
+    "etf": {
+      "id": "SPYL",
+      "name": "State Street SPDR S&P 500 UCITS ETF (Acc)",
+      "ter_pct": {
+        "value": 0.03,
+        "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "note": "Nejlevnější S&P 500 UCITS ETF mezi ověřenými (CSPX, VUAA, SPYL). Jiné emitenty jsem neprošel."
+    },
+    "avg_fund": {
+      "label": "Průměrný akciový fond v EU (ESMA)",
+      "ter_pct": {
+        "value": 1.46,
+        "source": "https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf",
+        "as_of": "2024-12-31",
+        "note": "ESMA, tabulka MR-CP.4: průběžné náklady akciových UCITS (aktivní i pasivní, bez ETF, retail, EU27), investiční horizont 10 let, geometrický průměr. Za rok 2024 (1 rok: 1,32 %, 5 let: 1,38 %). Je to průměr za EU, ne za ČR. Zpráva z března 2026."
+      },
+      "entry_fee_pct": {
+        "value": 0.0,
+        "source": "Předpoklad, nedoloženo (viz poznámka)",
+        "as_of": "2026-10-14",
+        "verified": false,
+        "note": "Vstupní poplatek průměrného fondu zatím není doložen, počítá se 0 %. Rozdíl je proto spíš podhodnocený."
+      }
+    },
+    "assumption": {
+      "value": 6.0,
+      "source": "Modelový předpoklad, ne předpověď",
+      "as_of": "2026-10-14",
+      "note": "Výchozí hrubý výnos kalkulačky. Volitelně 4 a 8 %. Na webu vždy se štítkem „předpoklad, ne předpověď“."
+    }
+  },
+  "method": "Vklad na začátku měsíce, čistý roční výnos = hrubý − TER, měsíční sazba (1 + čistý)^(1/12) − 1. Vstupní poplatek krátí každý vklad. Modelový výpočet.",
+  "formula_ref": "data/calc.py, shodně src/lib/calc.ts"
+}

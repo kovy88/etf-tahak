@@ -1,0 +1,2141 @@
+{
+  "meta": {
+    "generated_at": "2026-10-14T09:04:39+00:00",
+    "data_as_of": "2026-09-30",
+    "fx_usd_czk_end": {
+      "value": 21.522,
+      "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2026",
+      "as_of": "2026-09-30"
+    }
+  },
+  "etfs": [
+    {
+      "ticker": "VOO",
+      "name": "Vanguard S&P 500 ETF",
+      "issuer": "Vanguard",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "S&P 500 Index",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "sp500",
+      "ter_pct": {
+        "value": 0.03,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-04-28",
+        "note": "TER (expense ratio) dle stránky emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 1000000000000.0,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-09-30",
+        "note": "Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem",
+        "verified": true
+      },
+      "holdings": {
+        "value": 505,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-10-14",
+        "note": "Datum údaje stránka neuvádí, použito datum stažení",
+        "verified": true
+      },
+      "inception": {
+        "value": "2010-09-07",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2010-09-07",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 1.04,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 15.7,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 13.75,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 15.29,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 20.14,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 13.23,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 13.94,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "exact",
+        "note": "Stejný index S&P 500.",
+        "funds": [
+          {
+            "id": "CSPX",
+            "name": "iShares Core S&P 500 UCITS ETF USD (Acc)",
+            "issuer": "iShares (BlackRock)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00B5BMR087",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.07,
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "SXR8",
+              "lse": "CSPX"
+            },
+            "aum_usd": {
+              "value": 161426552370,
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": {
+              "value": "2010-05-19",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2010-05-19",
+              "note": null,
+              "verified": true
+            },
+            "note": "Ticker CSPX se obchoduje v USD v Londýně i v EUR v Amsterdamu, SXR8 je eurová linie na Xetře. Londýnský listing stránka v použitém výpisu neuvedla, ověřte u brokera."
+          },
+          {
+            "id": "VUAA",
+            "name": "Vanguard S&P 500 UCITS ETF (USD) Accumulating",
+            "issuer": "Vanguard",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BFMXXD54",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.07,
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "VUAA",
+              "lse": null
+            },
+            "aum_usd": null,
+            "launch": {
+              "value": "2019-05-14",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2019-05-14",
+              "note": null,
+              "verified": true
+            },
+            "note": null
+          },
+          {
+            "id": "SPYL",
+            "name": "State Street SPDR S&P 500 UCITS ETF (Acc)",
+            "issuer": "State Street (SPDR)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE000XZSV718",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.03,
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "SPYL",
+              "lse": "SPYL"
+            },
+            "aum_usd": {
+              "value": 45161510000,
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": {
+              "value": "2023-10-31",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2023-10-31",
+              "note": null,
+              "verified": true
+            },
+            "note": "Stránka emitenta uvádí registraci pro Českou republiku."
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "VTI",
+      "name": "Vanguard Total Stock Market ETF",
+      "issuer": "Vanguard",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "Spliced Total Stock Market Index",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "usa",
+      "ter_pct": {
+        "value": 0.03,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-04-28",
+        "note": "TER (expense ratio) dle stránky emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 689200000000.0,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-09-30",
+        "note": "Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem",
+        "verified": true
+      },
+      "holdings": {
+        "value": 3507,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-10-14",
+        "note": "Datum údaje stránka neuvádí, použito datum stažení",
+        "verified": true
+      },
+      "inception": {
+        "value": "2001-05-24",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2001-05-24",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 1.04,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 15.33,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 12.56,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 14.7,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 19.75,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 12.05,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 13.36,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "similar",
+        "note": "Celý trh USA (CRSP/Morningstar) v UCITS neexistuje. MSCI USA pokrývá cca 85 % tržní kapitalizace a neobsahuje malé firmy. Nejde o dvojče.",
+        "funds": [
+          {
+            "id": "XD9U",
+            "name": "Xtrackers MSCI USA UCITS ETF 1C",
+            "issuer": "DWS (Xtrackers)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BJ0KDR00",
+              "source": "https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.03,
+              "source": "https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "MSCI USA Index (cca 85 % tržní kapitalizace USA)",
+              "source": "https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": null,
+              "lse": "XD9U"
+            },
+            "aum_usd": null,
+            "launch": {
+              "value": "2014-05-09",
+              "source": "https://etf.dws.com/en-gb/IE00BJ0KDR00-msci-usa-ucits-etf-1c/",
+              "as_of": "2014-05-09",
+              "note": null,
+              "verified": true
+            },
+            "note": "Domicil odvozen z ISIN (IE) a popisu emitenta. Xetra ticker stránka neuvádí."
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "VT",
+      "name": "Vanguard Total World Stock ETF",
+      "issuer": "Vanguard",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "Spliced Total World Stock Index",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "world",
+      "ter_pct": {
+        "value": 0.06,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-02-27",
+        "note": "TER (expense ratio) dle stránky emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 81800000000.0,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-09-30",
+        "note": "Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem",
+        "verified": true
+      },
+      "holdings": {
+        "value": 10088,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-10-14",
+        "note": "Datum údaje stránka neuvádí, použito datum stažení",
+        "verified": true
+      },
+      "inception": {
+        "value": "2008-06-24",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2008-06-24",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 1.52,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 16.32,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 11.34,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 12.32,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 20.78,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 10.83,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 11.01,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "similar",
+        "note": "Vanguard VT sleduje FTSE Global All Cap (obsahuje malé firmy), UCITS FTSE All-World je bez malých firem. Stejný emitent a podobné pokrytí.",
+        "funds": [
+          {
+            "id": "VWCE",
+            "name": "Vanguard FTSE All-World UCITS ETF (USD) Accumulating",
+            "issuer": "Vanguard",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BK5BQT80",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.14,
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "FTSE All-World Index",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "VWCE",
+              "lse": "VWRA"
+            },
+            "aum_usd": null,
+            "launch": {
+              "value": "2019-07-23",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+              "as_of": "2019-07-23",
+              "note": null,
+              "verified": true
+            },
+            "note": null
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "VEA",
+      "name": "Vanguard FTSE Developed Markets ETF",
+      "issuer": "Vanguard",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "Spliced Developed ex US Index",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "world",
+      "ter_pct": {
+        "value": 0.03,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-04-28",
+        "note": "TER (expense ratio) dle stránky emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 231600000000.0,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-09-30",
+        "note": "Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem",
+        "verified": true
+      },
+      "holdings": {
+        "value": 3895,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-10-14",
+        "note": "Datum údaje stránka neuvádí, použito datum stažení",
+        "verified": true
+      },
+      "inception": {
+        "value": "2007-07-20",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2007-07-20",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 2.44,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 20.77,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 10.32,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 9.76,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 25.4,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 9.82,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 8.48,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "similar",
+        "note": "Index FTSE Developed ex US v UCITS nenalezen. MSCI World ex USA je nejbližší ověřená alternativa.",
+        "funds": [
+          {
+            "id": "EXUS",
+            "name": "Xtrackers MSCI World ex USA UCITS ETF 1C",
+            "issuer": "DWS (Xtrackers)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE0006WW1TQ4",
+              "source": "https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.15,
+              "source": "https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "MSCI World ex USA Index",
+              "source": "https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": null,
+              "lse": "EXUS"
+            },
+            "aum_usd": null,
+            "launch": {
+              "value": "2024-03-06",
+              "source": "https://etf.dws.com/en-gb/IE0006WW1TQ4-msci-world-ex-usa-ucits-etf-1c/",
+              "as_of": "2024-03-06",
+              "note": null,
+              "verified": true
+            },
+            "note": "Domicil odvozen z ISIN (IE) a popisu emitenta. Xetra ticker stránka neuvádí."
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "VWO",
+      "name": "Vanguard FTSE Emerging Markets ETF",
+      "issuer": "Vanguard",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "Spliced Emerging Markets Index",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "world",
+      "ter_pct": {
+        "value": 0.06,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-02-27",
+        "note": "TER (expense ratio) dle stránky emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 125400000000.0,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-09-30",
+        "note": "Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem",
+        "verified": true
+      },
+      "holdings": {
+        "value": 6348,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-10-14",
+        "note": "Datum údaje stránka neuvádí, použito datum stažení",
+        "verified": true
+      },
+      "inception": {
+        "value": "2005-03-04",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2005-03-04",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 2.04,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet z tabulky Distributions, ale tabulka obsahuje jen 5 výplat za 12 měsíců (chybí březen). Hodnota je pravděpodobně podhodnocená.",
+        "verified": false
+      },
+      "return_1y_pct": {
+        "value": 12.54,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 6.62,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 7.66,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 16.86,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 6.13,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 6.4,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "similar",
+        "note": "Vanguard UCITS sleduje FTSE Emerging Index. Složení se může od VWO mírně lišit.",
+        "funds": [
+          {
+            "id": "VFEA",
+            "name": "Vanguard FTSE Emerging Markets UCITS ETF (USD) Accumulating",
+            "issuer": "Vanguard",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BK5BR733",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.17,
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "FTSE Emerging Index",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9678/ftse-emerging-markets-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "VFEA",
+              "lse": "VFEA"
+            },
+            "aum_usd": null,
+            "launch": null,
+            "note": null
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "VYM",
+      "name": "Vanguard High Dividend Yield ETF",
+      "issuer": "Vanguard",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "FTSE High Dividend Yield Index",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "dividend",
+      "ter_pct": {
+        "value": 0.04,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-02-27",
+        "note": "TER (expense ratio) dle stránky emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 78900000000.0,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-09-30",
+        "note": "Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem",
+        "verified": true
+      },
+      "holdings": {
+        "value": 603,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-10-14",
+        "note": "Datum údaje stránka neuvádí, použito datum stažení",
+        "verified": true
+      },
+      "inception": {
+        "value": "2006-11-10",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2006-11-10",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 2.31,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 12.72,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 11.63,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 11.28,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 17.04,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 11.12,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 9.98,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "similar",
+        "note": "VYM drží jen USA, UCITS verze je globální (FTSE All-World High Dividend Yield). Nejde o dvojče.",
+        "funds": [
+          {
+            "id": "VHYA",
+            "name": "Vanguard FTSE All-World High Dividend Yield UCITS ETF (USD) Accumulating",
+            "issuer": "Vanguard",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BK5BR626",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.29,
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "FTSE All-World High Dividend Yield Index",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9677/ftse-all-world-high-dividend-yield-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "VGWE",
+              "lse": "VHYA"
+            },
+            "aum_usd": null,
+            "launch": null,
+            "note": null
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "VUG",
+      "name": "Vanguard Growth ETF",
+      "issuer": "Vanguard",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "Spliced Growth Index",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "usa",
+      "ter_pct": {
+        "value": 0.03,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-04-28",
+        "note": "TER (expense ratio) dle stránky emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 232900000000.0,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-09-30",
+        "note": "Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem",
+        "verified": true
+      },
+      "holdings": {
+        "value": 147,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-10-14",
+        "note": "Datum údaje stránka neuvádí, použito datum stažení",
+        "verified": true
+      },
+      "inception": {
+        "value": "2004-01-26",
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2004-01-26",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 1.27,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 13.09,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 13.87,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 17.94,
+        "source": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 17.43,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 13.35,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 16.56,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "none",
+        "note": "UCITS dvojče ani blízká alternativa nebyla ověřena.",
+        "funds": []
+      }
+    },
+    {
+      "ticker": "IVV",
+      "name": "iShares Core S&P 500 ETF",
+      "issuer": "iShares (BlackRock)",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "S&P 500 Index",
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "sp500",
+      "ter_pct": {
+        "value": 0.03,
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 896463527326,
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "holdings": {
+        "value": 504,
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-10-12",
+        "note": null,
+        "verified": true
+      },
+      "inception": {
+        "value": "2000-05-15",
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2000-05-15",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 1.1,
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-09-30",
+        "note": "12m trailing yield dle emitenta",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 15.71,
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 13.76,
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 15.3,
+        "source": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 20.15,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 13.24,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 13.95,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "exact",
+        "note": "Stejný index S&P 500.",
+        "funds": [
+          {
+            "id": "CSPX",
+            "name": "iShares Core S&P 500 UCITS ETF USD (Acc)",
+            "issuer": "iShares (BlackRock)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00B5BMR087",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.07,
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "SXR8",
+              "lse": "CSPX"
+            },
+            "aum_usd": {
+              "value": 161426552370,
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": {
+              "value": "2010-05-19",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2010-05-19",
+              "note": null,
+              "verified": true
+            },
+            "note": "Ticker CSPX se obchoduje v USD v Londýně i v EUR v Amsterdamu, SXR8 je eurová linie na Xetře. Londýnský listing stránka v použitém výpisu neuvedla, ověřte u brokera."
+          },
+          {
+            "id": "VUAA",
+            "name": "Vanguard S&P 500 UCITS ETF (USD) Accumulating",
+            "issuer": "Vanguard",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BFMXXD54",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.07,
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "VUAA",
+              "lse": null
+            },
+            "aum_usd": null,
+            "launch": {
+              "value": "2019-05-14",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2019-05-14",
+              "note": null,
+              "verified": true
+            },
+            "note": null
+          },
+          {
+            "id": "SPYL",
+            "name": "State Street SPDR S&P 500 UCITS ETF (Acc)",
+            "issuer": "State Street (SPDR)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE000XZSV718",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.03,
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "SPYL",
+              "lse": "SPYL"
+            },
+            "aum_usd": {
+              "value": 45161510000,
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": {
+              "value": "2023-10-31",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2023-10-31",
+              "note": null,
+              "verified": true
+            },
+            "note": "Stránka emitenta uvádí registraci pro Českou republiku."
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "AGG",
+      "name": "iShares Core U.S. Aggregate Bond ETF",
+      "issuer": "iShares (BlackRock)",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "Bloomberg US Aggregate Bond Index",
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "bonds_gold",
+      "ter_pct": {
+        "value": 0.03,
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 137554936373,
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "holdings": {
+        "value": 13406,
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-10-12",
+        "note": null,
+        "verified": true
+      },
+      "inception": {
+        "value": "2003-09-22",
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2003-09-22",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 4.19,
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-10-09",
+        "note": "12m trailing yield dle emitenta (30denní SEC yield je 5,11 %)",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": -1.87,
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": -0.64,
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 1.11,
+        "source": "https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 1.89,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": -1.09,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": -0.07,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "exact",
+        "note": "Stejný index Bloomberg U.S. Aggregate. Třída v USD, akumulační.",
+        "funds": [
+          {
+            "id": "IUAA",
+            "name": "iShares US Aggregate Bond UCITS ETF USD (Acc)",
+            "issuer": "iShares (BlackRock)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BYXYYM63",
+              "source": "https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.25,
+              "source": "https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "Bloomberg U.S. Aggregate Bond Index",
+              "source": "https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": null,
+              "lse": "IUAA"
+            },
+            "aum_usd": {
+              "value": 6019881997,
+              "source": "https://www.ishares.com/uk/individual/en/products/287339/ishares-us-aggregate-bond-ucits-etf",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": null,
+            "note": "AUM je celého fondu (všechny třídy). Distribuční třída IE00B44CGS96 (Xetra: EUNX, TER 0,25 %) viz https://www.ishares.com/uk/individual/en/products/251750/ishares-us-aggregate-bond-ucits-etf"
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "issuer": "State Street (SPDR)",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "S&P 500 Index",
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "sp500",
+      "ter_pct": {
+        "value": 0.0945,
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-10-14",
+        "note": "Gross expense ratio dle emitenta",
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 821107580000,
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-10-12",
+        "note": "821 107,58 mil. USD",
+        "verified": true
+      },
+      "holdings": {
+        "value": 504,
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-10-12",
+        "note": null,
+        "verified": true
+      },
+      "inception": {
+        "value": "1993-01-22",
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "1993-01-22",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 0.94,
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-10-14",
+        "note": "Fund distribution yield (součet výplat za 365 dní / NAV). Datum výpočtu stránka neuvádí.",
+        "verified": false
+      },
+      "return_1y_pct": {
+        "value": 15.6,
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 13.65,
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 15.18,
+        "source": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 20.03,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 13.13,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 13.83,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "exact",
+        "note": "Stejný index S&P 500.",
+        "funds": [
+          {
+            "id": "CSPX",
+            "name": "iShares Core S&P 500 UCITS ETF USD (Acc)",
+            "issuer": "iShares (BlackRock)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00B5BMR087",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.07,
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "SXR8",
+              "lse": "CSPX"
+            },
+            "aum_usd": {
+              "value": 161426552370,
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": {
+              "value": "2010-05-19",
+              "source": "https://www.ishares.com/uk/individual/en/products/253743/ishares-sp-500-b-ucits-etf-acc-fund",
+              "as_of": "2010-05-19",
+              "note": null,
+              "verified": true
+            },
+            "note": "Ticker CSPX se obchoduje v USD v Londýně i v EUR v Amsterdamu, SXR8 je eurová linie na Xetře. Londýnský listing stránka v použitém výpisu neuvedla, ověřte u brokera."
+          },
+          {
+            "id": "VUAA",
+            "name": "Vanguard S&P 500 UCITS ETF (USD) Accumulating",
+            "issuer": "Vanguard",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE00BFMXXD54",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.07,
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "VUAA",
+              "lse": null
+            },
+            "aum_usd": null,
+            "launch": {
+              "value": "2019-05-14",
+              "source": "https://www.vanguard.co.uk/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating",
+              "as_of": "2019-05-14",
+              "note": null,
+              "verified": true
+            },
+            "note": null
+          },
+          {
+            "id": "SPYL",
+            "name": "State Street SPDR S&P 500 UCITS ETF (Acc)",
+            "issuer": "State Street (SPDR)",
+            "type": "UCITS ETF",
+            "isin": {
+              "value": "IE000XZSV718",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.03,
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "accumulating",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "S&P 500 Index",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "SPYL",
+              "lse": "SPYL"
+            },
+            "aum_usd": {
+              "value": 45161510000,
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": {
+              "value": "2023-10-31",
+              "source": "https://www.ssga.com/uk/en_gb/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy",
+              "as_of": "2023-10-31",
+              "note": null,
+              "verified": true
+            },
+            "note": "Stránka emitenta uvádí registraci pro Českou republiku."
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "SCHD",
+      "name": "Schwab U.S. Dividend Equity ETF",
+      "issuer": "Schwab Asset Management",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "Dow Jones U.S. Dividend 100 Index",
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "category": "dividend",
+      "ter_pct": {
+        "value": 0.06,
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 111605748620.78,
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "holdings": {
+        "value": 102,
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "inception": {
+        "value": "2011-10-20",
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2011-10-20",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 3.24,
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-09-30",
+        "note": "Distribution yield (TTM) dle emitenta",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 23.36,
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 9.48,
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 12.44,
+        "source": "https://www.schwabassetmanagement.com/products/schd",
+        "as_of": "2026-09-30",
+        "note": "NAV, průměrný roční total return v USD",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 28.09,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 8.98,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 11.12,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "none",
+        "note": "UCITS dvojče sledující Dow Jones U.S. Dividend 100 nebylo nalezeno. Nalezený iShares Dow Jones U.S. Select Dividend (DE000A0D8Q49) sleduje jiný index a je domicilovaný v Německu, proto ho neuvádíme jako dvojče.",
+        "funds": []
+      }
+    },
+    {
+      "ticker": "GLD",
+      "name": "SPDR Gold Shares",
+      "issuer": "World Gold Trust Services (SPDR)",
+      "exchange": {
+        "value": "NYSE Arca",
+        "source": "https://www.spdrgoldshares.com/usa/gld/",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "index": {
+        "value": "LBMA Gold Price PM",
+        "source": "https://www.spdrgoldshares.com/usa/gld/",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "category": "bonds_gold",
+      "ter_pct": {
+        "value": 0.4,
+        "source": "https://www.spdrgoldshares.com/usa/gld/",
+        "as_of": "2026-10-14",
+        "note": null,
+        "verified": true
+      },
+      "aum_usd": {
+        "value": 141298596529.96,
+        "source": "https://www.spdrgoldshares.com/usa/gld/",
+        "as_of": "2026-10-13",
+        "note": null,
+        "verified": true
+      },
+      "holdings": {
+        "value": null,
+        "source": "https://www.spdrgoldshares.com/usa/gld/",
+        "as_of": "2026-10-14",
+        "note": "Fyzické zlato, žádné pozice",
+        "verified": true
+      },
+      "inception": {
+        "value": "2004-11-18",
+        "source": "https://www.spdrgoldshares.com/usa/gld/",
+        "as_of": "2004-11-18",
+        "note": null,
+        "verified": true
+      },
+      "dividend_yield_pct": {
+        "value": 0.0,
+        "source": "https://www.spdrgoldshares.com/usa/gld/",
+        "as_of": "2026-10-14",
+        "note": "Fond je držitelem zlata a nevyplácí dividendy",
+        "verified": true
+      },
+      "return_1y_pct": {
+        "value": 8.74,
+        "source": "https://api.spdrgoldshares.com/api/v1/historical-archive?product=gld&exchange=NYSE&lang=en",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet z denního NAV/akcii v historickém archivu emitenta (data/raw/gld-historical-archive-2026-10-14.xlsx), NAV z 30. 9. 2026 vs. začátek období, anualizováno. Fond nevyplácí dividendy.",
+        "verified": true
+      },
+      "return_5y_pct": {
+        "value": 18.63,
+        "source": "https://api.spdrgoldshares.com/api/v1/historical-archive?product=gld&exchange=NYSE&lang=en",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet z denního NAV/akcii v historickém archivu emitenta (data/raw/gld-historical-archive-2026-10-14.xlsx), NAV z 30. 9. 2026 vs. začátek období, anualizováno. Fond nevyplácí dividendy.",
+        "verified": true
+      },
+      "return_10y_pct": {
+        "value": 11.74,
+        "source": "https://api.spdrgoldshares.com/api/v1/historical-archive?product=gld&exchange=NYSE&lang=en",
+        "as_of": "2026-09-30",
+        "note": "Vlastní výpočet z denního NAV/akcii v historickém archivu emitenta (data/raw/gld-historical-archive-2026-10-14.xlsx), NAV z 30. 9. 2026 vs. začátek období, anualizováno. Fond nevyplácí dividendy.",
+        "verified": true
+      },
+      "returns_czk_pct": {
+        "1y": {
+          "value": 12.91,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2025, pak anualizováno. Kurzy: 20.727 → 21.522."
+        },
+        "5y": {
+          "value": 18.09,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2021, pak anualizováno. Kurzy: 22.02 → 21.522."
+        },
+        "10y": {
+          "value": 10.43,
+          "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+          "as_of": "2026-09-30",
+          "note": "Vlastní přepočet: (1 + výnos v USD)^n × kurz ČNB 30. 9. 2026 / kurz ČNB 30. 9. 2016, pak anualizováno. Kurzy: 24.21 → 21.522."
+        }
+      },
+      "us_retail_buyable": false,
+      "ucits_twin": {
+        "match": "similar",
+        "note": "Stejné podkladové aktivum (zlato, LBMA Gold Price). Jde o ETC, ne o UCITS ETF.",
+        "funds": [
+          {
+            "id": "SGLN",
+            "name": "iShares Physical Gold ETC",
+            "issuer": "iShares (BlackRock)",
+            "type": "ETC (dluhový cenný papír zajištěný zlatem, nikoli UCITS ETF; stránka emitenta uvádí UCITS: No, UCITS eligible: Yes)",
+            "isin": {
+              "value": "IE00B4ND3602",
+              "source": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "ter_pct": {
+              "value": 0.12,
+              "source": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "distribution": {
+              "value": "no income",
+              "source": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "domicile": {
+              "value": "Ireland",
+              "source": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "index": {
+              "value": "LBMA Gold Price",
+              "source": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "listings": {
+              "xetra": "PPFB",
+              "lse": "SGLN"
+            },
+            "aum_usd": {
+              "value": 38646271084,
+              "source": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+              "as_of": "2026-10-13",
+              "note": null,
+              "verified": true
+            },
+            "launch": {
+              "value": "2011-04-08",
+              "source": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+              "as_of": "2011-04-08",
+              "note": null,
+              "verified": true
+            },
+            "note": null
+          }
+        ]
+      }
+    }
+  ]
+}

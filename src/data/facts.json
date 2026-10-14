@@ -1,0 +1,120 @@
+{
+  "priips": {
+    "claim": {
+      "value": "Jako retailový klient u brokera v EU nekoupíte skutečné americké ETF (např. VOO, SPY), protože jejich emitent nevydává KID podle nařízení PRIIPs. Netýká se to CFD na tyto ETF ani profesionálních klientů.",
+      "source": "https://www.interactivebrokers.com/lib/cstools/faq/content/1117389637",
+      "as_of": "2026-10-14",
+      "note": "Formulace vychází z FAQ brokera Interactive Brokers (přečteno přímo na stránce). Jde o praxi brokerů, ne o výslovný zákaz ETF v nařízení. Některý broker může mít jiný přístup, proto na webu psát „obvykle“ a „jako retailový klient“."
+    },
+    "regulation_art5_1": {
+      "value": "Před zpřístupněním PRIIP retailovým investorům musí tvůrce produktu vypracovat KID a zveřejnit ho na svých webových stránkách (čl. 5 odst. 1 nařízení 1286/2014).",
+      "source": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R1286",
+      "as_of": "2026-10-14",
+      "note": "Čteno z původního znění z roku 2014, ne z konsolidovaného. Parafráze, ne citát."
+    },
+    "regulation_art13_1": {
+      "value": "Osoba, která PRIIP prodává nebo o něm radí, předá retailovému investorovi KID zdarma (čl. 13 nařízení 1286/2014).",
+      "source": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R1286",
+      "as_of": "2026-10-14"
+    },
+    "ris_status": {
+      "value": "Retail Investment Strategy: politická dohoda Rady a Parlamentu z 18. 12. 2025. Schválení Parlamentem a vyhlášení v Úředním věstníku jsem nepotvrdil. Většina změn PRIIPs má platit až 30 měsíců po vyhlášení.",
+      "source": "https://financialregulation.linklaters.com/post/102n31i/eu-retail-investment-strategy-whats-in-the-final-rules",
+      "as_of": "2026-10-14",
+      "verified": false,
+      "note": "Čteno jen z výsledků vyhledávání. Před spuštěním ověřit na EUR-Lex a v Legislative Observatory, že se do 10/2026 nic nezměnilo."
+    },
+    "czech_language_note": {
+      "value": "Brokeři někdy blokují i ETF bez KID v češtině. Zda je český jazyk povinný, nebo jde o výklad brokera, zdroje nerozhodují.",
+      "source": "https://www.e15.cz/byznys/burzy-a-trhy/trable-pro-ceske-investory-oblibeny-nizozemsky-broker-degiro-jim-pozastavil-nakupy-rady-etf-1397136",
+      "as_of": "2026-10-14",
+      "verified": false,
+      "note": "Odkaz z výsledků vyhledávání, článek jsem nečetl. Na web nepoužívat, dokud ho neověřím."
+    }
+  },
+  "fund_costs": {
+    "avg_equity_fund_ter_pct": {
+      "value": 1.46,
+      "source": "https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf",
+      "as_of": "2024-12-31",
+      "note": "ESMA, tabulka MR-CP.4: průběžné náklady akciových UCITS (aktivní i pasivní, bez ETF, retail, EU27), investiční horizont 10 let, geometrický průměr. Za rok 2024 (1 rok: 1,32 %, 5 let: 1,38 %). Je to průměr za EU, ne za ČR. Zpráva z března 2026."
+    },
+    "avg_equity_fund_ter_pct_1y": {
+      "value": 1.32,
+      "source": "https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf",
+      "as_of": "2024-12-31",
+      "note": "Stejná tabulka, horizont 1 rok. Dolní mez, pro citlivostní kontrolu."
+    },
+    "active_etf_equity_ter_pct": {
+      "value": 0.2,
+      "source": "https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf",
+      "as_of": "2024-12-31",
+      "note": "ESMA: akciové ETF (pasivní) mají průběžné náklady cca 0,2 %."
+    },
+    "equity_fund_one_off_max_pct": {
+      "value": 2.48,
+      "source": "https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf",
+      "as_of": "2024-12-31",
+      "note": "ESMA MR-CP.4: průměr MAXIMÁLNÍCH poplatků za upsání a odkup dohromady (horizont 1 rok). Skutečné vstupní poplatky bývají nižší a často se vyjednávají. NEpoužívat jako vstupní poplatek v kalkulačce. Vstupní poplatek průměrného fondu v ČR zatím není doložen, viz open_items."
+    },
+    "cz_specific": {
+      "value": null,
+      "source": "https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf",
+      "as_of": "2026-10-14",
+      "verified": false,
+      "note": "Report ESMA neuvádí náklady akciových fondů pro Českou republiku samostatně. Plán počítá s fallbackem: medián z KID 3–5 největších českých akciových fondů. Zatím nesehnáno."
+    }
+  },
+  "taxes": {
+    "law": {
+      "value": "Zákon č. 586/1992 Sb., o daních z příjmů, § 4 odst. 1",
+      "source": "https://www.zakonyprolidi.cz/cs/1992-586",
+      "as_of": "2026-10-14",
+      "note": "Čteno ve znění verze 157 (platnost 1. 8. 2026 – 31. 12. 2026)."
+    },
+    "time_test_years": {
+      "value": 3,
+      "source": "https://www.zakonyprolidi.cz/cs/1992-586",
+      "as_of": "2026-10-14",
+      "note": "§ 4 odst. 1 písm. u): příjem z úplatného převodu cenného papíru je osvobozen, přesáhne-li doba mezi nabytím a převodem 3 roky (u kmenového listu 5 let). Bez limitu částky. Neplatí pro cenné papíry v obchodním majetku a další výjimky z textu."
+    },
+    "value_test_czk": {
+      "value": 100000,
+      "source": "https://www.zakonyprolidi.cz/cs/1992-586",
+      "as_of": "2026-10-14",
+      "note": "§ 4 odst. 1 písm. t): osvobozeno, pokud úhrn příjmů z prodeje (hrubých, ne zisku) nepřesáhne ve zdaňovacím období 100 000 Kč. Platí nezávisle na časovém testu."
+    },
+    "crypto_limit_note": {
+      "value": "Limit 40 000 000 Kč v § 4 odst. 3 se týká jen kryptoaktiv, ne cenných papírů.",
+      "source": "https://www.zakonyprolidi.cz/cs/1992-586",
+      "as_of": "2026-10-14"
+    },
+    "dividends_w8ben": {
+      "value": null,
+      "source": null,
+      "as_of": "2026-10-14",
+      "verified": false,
+      "note": "Srážková daň z dividend z USA a W-8BEN do F1 nepatří, ověřit až při tvorbě taháku (F7)."
+    }
+  },
+  "assumptions": {
+    "gross_return_pct": {
+      "value": 6.0,
+      "source": "Modelový předpoklad, ne předpověď",
+      "as_of": "2026-10-14",
+      "note": "Výchozí hrubý výnos kalkulačky. Volitelně 4 a 8 %. Na webu vždy se štítkem „předpoklad, ne předpověď“."
+    },
+    "historical_context": {
+      "value": "UBS Global Investment Returns Yearbook 2026 uvádí reálný výnos akcií cca 6,6 % ročně za 1900–2025.",
+      "source": "https://www.wealthbriefing.com/html/article.php/equities-have-beaten-bonds-since-1900--ubs-yearbook-",
+      "as_of": "2026-10-14",
+      "verified": false,
+      "note": "Přečteno jen ve výsledcích vyhledávání, ne v primární zprávě. Na web nepoužívat, dokud neověřím."
+    }
+  },
+  "open_items": [
+    "Vstupní poplatek a TER průměrného českého akciového fondu: zatím jen EU průměr ESMA. Fallback z KID českých fondů nesehnán.",
+    "Retail Investment Strategy: ověřit stav na EUR-Lex.",
+    "VWO a SPY dividendový výnos mají verified: false (viz etfs.source.yaml)."
+  ]
+}
