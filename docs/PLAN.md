@@ -14,7 +14,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F3 Design systém + statická stránka
 - [x] F4 Interaktivní prvky + varianty
 - [x] F5 Formulář, leady, děkovný stav, e-mail
-- [ ] F6 Měření a souhlas s cookies
+- [ ] F6 Měření a souhlas s cookies (kód hotový a otestovaný, čeká na klíč PostHogu, funnel a ověření na produkci)
 - [ ] F7 Lead magnet (PDF)
 - [ ] F8 Reklamy (kreativy)
 - [ ] F9 QA a připravenost na spuštění
@@ -347,9 +347,9 @@ Region EU (Frankfurt), migrace v `supabase/migrations/`.
 | `email_typo_suggested` / `email_typo_accepted` | návrh opravy domény | `domain` |
 | `form_submitted` | klient odeslal | `location` |
 | `lead_created` | **server** po zápisu do DB | `location`, `is_duplicate`, `variant`, `utm_content` |
-| `thankyou_viewed`, `pdf_downloaded`, `profile_answered`, `share_clicked` | po odeslání | `broker` u `profile_answered` |
+| `thankyou_viewed`, `pdf_downloaded`, `profile_answered`, `share_clicked` | po odeslání | `saved` (lead je v DB) u `thankyou_viewed`, `broker` u `profile_answered` |
 | `consent_updated` | volba v cookie liště | `analytics`, `marketing` |
-| `web_vitals` | LCP/CLS/INP | hodnoty |
+| `web_vitals` | LCP/CLS/INP, odesláno při odchodu ze stránky | `metric`, `value` (CLS × 1000), `rating` |
 
 **Hlavní funnel:**
 1. `landing_viewed`
@@ -361,6 +361,21 @@ Region EU (Frankfurt), migrace v `supabase/migrations/`.
 Breakdown podle `variant`, `utm_content`, `location` a `in_app_browser`.
 
 **Mezi reklamou a webem:** porovnat „link clicks" v Metě s `landing_viewed`. Rozdíl ukáže, kolik lidí odpadne při načítání v in-app prohlížeči.
+
+**Implementace (F6):**
+- `src/lib/track.ts` je jediný vstup. Události před načtením PostHogu drží fronta, `src/lib/analytics.ts` je posílá do PostHogu (lazy `import()` po načtení stránky) a Meta Pixelu.
+- Stub ve `<head>` jsme nahradili frontou v paměti, protože knihovnu načítáme až po `load`. Rychlé odchody před načtením se neměří. Pravdivý počet leadů je v DB.
+- Souhlas je v `localStorage` (`etf_consent`). Bez souhlasu `persistence: 'memory'`, bez cookies a bez záznamu obrazovky. Po souhlasu `localStorage+cookie` a záznam obrazovky s maskovanými vstupy. Pixel se načte až po souhlasu a jen s `NEXT_PUBLIC_META_PIXEL_ID`.
+- `Lead` pro Pixel se posílá při `thankyou_viewed` s `saved=true`.
+- Serverové `lead_created` posílá `posthog-node` z `/api/lead` s `distinct_id` z klienta (`posthog_id`).
+
+**Funnel v PostHogu (vytvoří se ručně v UI, Product analytics → New insight → Funnels):**
+1. `landing_viewed`
+2. `form_viewed`
+3. `form_started`
+4. `lead_created` (serverová událost)
+
+Breakdown podle `variant`, pak `utm_content`, `form_location`/`location` a `in_app_browser`. „Engaged“ krok (`calc_interacted` nebo `compare_filter_changed` nebo `scroll_depth ≥ 50`) se v PostHogu nedá spojit jedním OR, proto ho sledujte jako samostatný trend.
 
 **Ověření:**
 - Playwright E2E projde celou cestu a ověří posloupnost událostí. V testovacím režimu se události zrcadlí do `window.__events`.
