@@ -15,7 +15,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F4 Interaktivní prvky + varianty
 - [x] F5 Formulář, leady, děkovný stav, e-mail
 - [x] F6 Měření a souhlas s cookies
-- [ ] F7 Lead magnet (PDF)
+- [x] F7 Lead magnet (PDF)
 - [ ] F8 Reklamy (kreativy)
 - [ ] F9 QA a připravenost na spuštění
 - [ ] F10 README, ai-log, odevzdání
@@ -310,7 +310,7 @@ Region EU (Frankfurt), migrace v `supabase/migrations/`.
   - **Teď:** šablona i odesílání jsou implementované a otestované odesláním na vlastní adresu (screenshot do README). V produkci platí `NEXT_PUBLIC_EMAIL_ENABLED=false`, takže endpoint e-mail přeskočí a nic nerozbije.
   - **Při spuštění:** koupit doménu, v Resend ověřit SPF/DKIM, nastavit `NEXT_PUBLIC_EMAIL_ENABLED=true` a upravit mikrotexty. Patří do launch checklistu v README.
   - Texty formuláře i děkovného stavu se řídí přepínačem. Když je vypnutý, neslibují e-mail, jen okamžité stažení.
-- **PDF:** `public/tahak/<nahodny-hash>.pdf`. Únik odkazu nevadí, je to lead magnet, ne tajemství.
+- **PDF:** `public/tahak/<hash>.pdf` (hash z obsahu stránky), commitnuté v repu. Cestu drží `src/data/leadPdf.json`, kterou generuje `npm run pdf`. `LEAD_PDF_PATH` a `NEXT_PUBLIC_LEAD_PDF_PATH` ji jen přepisují, ve Vercelu je nastavovat netřeba. Únik odkazu nevadí, je to lead magnet, ne tajemství.
 
 ### Env proměnné (`.env.example`)
 `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com`, `NEXT_PUBLIC_META_PIXEL_ID`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_EMAIL_ENABLED=false`, `RESEND_API_KEY`, `EMAIL_FROM`, `LEAD_PDF_PATH`.
@@ -692,7 +692,7 @@ Fáze F6 z docs/PLAN.md: měření. Přečti §12 a §15. Projekt v PostHogu (EU
 Commit. Na konci odškrtni F6.
 ```
 
-### F7 – Lead magnet PDF (~2 h)
+### F7 – Lead magnet PDF (~2 h) – hotovo
 ```text
 Fáze F7 z docs/PLAN.md: lead magnet. Přečti §4 a §13.
 1) Routa /tahak/print (noindex): tisková verze taháku na A4 ze src/data a src/content, ve stejném design jazyce, se zdroji u každého čísla, datem dat a upozorněním.
@@ -700,6 +700,13 @@ Fáze F7 z docs/PLAN.md: lead magnet. Přečti §4 a §13.
 3) Zkontroluj PDF na telefonu: čitelnost a velikost < 3 MB.
 Commit. Na konci odškrtni F7.
 ```
+
+**Stav (F7):**
+- `/tahak/print` (noindex, bez měření a lišty cookies) renderuje 11 stran A4 z `src/data` a `src/content/tahakPrint.ts`. Komponenty jsou v `src/components/print/`, čísla zdrojů `[n]` skládá `src/lib/tahakPrint.ts`.
+- `npm run pdf` postaví web, vyrobí PDF (1,2 MB) a PNG náhledy 3 stran (`public/tahak/`) a zapíše `src/data/leadPdf.json`. Selže při přetečení strany nebo PDF nad 3 MB. Po změně dat nebo textů ho spusťte znovu a commitněte výstup.
+- Nová ověřená fakta v `data/facts.source.yaml` → `taxes`: sazby daně, práh přiznání 50 000 Kč, srážka z USA 15 % / 30 % (IRS), W-8BEN, lhůty přiznání za 2025. Termíny za rok 2026 nejsou ve zdrojích, tahák je uvádí jako příklad roku 2025.
+- Převod měny: v taháku je jen ilustrace 0,1 / 0,5 / 1 % z vkladu (modelový předpoklad), žádný ceník brokera.
+- Beze změny: žádné nové události (PDF stahuje stávající `pdf_downloaded`).
 
 ### F8 – Reklamy (~1,5 h)
 ```text
