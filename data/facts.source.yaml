@@ -76,12 +76,41 @@ taxes:
     value: "Limit 40 000 000 Kč v § 4 odst. 3 se týká jen kryptoaktiv, ne cenných papírů."
     source: https://www.zakonyprolidi.cz/cs/1992-586
     as_of: "2026-10-14"
-  dividends_w8ben:
-    value: null
-    source: null
+  tax_rates:
+    value: "Sazba daně z příjmů fyzických osob je 15 % z části základu daně do 36násobku průměrné mzdy a 23 % z části nad ním (§ 16 odst. 1)."
+    source: https://www.zakonyprolidi.cz/cs/1992-586
     as_of: "2026-10-14"
-    verified: false
-    note: "Srážková daň z dividend z USA a W-8BEN do F1 nepatří, ověřit až při tvorbě taháku (F7)."
+    note: "Čteno ve znění verze 157 (platnost 1. 8. 2026 – 31. 12. 2026). Konkrétní částku 36násobku průměrné mzdy neuvádíme, mění se každý rok."
+  filing_threshold_czk:
+    value: 50000
+    source: https://www.zakonyprolidi.cz/cs/1992-586
+    as_of: "2026-10-14"
+    note: "§ 38g odst. 1: přiznání podává ten, jehož roční příjmy, které jsou předmětem daně, přesáhly 50 000 Kč, mimo příjmy osvobozené nebo zdaněné srážkou. Platí i pro hrubé příjmy z prodeje, pokud nejsou osvobozené. Osvobozený prodej (časový nebo hodnotový test) se do přiznání neuvádí."
+  foreign_dividend_in_return:
+    value: "Podíl na zisku podílového fondu, je-li podíl představován cenným papírem, a dividendy jsou příjem z kapitálového majetku (§ 8 odst. 1 písm. a). Do přiznání se uvádějí všechny příjmy, které jsou předmětem daně (§ 38g odst. 3). Daň zaplacenou v zahraničí lze započíst podle mezinárodní smlouvy (§ 38f)."
+    source: https://www.zakonyprolidi.cz/cs/1992-586
+    as_of: "2026-10-14"
+    note: "Parafráze § 8, § 38f a § 38g. Zda se konkrétní výplata z konkrétního fondu zdaňuje jako dividenda, tahák neposuzuje."
+  filing_deadlines_2025:
+    value: "Přiznání za rok 2025: listinně do 1. 4. 2026, elektronicky do 4. 5. 2026, přes daňového poradce nebo advokáta do 1. 7. 2026."
+    source: https://financnisprava.gov.cz/cs/financni-sprava/media-a-verejnost/tiskove-zpravy-gfr/tiskove-zpravy-2026/krati-se-cas-na-podani-danoveho-priznani
+    as_of: "2026-10-14"
+    note: "Tisková zpráva Finanční správy z 27. 4. 2026. Přiznání za rok 2026 se podává v roce 2027, přesná data v tisku zatím nejsou. Tahák to uvádí jako loňský příklad a odkazuje na Finanční správu."
+  us_dividend_treaty_rate_pct:
+    value: 15
+    source: https://www.irs.gov/pub/irs-lbi/tax-treaty-table-1.pdf
+    as_of: "2026-10-14"
+    note: "IRS Tax Treaty Table 1 (Rev. May 2023), řádek Czech Republic, dividendy vyplácené americkými korporacemi, obecná sazba 15 % (čl. 10(2)). Sníženou sazbu 5 % mají jen firmy s přímou účastí. Tabulka IRS sama upozorňuje, že není vyčerpávající."
+  us_dividend_rate_without_w8ben_pct:
+    value: 30
+    source: https://www.irs.gov/instructions/iw8ben
+    as_of: "2026-10-14"
+    note: "Pokyny IRS k formuláři W-8BEN: bez formuláře může plátce srazit 30 %. Formulář se odevzdává plátci (u nás přes brokera), ne IRS."
+  w8ben_validity:
+    value: "W-8BEN platí zpravidla do konce třetího kalendářního roku po roce podpisu. Při změně okolností (např. daňového domicilu) je potřeba to do 30 dnů oznámit."
+    source: https://www.irs.gov/instructions/iw8ben
+    as_of: "2026-10-14"
+    note: "Pokyny IRS k formuláři W-8BEN. Obecné pravidlo, výjimky existují."
 
 assumptions:
   gross_return_pct:
@@ -95,6 +124,12 @@ assumptions:
     as_of: "2026-10-14"
     verified: false
     note: "Přečteno jen ve výsledcích vyhledávání, ne v primární zprávě. Na web nepoužívat, dokud neověřím."
+
+  fx_fee_illustration_pct:
+    value: [0.1, 0.5, 1.0]
+    source: "Modelový předpoklad, ne ceník žádného brokera"
+    as_of: "2026-10-14"
+    note: "Ilustrace, kolik stojí převod měny při různých poplatcích. Skutečný poplatek (a spread v kurzu) zjistěte u konkrétního brokera. Konkrétní brokery neuvádíme."
 
 open_items:
   - "Vstupní poplatek a TER průměrného českého akciového fondu: zatím jen EU průměr ESMA. Fallback z KID českých fondů nesehnán."
