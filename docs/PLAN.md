@@ -19,6 +19,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F8 Reklamy (kreativy)
 - [x] F9 QA a připravenost na spuštění
 - [x] F10 README, ai-log, odevzdání (zbývá jen odeslání e-mailu, dělá provozovatel)
+- [x] F11 Opravy z UI/UX review (14. 10.): lišty se nevrství, hero B říká nabídku, miniatura taháku v hero, sticky hlídá formulář v gate, nadpis s výsledkem nad formulářem kalkulačky, popisek pruhu tickerů, vyplněný provozovatel
 
 ---
 
@@ -196,7 +197,7 @@ Pořadí sekcí je konfigurace podle varianty (`src/content/variants.ts`). Varia
 
 **Další pravidla rozvržení:**
 - Žádná navigace ani odkazy ven. Výjimkou jsou zdroje v patičce, ty se otevírají v novém okně.
-- Sticky CTA se zobrazuje od S2.
+- Sticky CTA se zobrazuje od S2. Nezobrazuje se, dokud je vidět lišta cookies, aby se dvě lišty nevrstvily.
 - Hero včetně CTA se musí vejít do 360×600 px, protože in-app prohlížeč ukrojí lištu. U spodního okraje první obrazovky má vykukovat začátek S2.
 
 ---
