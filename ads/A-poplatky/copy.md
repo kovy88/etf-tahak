@@ -40,13 +40,13 @@ Hero na `/poplatky` opakuje stejné číslo i stejnou větu (viz `src/content/he
 - Žádný slib výnosu. Výnos 6 % je označený jako modelový předpoklad.
 - Je uvedeno „modelový výpočet“.
 - Žádné „bez rizika“, „zaručený“, „nejlepší“.
-- K ověření před spuštěním: jestli Meta pro CZ vyžaduje Special Ad Category „Financial products and services“ a ověření inzerenta (omezí cílení).
+- Special Ad Category: viz Nastavení kampaně níže (ověřeno).
 
 ## Nastavení kampaně (návrh)
 
 - **Cíl kampaně:** provoz na web (Traffic, optimalizace na Landing page views). Konverzi Lead nastavte, až Pixel nasbírá první leady.
-- **Cílení:** Česko, 24–45 let, všechna pohlaví, Instagram + Facebook, umístění feed a Stories/Reels. Zájmy: investování, ETF, akciové trhy, osobní finance. Žádné lookalike a úzké segmenty, dokud nebude Special Ad Category vyjasněná.
-- **Special Ad Category:** „Financial products and services“ pravděpodobně omezí věk, lokalitu a zájmy. Ověřte při zakládání kampaně (neověřeno). Cílení výše pak platí jen v rozsahu, který Meta dovolí.
+- **Cílení:** Česko, 24–45 let, všechna pohlaví, Instagram + Facebook, umístění feed a Stories/Reels. Zájmy: investování, ETF, akciové trhy, osobní finance. Žádné lookalike a úzké segmenty v prvním testu.
+- **Special Ad Category (ověřeno 14. 10. 2026 v [dokumentaci Mety](https://developers.facebook.com/docs/marketing-api/audiences/special-ad-category)):** kategorie „Financial products and services“ je povinná pro inzerenty z USA nebo při cílení na USA. Pro „některé části Evropy“ platí jen u úvěrů, což tahák není. Pro CZ inzerenta s cílením na CZ tedy povinná není. Kdyby ji Meta při schvalování přesto vyžádala, cílení se zúží na 18–65+, všechna pohlaví, bez zájmů a lookalike. Kreativy i texty projdou i tak, změní se jen publikum.
 - **Rozpočet testu:** 2 sady × 500 Kč/den × 5 dní = 5 000 Kč. Rozdělení mezi A a B se dělá na úrovni reklamních sad, ať každá dostane stejný rozpočet.
 - **Co měřit (PostHog + tabulka `leads`):**
   - v Metě: CTR na odkaz, CPC, počet kliků na odkaz,
