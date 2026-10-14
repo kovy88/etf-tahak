@@ -1,0 +1,104 @@
+{
+  "tolerance_czk": 1,
+  "description": "Sdílené testovací případy pro data/calc.py a src/lib/calc.ts. gross, ter, entry jsou desetinná čísla. expected.final = hodnota po konci, deposited = součet vkladů, fee_cost = rozdíl proti stejnému výpočtu bez TER a vstupního poplatku.",
+  "cases": [
+    {
+      "name": "nulový výnos, bez poplatků",
+      "monthly": 1000,
+      "years": 1,
+      "gross": 0.0,
+      "ter": 0.0,
+      "entry": 0.0,
+      "note": "12 × 1000",
+      "expected": {
+        "final": 12000.0,
+        "deposited": 12000,
+        "fee_cost": 0.0
+      }
+    },
+    {
+      "name": "výnos shodný s TER (čistý 0 %)",
+      "monthly": 1000,
+      "years": 2,
+      "gross": 0.06,
+      "ter": 0.06,
+      "entry": 0.0,
+      "note": "24 × 1000",
+      "expected": {
+        "final": 24000.0,
+        "deposited": 24000,
+        "fee_cost": 1516.25
+      }
+    },
+    {
+      "name": "vstupní poplatek 5 % bez výnosu",
+      "monthly": 1000,
+      "years": 1,
+      "gross": 0.0,
+      "ter": 0.0,
+      "entry": 0.05,
+      "note": "12 × 950",
+      "expected": {
+        "final": 11400.0,
+        "deposited": 12000,
+        "fee_cost": 600.0
+      }
+    },
+    {
+      "name": "čistý roční výnos odpovídající měsíční sazbě 1 %",
+      "monthly": 1000,
+      "years": 1,
+      "gross": 0.12682503013196977,
+      "ter": 0.0,
+      "entry": 0.0,
+      "note": "1000 × 1,01 × (1,01^12 − 1) / 0,01",
+      "expected": {
+        "final": 12809.33,
+        "deposited": 12000,
+        "fee_cost": 0.0
+      }
+    },
+    {
+      "name": "výchozí příklad: 3000 Kč, 25 let, 6 %, TER 0,03 %",
+      "monthly": 3000,
+      "years": 25,
+      "gross": 0.06,
+      "ter": 0.0003,
+      "entry": 0.0,
+      "note": "výchozí stav kalkulačky, ETF",
+      "expected": {
+        "final": 2029835.88,
+        "deposited": 900000,
+        "fee_cost": 8906.62
+      }
+    },
+    {
+      "name": "výchozí příklad: průměrný fond TER 1,46 %",
+      "monthly": 3000,
+      "years": 25,
+      "gross": 0.06,
+      "ter": 0.0146,
+      "entry": 0.0,
+      "note": "výchozí stav kalkulačky, průměrný fond",
+      "expected": {
+        "final": 1652523.1,
+        "deposited": 900000,
+        "fee_cost": 386219.4
+      }
+    },
+    {
+      "name": "TER 0,5 % a vstupní poplatek 2 %, 10 let, 8 %",
+      "monthly": 5000,
+      "years": 10,
+      "gross": 0.08,
+      "ter": 0.005,
+      "entry": 0.02,
+      "note": "kombinace",
+      "expected": {
+        "final": 865269.24,
+        "deposited": 600000,
+        "fee_cost": 41146.75
+      }
+    }
+  ]
+}
