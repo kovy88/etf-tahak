@@ -1,11 +1,28 @@
 {
   "meta": {
-    "generated_at": "2026-10-14T09:04:39+00:00",
+    "generated_at": "2026-10-14T14:56:19+00:00",
     "data_as_of": "2026-09-30",
     "fx_usd_czk_end": {
       "value": 21.522,
       "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2026",
       "as_of": "2026-09-30"
+    },
+    "fx_usd_czk_start": {
+      "1y": {
+        "value": 20.727,
+        "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2025",
+        "as_of": "2025-09-30"
+      },
+      "5y": {
+        "value": 22.02,
+        "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2021",
+        "as_of": "2021-09-30"
+      },
+      "10y": {
+        "value": 24.21,
+        "source": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=30.09.2016",
+        "as_of": "2016-09-30"
+      }
     }
   },
   "etfs": [

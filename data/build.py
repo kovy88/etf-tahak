@@ -249,6 +249,14 @@ def build(write: bool = True) -> dict[str, Any]:
             "source": CNB_URL.format(d="30.09.2026"),
             "as_of": END.isoformat(),
         },
+        "fx_usd_czk_start": {
+            f"{h}y": {
+                "value": round(fx_start[h], 3),
+                "source": fx_src[h],
+                "as_of": date(END.year - h, 9, 30).isoformat(),
+            }
+            for h in HORIZONS
+        },
     }
     facts = {k: v for k, v in facts_raw.items()}
     if write:
