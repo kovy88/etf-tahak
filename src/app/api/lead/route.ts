@@ -77,11 +77,15 @@ export async function POST(req: Request) {
 
   after(async () => {
     try {
-      await serverTrack("lead_created", {
+      await serverTrack("lead_created", b.posthog_id ?? publicId, {
         location: b.location,
         is_duplicate: isDuplicate,
         variant: b.variant,
+        utm_source: b.utm_source,
+        utm_medium: b.utm_medium,
+        utm_campaign: b.utm_campaign,
         utm_content: b.utm_content,
+        in_app_browser: b.in_app_browser,
       });
       if (leadId && !flags.includes("too_fast")) {
         const r = await sendLeadEmail(b.email, {
