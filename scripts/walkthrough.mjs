@@ -46,7 +46,10 @@ await a.evaluate(() => {
 await shot(a, "03-kalkulacka-formular");
 await a.locator("#srovnani").scrollIntoViewIfNeeded();
 await a.getByRole("button", { name: /Odemknout zbylých/ }).scrollIntoViewIfNeeded();
-await a.evaluate(() => window.scrollBy(0, -260));
+await a.evaluate(() => {
+  const btn = [...document.querySelectorAll("#srovnani button")].find((x) => x.textContent?.includes("Odemknout"));
+  window.scrollBy(0, btn.getBoundingClientRect().top - 330);
+});
 await shot(a, "04-srovnani-gate");
 const form = a.locator("#kalkulacka form");
 await form.scrollIntoViewIfNeeded();
