@@ -16,7 +16,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F5 Formulář, leady, děkovný stav, e-mail
 - [x] F6 Měření a souhlas s cookies
 - [x] F7 Lead magnet (PDF)
-- [ ] F8 Reklamy (kreativy)
+- [x] F8 Reklamy (kreativy)
 - [ ] F9 QA a připravenost na spuštění
 - [ ] F10 README, ai-log, odevzdání
 
@@ -708,7 +708,7 @@ Commit. Na konci odškrtni F7.
 - Převod měny: v taháku je jen ilustrace 0,1 / 0,5 / 1 % z vkladu (modelový předpoklad), žádný ceník brokera.
 - Beze změny: žádné nové události (PDF stahuje stávající `pdf_downloaded`).
 
-### F8 – Reklamy (~1,5 h)
+### F8 – Reklamy (~1,5 h) – hotovo
 ```text
 Fáze F8 z docs/PLAN.md: reklamy. Přečti §7 a texty v ads/*/copy.md.
 1) Kreativy připrav jako HTML šablony v ads/_src/ se stejnými tokeny a fonty jako web. Čísla ber ze src/data/examples.json.
@@ -722,6 +722,11 @@ Fáze F8 z docs/PLAN.md: reklamy. Přečti §7 a texty v ads/*/copy.md.
 4) Ověř, že hero každé varianty opakuje slib i číslo z kreativy.
 Commit. Na konci odškrtni F8.
 ```
+
+**Stav (F8):**
+- `npm run ads` (`ads/render.mjs`) vyrobí z `ads/_src/{a,b}.html` čtyři PNG: `feed-1080x1350.png` a `story-1080x1920.png` v `ads/A-poplatky/` a `ads/B-voo/`. Texty bere z oddílu „Kreativa“ v `copy.md`, fonty z `@fontsource` (devDependency). Skript selže při přetečení obsahu. Stories mají nahoře i dole 270 px bez textu.
+- `copy.md` obou reklam má náhledy, UTM odkazy, návrh cílení, rozpočet testu (2× 500 Kč/den × 5 dní) a metriky. `ads/ads.test.ts` hlídá čísla proti datům, shodu s hero a rozměry PNG.
+- Neověřeno: jestli Meta pro CZ vynutí Special Ad Category (omezí cílení). Patří do F9 a do launch checklistu.
 
 ### F9 – QA a připravenost na spuštění (~2 h)
 ```text
