@@ -1,20 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { formCopy } from "@/content/form";
+import { isCookieBarOpen, subscribeCookieBar } from "@/lib/consent";
 import { EMAIL_ENABLED } from "@/lib/flags";
 import { useLanding } from "./LandingState";
 import { SheetButton } from "./SheetButton";
 
 /**
  * Lepivá lišta dole. Ukáže se, když odroluje hero (od S2), a schová se, když je vidět
- * formulář, je otevřená klávesnice (visualViewport) nebo už návštěvník e-mail poslal (PDF má v děkovném stavu i v hero).
+ * formulář, je otevřená klávesnice (visualViewport), je vidět lišta cookies nebo už návštěvník e-mail poslal
+ * (PDF má v děkovném stavu i v hero).
  */
 export function StickyCta() {
   const c = formCopy(EMAIL_ENABLED);
   const [pastHero, setPastHero] = useState(false);
   const [formsVisible, setFormsVisible] = useState(0);
   const [keyboard, setKeyboard] = useState(false);
+  const cookieBar = useSyncExternalStore(subscribeCookieBar, isCookieBarOpen, () => false);
   const { leadDone } = useLanding();
 
   useEffect(() => {
@@ -65,7 +68,7 @@ export function StickyCta() {
     return () => vv.removeEventListener("resize", on);
   }, []);
 
-  const show = pastHero && formsVisible === 0 && !keyboard && !leadDone;
+  const show = pastHero && formsVisible === 0 && !keyboard && !cookieBar && !leadDone;
   return (
     <div
       data-visible={show}
@@ -74,9 +77,8 @@ export function StickyCta() {
       data-keyboard={keyboard}
       aria-hidden={!show}
       inert={!show}
-      className={`fixed inset-x-0 bottom-[var(--cookie-h,0px)] z-20 border-t border-ink bg-paper px-[var(--gutter)] py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] transition-transform duration-200 motion-reduce:transition-none ${
-        // skrytá lišta musí odjet i pod lištu cookies, nad kterou stojí
-        show ? "translate-y-0" : "translate-y-[calc(100%+var(--cookie-h,0px))]"
+      className={`fixed inset-x-0 bottom-0 z-20 border-t border-ink bg-paper px-[var(--gutter)] py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] transition-transform duration-200 motion-reduce:transition-none ${
+        show ? "translate-y-0" : "translate-y-full"
       }`}
     >
       <div className="mx-auto max-w-[var(--measure)]">

@@ -24,6 +24,8 @@ const LEAD_OK = { ok: true, lead_id: "11111111-2222-4333-8444-555555555555", dow
 test.beforeEach(async ({ page }) => {
   await page.route("**/api/lead", (route) => route.fulfill({ json: LEAD_OK }));
   await page.route("**/api/lead/profile", (route) => route.fulfill({ json: { ok: true } }));
+  // lišta cookies by schovala lepivé CTA, tady testujeme jen jeho vlastní logiku
+  await page.addInitScript(() => localStorage.setItem("etf_consent", JSON.stringify({ analytics: false, marketing: false })));
   await page.addInitScript(() => {
     (window as unknown as { __cls: number }).__cls = 0;
     new PerformanceObserver((l) => {

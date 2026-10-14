@@ -57,6 +57,8 @@ async function openKeyboard(page: Page, px = 300) {
 }
 
 test("klávesnice: sheet z hero má pole ve fokusu a lepivá lišta zmizí", async ({ page }) => {
+  // lišta cookies by schovala lepivé CTA, tady testujeme jen jeho vlastní logiku
+  await page.addInitScript(() => localStorage.setItem("etf_consent", JSON.stringify({ analytics: false, marketing: false })));
   await page.goto("/poplatky");
   const sticky = page.locator("[data-past-hero]");
   // odrolovat za hero, aby lišta byla vidět

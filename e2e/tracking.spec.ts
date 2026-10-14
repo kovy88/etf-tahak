@@ -133,15 +133,15 @@ test("na první obrazovce lišta není a tlačítko v hero je celé vidět (360�
   expect(await bottom()).toBeLessThanOrEqual(600);
 });
 
-test("po odrolování lišta nezakrývá lepivé CTA a sticky odskočí nad ni", async ({ page }) => {
+test("dokud je vidět lišta cookies, lepivé CTA se neukazuje; po volbě se ukáže", async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 600 });
   await page.goto("/poplatky");
   const bar = await showBar(page);
-  await page.waitForTimeout(500); // přechod lepivé lišty
-  const b = await bar.boundingBox();
-  const sticky = await page.locator("[data-visible=true]").first().boundingBox();
-  expect(sticky).not.toBeNull();
-  expect((sticky?.y ?? 0) + (sticky?.height ?? 0)).toBeLessThanOrEqual((b?.y ?? 0) + 1);
+  const sticky = page.locator("[data-past-hero]");
+  await expect(sticky).toHaveAttribute("data-past-hero", "true");
+  await expect(sticky).toHaveAttribute("data-visible", "false");
+  await bar.getByRole("button", { name: "Odmítnout" }).click();
+  await expect(sticky).toHaveAttribute("data-visible", "true");
 });
 
 test("lišta nezvyšuje CLS", async ({ page }) => {

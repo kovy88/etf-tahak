@@ -43,3 +43,23 @@ export function subscribeConsent(cb: () => void): () => void {
   listeners.add(cb);
   return () => listeners.delete(cb);
 }
+
+/**
+ * Je lišta cookies právě vidět? Lepivé CTA se do rozhodnutí neukazuje,
+ * protože obě lišty pod sebou zabraly na 375×667 skoro třetinu obrazovky.
+ */
+let barOpen = false;
+const barListeners = new Set<() => void>();
+
+export const isCookieBarOpen = (): boolean => barOpen;
+
+export function setCookieBarOpen(open: boolean): void {
+  if (barOpen === open) return;
+  barOpen = open;
+  barListeners.forEach((l) => l());
+}
+
+export function subscribeCookieBar(cb: () => void): () => void {
+  barListeners.add(cb);
+  return () => barListeners.delete(cb);
+}

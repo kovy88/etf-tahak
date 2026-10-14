@@ -1,9 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { trackConsent } from "@/lib/analytics";
-import { getConsent, setConsent, subscribeConsent } from "@/lib/consent";
+import { getConsent, setConsent, setCookieBarOpen, subscribeConsent } from "@/lib/consent";
 import { isPrintPath } from "./Analytics";
 
 const noopSubscribe = () => () => {};
@@ -11,7 +11,7 @@ const noopSubscribe = () => () => {};
 /**
  * Malá lišta dole (PLAN §15). Ukáže se, až návštěvník odroluje první obrazovku, aby nezakrývala hero a jeho tlačítko.
  * Do rozhodnutí běží jen anonymní měření bez cookies. „Přijmout“ i „Odmítnout“ jsou stejně výrazná tlačítka.
- * Výšku lišty předává CSS proměnná --cookie-h, aby o ni lepivé CTA odskočilo.
+ * Dokud je lišta vidět, lepivé CTA se schová (setCookieBarOpen), aby se dvě lišty nevrstvily.
  * Znovu se otevře z patičky (událost etf:cookie-settings).
  */
 export interface CookieCopy {
@@ -28,7 +28,6 @@ export function CookieBar({ copy: c }: { copy: CookieCopy }) {
   const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
   const [reopened, setReopened] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const open = () => setReopened(true);
@@ -50,20 +49,8 @@ export function CookieBar({ copy: c }: { copy: CookieCopy }) {
   const visible = mounted && !printing && ((consent === null && scrolled) || reopened);
 
   useEffect(() => {
-    const root = document.documentElement;
-    const el = ref.current;
-    if (!visible || !el) {
-      root.style.removeProperty("--cookie-h");
-      return;
-    }
-    const set = () => root.style.setProperty("--cookie-h", `${el.offsetHeight}px`);
-    set();
-    const ro = new ResizeObserver(set);
-    ro.observe(el);
-    return () => {
-      ro.disconnect();
-      root.style.removeProperty("--cookie-h");
-    };
+    setCookieBarOpen(visible);
+    return () => setCookieBarOpen(false);
   }, [visible]);
 
   if (!visible) return null;
@@ -80,7 +67,6 @@ export function CookieBar({ copy: c }: { copy: CookieCopy }) {
 
   return (
     <div
-      ref={ref}
       role="region"
       aria-label={c.label}
       className="fixed inset-x-0 bottom-0 z-30 border-t border-ink bg-paper px-[var(--gutter)] pb-[max(0.625rem,env(safe-area-inset-bottom))] pt-2.5"
