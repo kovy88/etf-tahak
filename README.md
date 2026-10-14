@@ -7,7 +7,7 @@ Konverzní landing page (lead magnet) se srovnáním 12 ETF z NYSE pro české d
 | Produkce | https://etf-tahak.vercel.app (varianta A `/poplatky`, varianta B `/srovnani` = `/`) |
 | Reklamy | [`ads/A-poplatky/`](ads/A-poplatky/copy.md), [`ads/B-voo/`](ads/B-voo/copy.md): texty, kreativy 4:5 a 9:16, UTM, cílení |
 | Lead magnet | [PDF tahák, 11 stran, 483 kB](public/tahak/c616ae54ee.pdf), generovaný ze stejných dat jako web |
-| Lighthouse mobil (produkce) | výkon 99, přístupnost 100, best practices 100, SEO 100. LCP 1,4–2,0 s, CLS ≈ 0 |
+| Lighthouse mobil (produkce) | výkon 99, přístupnost 100, best practices 100, SEO 100. LCP 1,4 až 2,0 s, CLS ≈ 0 |
 | AI log | [`ai-log/`](ai-log/): exporty chatů s Claude Code |
 
 <p>
@@ -23,7 +23,7 @@ Průchod na 375 px z produkce: hero A → výsledek kalkulačky → formulář p
 
 ## 1. Rozhodnutí v kostce
 
-1. **Pro koho:** začínající český investor 24–40 let, který z YouTube zná „VOO“, ale neví, co si z toho koupí, kolik ho to bude stát a jak to danit.
+1. **Pro koho:** začínající český investor 24 až 40 let, který z YouTube zná „VOO“, ale neví, co si z toho koupí, kolik ho to bude stát a jak to danit.
 2. **Co dostane:** PDF „ETF tahák 2026“ (12 ETF, evropská dvojčata, daně v ČR, checklist) a odemčené kompletní srovnání přímo na stránce. Hned, bez čekání na e-mail.
 3. **Kdy žádáme kontakt:** až po první hodnotě. Hlavní místo je pod výsledkem kalkulačky. Výsledek ani 3 karty ETF za e-mailem nejsou.
 4. **Formulář:** jediné pole, e-mail. Bez jména, telefonu, checkboxu i CAPTCHA.
@@ -31,9 +31,9 @@ Průchod na 375 px z produkce: hero A → výsledek kalkulačky → formulář p
 
 ## 2. Cílová skupina a insight
 
-- **Persona:** zaměstnanec nebo OSVČ, 24–40 let, 50–500 tis. Kč na spořáku nebo v bankovním fondu. Má nebo zakládá účet u XTB, Trading 212, Revolutu, Fio, Portu nebo IBKR.
-- **Kontext návštěvy:** mobil, in-app prohlížeč IG/FB, večer. Do 3–8 s se rozhodne, jestli zůstane.
-- **Job to be done:** „Chci si vybrat 1–2 ETF a začít pravidelně investovat, aniž bych udělal drahou chybu.“
+- **Persona:** zaměstnanec nebo OSVČ, 24 až 40 let, 50 až 500 tis. Kč na spořáku nebo v bankovním fondu. Má nebo zakládá účet u XTB, Trading 212, Revolutu, Fio, Portu nebo IBKR.
+- **Kontext návštěvy:** mobil, in-app prohlížeč IG/FB, večer. Do 3 až 8 s se rozhodne, jestli zůstane.
+- **Job to be done:** „Chci si vybrat 1 až 2 ETF a začít pravidelně investovat, aniž bych udělal drahou chybu.“
 - **Insight:** srovnání ETF z NYSE jsou psaná pro Američany. Čech řeší tři jiné věci, na kterých stojí stránka i obě reklamy:
   1. americké ETF jako retailový klient v EU obvykle nekoupí (PRIIPs, chybí KID),
   2. výnos v korunách není výnos v dolarech (kurz ČNB),
@@ -81,7 +81,7 @@ Pořadí je konfigurace podle varianty (`src/content/variants.ts`).
 | # | A `/poplatky` | B `/srovnani` | Proč právě tady |
 |---|---|---|---|
 | S1 | Hero: číslo + volba částky | Hero: tabule tickerů | do 3 s potvrdit slib reklamy (message match). CTA se vejde do 360×600, protože in-app prohlížeč ukrojí lištu |
-| S2 | Kalkulačka + formulář #1 | Srovnání + gate #2 | první hodnota co nejdřív: na mobilu většina lidí uvidí 1–2 obrazovky. Každá varianta začíná tím, co slíbila reklama |
+| S2 | Kalkulačka + formulář #1 | Srovnání + gate #2 | první hodnota co nejdřív: na mobilu většina lidí uvidí 1 až 2 obrazovky. Každá varianta začíná tím, co slíbila reklama |
 | S3 | Srovnání + gate #2 | Kalkulačka + formulář #1 | druhá hodnota a druhý důvod nechat e-mail |
 | S4 | 3 věci, které vám americká videa neřeknou | ← | prohlubuje mezeru ve znalostech, kterou zaplní tahák |
 | S5 | Co je v taháku: náhled 3 stran + formulář #5 | ← | nabídka je nejkonkrétnější těsně před výzvou |
@@ -92,7 +92,7 @@ Pořadí je konfigurace podle varianty (`src/content/variants.ts`).
 
 ## 6. Interaktivní prvky → kontakt
 
-- **Kalkulačka poplatků:** měsíční vklad (čipy + vlastní částka), horizont 10–30 let, předpokládaný výnos 4/6/8 % se štítkem „předpoklad, ne předpověď“, výběr UCITS ETF vs. průměrný akciový fond v EU (ESMA). Přepočítá se hned, s vlastním SVG grafem. Pod výsledkem je formulář #1 a výpočet se uloží k leadu.
+- **Kalkulačka poplatků:** měsíční vklad (čipy + vlastní částka), horizont 10 až 30 let, předpokládaný výnos 4/6/8 % se štítkem „předpoklad, ne předpověď“, výběr UCITS ETF vs. průměrný akciový fond v EU (ESMA). Přepočítá se hned, s vlastním SVG grafem. Pod výsledkem je formulář #1 a výpočet se uloží k leadu.
 - **Srovnávač 12 ETF z NYSE:** karty s filtry, TER, velikostí, dividendou, výnosem za 5 let v USD i v Kč a evropským dvojčetem. 3 karty zdarma, zbytek rozmazaný za gate #2. Po odeslání se odemknou bez reloadu.
 - **Oprava překlepů v doméně** pro české schránky („Mysleli jste @seznam.cz?“), oprava jedním ťukem.
 
@@ -166,7 +166,7 @@ Pak `npm run pdf` (tahák a náhledy), `npm run ads` (kreativy) a `npm run og` (
 
 Investiční stránky Unbounce jsou často poptávky po poradci s více poli. My máme lead magnet s jedním polem a hodnotou předem, což nás táhne nahoru. Dolů nás táhne studený provoz ze sociálních sítí. Proto odhad 9 % leží mezi investováním (3,9 %) a finančním paid social (9,3 %).
 
-**CPL (ilustrativně):** CPC 10–15 Kč, 80 % kliků se skutečně načte → CPL ≈ 12 / (0,8 × 0,09) ≈ **170 Kč** (rozpětí ~110–300 Kč pro konverzi 14–5 %).
+**CPL (ilustrativně):** CPC 10 až 15 Kč, 80 % kliků se skutečně načte → CPL ≈ 12 / (0,8 × 0,09) ≈ **170 Kč** (rozpětí ~110 až 300 Kč pro konverzi 14 až 5 %).
 
 ## 11. Tři A/B hypotézy podle očekávaného dopadu
 
@@ -174,9 +174,9 @@ Velikost vzorku počítá [`analytics/sample_size.py`](analytics/sample_size.py)
 
 | # | Hypotéza | Varianty | Očekávání | Primární metrika | n na variantu |
 |---|---|---|---|---|---|
-| 1 | **Hloubka gate.** Protože zvědavost na zbylých 9 ETF je druhý nejsilnější spouštěč, zamčení zvýší počet leadů. | karty 4–12 a dvojčata zamčené vs. vše zdarma, za e-mail jen PDF | +30–50 % leadů. Riziko: horší kvalita, proto sledujeme i stažení PDF a odpověď na otázku | `lead_created` / `landing_viewed` | ~2 000 (při +30 %) |
-| 2 | **Interaktivní vs. statický hero.** Protože číslo, které reaguje na ťuk, dovede víc lidí k prvnímu „aha“. | volba částky a živé číslo v hero vs. jen text a CTA | +15–25 % | konverze landing page | ~7 500 (při +15 %) |
-| 3 | **Formulace CTA.** Protože osobní nabídka v 1. osobě zní jako služba, ne jako marketing. | „Pošlete mi můj výpočet“ vs. „Chci tahák zdarma“ | +5–15 % | `form_started` → `lead_created` | ~65 000 (při +5 %), ~7 500 (při +15 %) |
+| 1 | **Hloubka gate.** Protože zvědavost na zbylých 9 ETF je druhý nejsilnější spouštěč, zamčení zvýší počet leadů. | karty 4 až 12 a dvojčata zamčené vs. vše zdarma, za e-mail jen PDF | +30 až 50 % leadů. Riziko: horší kvalita, proto sledujeme i stažení PDF a odpověď na otázku | `lead_created` / `landing_viewed` | ~2 000 (při +30 %) |
+| 2 | **Interaktivní vs. statický hero.** Protože číslo, které reaguje na ťuk, dovede víc lidí k prvnímu „aha“. | volba částky a živé číslo v hero vs. jen text a CTA | +15 až 25 % | konverze landing page | ~7 500 (při +15 %) |
+| 3 | **Formulace CTA.** Protože osobní nabídka v 1. osobě zní jako služba, ne jako marketing. | „Pošlete mi můj výpočet“ vs. „Chci tahák zdarma“ | +5 až 15 % | `form_started` → `lead_created` | ~65 000 (při +5 %), ~7 500 (při +15 %) |
 
 H3 je při testovacím rozpočtu (5 000 Kč ≈ 330 kliků na variantu) neprůkazná, dává smysl až při větším provozu. **Backlog:** tykání vs. vykání, skutečné počítadlo stažení, lepivá lišta ano/ne, pořadí kalkulačky a srovnání. Test úhlů reklam A vs. B běží od spuštění, není to hypotéza pro landing page.
 
@@ -184,7 +184,7 @@ H3 je při testovacím rozpočtu (5 000 Kč ≈ 330 kliků na variantu) neprůka
 
 **Hotovo a ověřeno na produkci (14. 10. 2026):**
 
-- [x] Lighthouse mobil `/poplatky` i `/srovnani`: 99 / 100 / 100 / 100, LCP 1,4–2,0 s, CLS ≈ 0.
+- [x] Lighthouse mobil `/poplatky` i `/srovnani`: 99 / 100 / 100 / 100, LCP 1,4 až 2,0 s, CLS ≈ 0.
 - [x] Playwright 320 / 360 / 375 / 414 px a na šířku, bez vodorovného posunu. Hero s CTA se vejde do 360×600. Sheet a lepivá lišta s otevřenou klávesnicí.
 - [x] V konzoli nejsou chyby. OG obrázky pro obě reklamy, favicon, apple-icon, vlastní 404.
 - [x] Klíče nejsou v repu, v historii ani v `ai-log/` (kontrola hodnot z `.env.local` proti `git log -p`). Service key není v klientském bundlu (`scripts/check-bundle.mjs`).
@@ -253,7 +253,7 @@ cd data && uv run pytest && uv run ruff check
 ```
 
 - vitest: kalkulačka, texty (zakázané fráze, typografie, povinná upozornění), e-mail, server, tahák (83 testů),
-- Playwright: interakce, odeslání a chyby, události funnelu pro obě varianty, cookie lišta, šířky 320–414 px, na šířku, klávesnice, tisk PDF (38 testů),
+- Playwright: interakce, odeslání a chyby, události funnelu pro obě varianty, cookie lišta, šířky 320 až 414 px, na šířku, klávesnice, tisk PDF (38 testů),
 - pytest: každé číslo má zdroj a datum, rozsahy, shoda příkladů s `calc.ts`.
 
 **Struktura repa:**
@@ -274,7 +274,26 @@ cd data && uv run pytest && uv run ruff check
 
 ## 14. Jak jsem pracoval s Claude Code
 
-- Nejdřív plánovací chat ([`ai-log/00-planovani.md`](ai-log/00-planovani.md)), jehož výstupem je [`docs/PLAN.md`](docs/PLAN.md): rozhodnutí, fáze F0–F10 a prompt pro každou fázi. Pravidla projektu jsou v [`CLAUDE.md`](CLAUDE.md) (mobil first, 1 pole, žádné číslo bez zdroje, zakázané fráze a vzory).
-- Každá fáze běžela v samostatném chatu: prompt z plánu → malé commity (Conventional Commits) → odškrtnutí v PLAN §0 → export do `ai-log/NN-faze.md`.
-- **Exporty:** `00-planovani`, `00-setup`, `01`–`06`, `08`. Export chatu fáze F7 (PDF tahák) v repu chybí. Její práci dokládají commity `feat(pdf): …` a záznam „Stav (F7)“ v plánu. Fáze F9 a F10 proběhly v jednom chatu (`09-faze.md`).
-- Kontrola kvality nebyla jen očima: testy hlídají zdroje čísel, typografii, shodu čísel mezi reklamou, hero a kalkulačkou a celý funnel událostí. Lighthouse a screenshoty jsou z produkce.
+Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log/).
+
+**Postup.** Nejdřív jsem s Claude udělal plán ([`docs/PLAN.md`](docs/PLAN.md)). Je v něm cílovka, nabídka, pořadí sekcí, měření a 11 fází, každá s vlastním promptem. Pravidla, která musel dodržet vždycky, jsem dal do [`CLAUDE.md`](CLAUDE.md): jedno pole ve formuláři, žádné číslo bez zdroje, vykání, zakázané fráze a zakázané „AI“ vzory v designu. Každá fáze pak běžela v novém chatu, aby měl agent čistý kontext a jasné zadání. Na konci fáze commit, odškrtnutí v plánu a export logu.
+
+**Jak jsem ho kontroloval.** Na nic jsem nespoléhal jen proto, že to agent napsal. Pravidla, která jde ohlídat strojově, hlídají testy: zdroj a datum u každého čísla, stejné číslo v reklamě, hero i kalkulačce, typografie a zakázané fráze v textech a pořadí událostí ve funnelu. Vzhled jsem kontroloval na screenshotech z Playwrightu na 375 px a nakonec ručně v Instagramu na telefonu. Výkon jsem měřil Lighthouse na produkci, ne lokálně.
+
+**Kde se AI spletlo** (a jak se na to přišlo):
+
+* V hero se po změně částky přepočítalo číslo, ale věta pod ním dál říkala „Při 3 000 Kč měsíčně“. Našlo se to při proklikání produkce, teď to hlídá test.
+* Titulek formuláře sliboval „Kam tahák poslat?“, i když e-mail bez domény neposíláme. Našlo se to při kontrole sheetu a test to od té doby hlídá.
+* Lepivá lišta po odeslání dál nabízela „Tahák zdarma“ a ve skrytém stavu vykukovala nad lištou cookies. Testy byly zelené, chybu ukázal až screenshot. Doplnil jsem test, který bez opravy padá.
+* Při úklidu textů předal agent funkci ze serverové komponenty do klientské a rozbil build. Chytil to E2E test ještě před nasazením.
+* Lokální Lighthouse ukazoval LCP 3,0 s i po opravě, protože lokálně všechno doběhne za pár ms a simulace pak počítá jinak. Rozhodující bylo měření na produkci.
+* Benchmark konverze 3,8 % pro finance v plánu byl ze starší edice reportu. Při dohledávání citace jsem ho opravil na 8,3 % (2024).
+* Fakta, která agent nedokázal ověřit v primárním zdroji (dividenda VWO a SPY, stav Retail Investment Strategy), jsou označená jako neověřená. Na webu mají hvězdičku.
+
+**Co chybí nebo jsem vědomě nechal:**
+
+* Rozpočet JS 120 kB nesplňuji (165 kB, z toho 119 kB je samotný React a Next.js). LCP i výkon 99 jsou v pořádku, takže jsem to neřešil přepisem.
+* E-mail je hotový, ale vypnutý, dokud nebude vlastní doména. Hodnotu návštěvník dostane hned na stránce.
+* Provozovatel v patičce je placeholder, doplní ho ten, kdo stránku spustí.
+* Ruční test jsem udělal v Instagramu na iPhonu. Android a Facebook ještě zbývají.
+* Log fáze F7 (PDF tahák) v repu chybí. Její práci ukazují commity `feat(pdf)` a záznam v plánu. Fáze F9 a F10 jsou v jednom logu `09-faze.md`.
