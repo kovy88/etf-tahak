@@ -17,7 +17,7 @@ describe("suggestEmail", () => {
     expect(suggestEmail(input)).toBe(out);
   });
 
-  it.each(["jan@seznam.cz", "jan@gmail.com", "jan@firma.cz", "jan@mail.com", "jan@centrum.sk", "jan@proton.me", "x@a.cz"])(
+  it.each(["jan@seznam.cz", "jan@gmail.com", "jan@firma.cz", "jan@mail.com", "jan@centrum.sk", "jan@proton.me", "x@a.cz", "uz@znam.cz", "jan@firma.cz", "jan@stavby.cz"])(
     "nechá %s být",
     (input) => {
       expect(suggestEmail(input)).toBeNull();

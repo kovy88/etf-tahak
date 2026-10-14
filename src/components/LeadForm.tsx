@@ -9,6 +9,7 @@ import { submitLead } from "@/lib/lead";
 import { track } from "@/lib/track";
 import { Button } from "./Button";
 import { useLanding } from "./LandingState";
+import { ThankYou } from "./ThankYou";
 
 type Err = "empty" | "invalid" | "server" | null;
 
@@ -23,7 +24,9 @@ export function LeadForm({ location, id }: { location: FormLocation; id?: string
   const inputId = `${uid}-email`;
   const microId = `${uid}-micro`;
   const errId = `${uid}-err`;
-  const { leadDone, markLead, email: doneEmail } = useLanding();
+  const { leadDone, markLead, lead, calc } = useLanding();
+  const mountedAt = useRef(0);
+  const [hp, setHp] = useState("");
   const [value, setValue] = useState("");
   const [err, setErr] = useState<Err>(null);
   const [suggestion, setSuggestion] = useState<string | null>(null);
@@ -31,6 +34,10 @@ export function LeadForm({ location, id }: { location: FormLocation; id?: string
   const started = useRef(false);
   const shownFor = useRef<string | null>(null);
   const ref = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    mountedAt.current = performance.now();
+  }, []);
 
   // form_viewed: formulář je z ≥ 50 % vidět
   useEffect(() => {
@@ -49,14 +56,10 @@ export function LeadForm({ location, id }: { location: FormLocation; id?: string
     return () => io.disconnect();
   }, [location]);
 
-  if (leadDone) {
+  if (leadDone && lead) {
     return (
-      <div id={id} data-location={location} data-state="done" className="w-full" role="status">
-        <p className="serif text-[1.25rem] leading-snug font-semibold">{c.thanks.title}</p>
-        <p className="mt-1 text-[0.9375rem]">{c.thanks.unlocked}</p>
-        {EMAIL_ENABLED && c.thanks.emailSent && doneEmail ? (
-          <p className="mt-1 text-[0.9375rem] text-grey">{c.thanks.emailSent(doneEmail)}</p>
-        ) : null}
+      <div id={id} data-location={location} className="w-full">
+        <ThankYou lead={lead} full={lead.location === location} />
       </div>
     );
   }
@@ -98,16 +101,28 @@ export function LeadForm({ location, id }: { location: FormLocation; id?: string
     }
     setBusy(true);
     track("form_submitted", { location });
-    try {
-      await submitLead({ email: value.trim(), location });
-      markLead(value.trim());
-    } catch {
-      // Za naše chyby návštěvníka netrestáme (PLAN §6): stejně ho pustíme dál.
-      track("form_error", { location, reason: "server" });
-      markLead(value.trim());
-    } finally {
-      setBusy(false);
+    const email = value.trim();
+    const r = await submitLead({
+      email,
+      location,
+      hp,
+      elapsedMs: performance.now() - mountedAt.current,
+      calc: { monthly: calc.monthly, years: calc.years, gross: calc.gross, etfId: calc.etfId },
+    });
+    setBusy(false);
+    if (!r.ok && r.reason === "invalid") {
+      // Server doménu odmítl (neexistuje). Je to chyba zadání, ne serveru.
+      setErr("invalid");
+      track("form_error", { location, reason: "invalid" });
+      return;
     }
+    if (!r.ok) {
+      // Za naše chyby návštěvníka netrestáme (PLAN §6): PDF vydáme i tak, chybu jen zaznamenáme.
+      track("form_error", { location, reason: "server" });
+      markLead({ email, leadId: null, downloadUrl: process.env.NEXT_PUBLIC_LEAD_PDF_PATH ?? null, location });
+      return;
+    }
+    markLead({ email, leadId: r.leadId, downloadUrl: r.downloadUrl, location });
   };
 
   const accept = () => {
@@ -163,6 +178,13 @@ export function LeadForm({ location, id }: { location: FormLocation; id?: string
             </button>
           </p>
         ) : null}
+      </div>
+      {/* Honeypot: skryté pole, které vyplní jen robot */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label>
+          Web
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" value={hp} onChange={(e) => setHp(e.target.value)} />
+        </label>
       </div>
       <Button type="submit" disabled={busy} aria-busy={busy}>
         {busy ? c.sending : c.cta[location]}

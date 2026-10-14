@@ -2,7 +2,8 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { scenario, type Scenario } from "@/lib/calc";
-import { getLeadEmail, setLeadEmail, subscribeLead } from "@/lib/leadStore";
+import { getLead, setLead, subscribeLead, type LeadResult } from "@/lib/leadStore";
+import { captureAttribution } from "@/lib/attribution";
 import { track } from "@/lib/track";
 
 export interface EtfOption {
@@ -42,9 +43,9 @@ interface Ctx {
   setCalc: (patch: Partial<CalcState>) => void;
   unlocked: boolean;
   leadDone: boolean;
-  /** Voláno po úspěšném odeslání formuláře. F5 sem napojí odpověď serveru. */
-  markLead: (email: string) => void;
-  email: string | null;
+  /** Voláno po odeslání formuláře (i při chybě serveru, PLAN §6). */
+  markLead: (r: LeadResult) => void;
+  lead: LeadResult | null;
 }
 
 const LandingCtx = createContext<Ctx | null>(null);
@@ -65,13 +66,14 @@ export function LandingState({
   children: React.ReactNode;
 }) {
   const [calc, setCalcState] = useState<CalcState>(config.defaults);
-  const email = useSyncExternalStore(subscribeLead, getLeadEmail, () => null);
+  const lead = useSyncExternalStore(subscribeLead, getLead, () => null);
   const touched = useRef(false);
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
   const latest = useRef(calc);
 
   useEffect(() => {
     document.documentElement.dataset.variant = variant;
+    captureAttribution(); // first-touch UTM, referrer a vstupní stránka (ukládají se k leadu)
   }, [variant]);
 
   const setCalc = useCallback(
@@ -99,7 +101,7 @@ export function LandingState({
     [],
   );
 
-  const markLead = useCallback((e: string) => setLeadEmail(e), []);
+  const markLead = useCallback((r: LeadResult) => setLead(r), []);
 
   const result = useMemo<CalcResult>(() => {
     const etf = config.options.find((o) => o.id === calc.etfId) ?? config.options[0];
@@ -115,12 +117,12 @@ export function LandingState({
       calc,
       result,
       setCalc,
-      unlocked: email !== null,
-      leadDone: email !== null,
+      unlocked: lead !== null,
+      leadDone: lead !== null,
       markLead,
-      email,
+      lead,
     }),
-    [config, calc, result, setCalc, markLead, email],
+    [config, calc, result, setCalc, markLead, lead],
   );
 
   return <LandingCtx.Provider value={value}>{children}</LandingCtx.Provider>;

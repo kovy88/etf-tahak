@@ -55,8 +55,33 @@ function common(): EventProps {
   };
 }
 
+/** Souhrn cesty návštěvníka, ukládá se k leadu (PLAN §11, journey). */
+export interface Journey {
+  time_to_submit_ms?: number;
+  sections_seen: string[];
+  calc_used: boolean;
+  compare_unlock_clicked: boolean;
+  cta_clicks: number;
+}
+
+const journey: Journey = { sections_seen: [], calc_used: false, compare_unlock_clicked: false, cta_clicks: 0 };
+
+export function getJourney(): Journey {
+  const now = typeof performance !== "undefined" ? performance.now() : 0;
+  return { ...journey, sections_seen: [...journey.sections_seen], time_to_submit_ms: Math.round(now - t0) };
+}
+
+function updateJourney(name: EventName, props: EventProps): void {
+  if (name === "calc_interacted") journey.calc_used = true;
+  else if (name === "compare_gate_clicked") journey.compare_unlock_clicked = true;
+  else if (name === "cta_clicked") journey.cta_clicks += 1;
+  else if (name === "section_viewed" && typeof props.section_id === "string" && !journey.sections_seen.includes(props.section_id))
+    journey.sections_seen.push(props.section_id);
+}
+
 export function track(name: EventName, props: EventProps = {}): void {
   if (typeof window === "undefined") return;
+  updateJourney(name, props);
   const all = { ...common(), ...props };
   if (MIRROR) (window.__events ??= []).push({ name, props: all });
   sink?.(name, all);

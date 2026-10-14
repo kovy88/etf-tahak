@@ -18,8 +18,5 @@ export const email = typoDeep({
     "Jeden krok navíc: než cokoli koupíte, ověřte u svého brokera, jestli má ke zvolenému ETF český nebo anglický KID.",
   ],
   signoff: `${AUTHOR.name}`,
-  footer: [
-    "Nejde o investiční doporučení. Minulé výnosy nezaručují budoucí. Výpočty jsou modelové.",
-    "Odhlásit se můžete jedním klikem: {unsubscribeUrl}",
-  ],
+  footer: ["Odhlásit se můžete jedním klikem: {unsubscribeUrl}"],
 });

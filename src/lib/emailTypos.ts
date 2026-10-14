@@ -68,7 +68,9 @@ export function suggestEmail(raw: string): string | null {
   let best: { d: string; dist: number } | null = null;
   for (const k of KNOWN) {
     const dist = distance(domain, k);
-    if (dist <= 2 && (!best || dist < best.dist)) best = { d: k, dist };
+    // vzdálenost 2 jen u delších domén, ať se nenavrhují opravy skutečných krátkých domén (znam.cz)
+    const max = domain.length >= 9 ? 2 : 1;
+    if (dist <= max && (!best || dist < best.dist)) best = { d: k, dist };
   }
   return best ? `${local}@${best.d}` : null;
 }

@@ -35,6 +35,9 @@ export const formCopy = (emailEnabled: boolean) =>
     sending: "Odesílám…",
     thanks: {
       title: "Hotovo. Tahák je váš.",
+      titleNoPdf: "Hotovo. Srovnání je odemčené.",
+      titleShort: "Hotovo.",
+      downloadAgain: "Stáhnout PDF",
       download: "Stáhnout PDF",
       unlocked: "Úplné srovnání je odemčené.",
       emailSent: emailEnabled ? (email: string) => `Kopii posíláme na ${email}.` : null,
