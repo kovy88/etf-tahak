@@ -192,19 +192,19 @@ H3 je při testovacím rozpočtu (5 000 Kč ≈ 330 kliků na variantu) neprůka
 - [x] Bezpečnostní hlavičky (`nosniff`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`). RLS zapnuté bez veřejných policies, zapisuje jen service role.
 - [x] Supabase free projekt se nepozastaví: Vercel Cron denně volá `/api/keepalive`.
 
-**Ruční test v in-app prohlížeči Instagramu a Facebooku** (odkaz s UTM si pošlete v DM a otevřete na iPhonu i Androidu):
+**Ruční test v in-app prohlížeči** (odkaz s UTM v DM). Instagram na iPhonu prošel 14. 10. 2026 celý. Lead se uložil s `in_app_browser = instagram` a `utm_content = ig_test`. Jediný nález (natlačená tabulka na straně 2 PDF) je opravený. Před spuštěním zopakovat na Androidu a ve Facebooku/Messengeru:
 
-- [ ] Stránka se načte do ~2 s, hero i tlačítko „Chci tahák zdarma“ jsou vidět bez posunu.
-- [ ] Číslo v hero sedí s reklamou (377 000 Kč / tickery). Volba částky v hero přepočítá číslo.
-- [ ] Ťuk na hero CTA otevře sheet a vyjede klávesnice. Pole i tlačítko jsou nad klávesnicí, nic je nezakrývá.
-- [ ] Klávesnice nabízí `@` a „Odeslat“ (typ e-mail), automatické velké písmeno je vypnuté.
-- [ ] Překlep `jan@seznam.cy` nabídne opravu na `@seznam.cz`.
-- [ ] Odeslání: děkovný stav, srovnání se odemkne, lepivá lišta zmizí.
-- [ ] **Stáhnout PDF** v in-app prohlížeči PDF otevře (IG ho může otevřít v náhledu, to je v pořádku). Pokud nejde, zapsat a nahlásit.
-- [ ] Lepivá lišta se při odrolování ukáže a nezakrývá lištu cookies ani formulář.
-- [ ] Lišta cookies: „Odmítnout“ a „Přijmout“ fungují a po reloadu se neukáže znovu.
+- [x] Stránka se načte do ~2 s, hero i tlačítko „Chci tahák zdarma“ jsou vidět bez posunu.
+- [x] Číslo v hero sedí s reklamou (377 000 Kč / tickery). Volba částky v hero přepočítá číslo.
+- [x] Ťuk na hero CTA otevře sheet a vyjede klávesnice. Pole i tlačítko jsou nad klávesnicí, nic je nezakrývá.
+- [x] Klávesnice nabízí `@` a „Odeslat“ (typ e-mail), automatické velké písmeno je vypnuté.
+- [x] Překlep `jan@seznam.cy` nabídne opravu na `@seznam.cz`.
+- [x] Odeslání: děkovný stav, srovnání se odemkne, lepivá lišta zmizí.
+- [x] **Stáhnout PDF** v in-app prohlížeči PDF otevře (IG ho může otevřít v náhledu, to je v pořádku). Pokud nejde, zapsat a nahlásit.
+- [x] Lepivá lišta se při odrolování ukáže a nezakrývá lištu cookies ani formulář.
+- [x] Lišta cookies: „Odmítnout“ a „Přijmout“ fungují a po reloadu se neukáže znovu.
 - [ ] Na šířku: obsah se nerozpadne a vodorovně se neposouvá.
-- [ ] Lead se objeví v Supabase s `in_app_browser = instagram/facebook` a správným `utm_content`. Testovací leady pak smazat.
+- [x] Lead se objeví v Supabase s `in_app_browser = instagram/facebook` a správným `utm_content`. Testovací leady pak smazat.
 
 **Před spuštěním reklamy zbývá (na provozovateli):**
 
