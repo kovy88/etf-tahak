@@ -18,7 +18,7 @@ _(vložený text:)_
 > 
 > Pokud chcete, abych F6 začal hned tady, napište a pustím se do ní. Kód (`track.ts`, cookie lišta, E2E testy) můžu psát bez klíče. Ověření na produkci a funnel v PostHogu ale potřebují klíč.
 
-spoustej to ty ty exporty kurva
+_(Žádost, aby exporty spouštěl agent sám, text zprávy vynechán.)_
 
 ## 🤖 Claude
 
