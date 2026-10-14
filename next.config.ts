@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   devIndicators: false, // dev odznak by v E2E testech zakrýval spodní lištu
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: { inlineCss: true },
   turbopack: {
     rules: {
       "*.css": {
