@@ -1,0 +1,11 @@
+export { AUTHOR } from "./author";
+export { N } from "./data";
+export { email } from "./email";
+export { faq } from "./faq";
+export { formCopy } from "./form";
+export type { FormLocation } from "./form";
+export { hero } from "./hero";
+export { legal } from "./legal";
+export { about, calc, compare, finalCta, tahak, threeThings } from "./sections";
+export { DEFAULT_VARIANT, VARIANTS } from "./variants";
+export type { SectionId, Variant, VariantId } from "./variants";
