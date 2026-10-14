@@ -10,7 +10,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 
 - [x] F0 Setup: repo, GitHub, Vercel
 - [x] F1 Data a zdroje
-- [ ] F2 Texty (stránka + reklamy)
+- [x] F2 Texty (stránka + reklamy)
 - [ ] F3 Design systém + statická stránka
 - [ ] F4 Interaktivní prvky + varianty
 - [ ] F5 Formulář, leady, děkovný stav, e-mail
