@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@/components/Analytics";
+import { legal } from "@/content/legal";
+import { CookieBar } from "@/components/CookieBar";
 
 const serif = Fraunces({
   variable: "--font-serif",
@@ -29,7 +32,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="cs" className={`${serif.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+        <CookieBar copy={{ ...legal.cookie, privacy: legal.footer.privacy }} />
+      </body>
     </html>
   );
 }

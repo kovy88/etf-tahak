@@ -1,8 +1,9 @@
 /**
  * Měření událostí podle tracking plánu (PLAN §12). Jediný vstup pro události.
- * Teď: typované názvy, společné vlastnosti a zrcadlení do window.__events (testy).
- * F6 připojí PostHog a Meta Pixel přes setSink().
+ * Typované názvy, společné vlastnosti (varianta, UTM, in-app prohlížeč) a zrcadlení do window.__events (testy).
+ * Události před připojením cíle (PostHog, Meta Pixel přes setSink) se drží ve frontě.
  */
+import { detectInApp, getAttribution } from "./attribution";
 
 export type EventName =
   | "landing_viewed"
@@ -37,6 +38,8 @@ declare global {
 
 const t0 = typeof performance !== "undefined" ? performance.now() : 0;
 let sink: Sink | null = null;
+const QUEUE_MAX = 100;
+const queue: [EventName, EventProps][] = [];
 
 /** Zrcadlení do window.__events: v testovacím režimu a mimo produkci. */
 const MIRROR =
@@ -44,12 +47,21 @@ const MIRROR =
 
 export function setSink(fn: Sink | null): void {
   sink = fn;
+  if (!fn) return;
+  for (const [name, props] of queue.splice(0)) fn(name, props);
 }
 
 function common(): EventProps {
   if (typeof window === "undefined") return {};
+  const a = getAttribution();
   return {
     variant: document.documentElement.dataset.variant,
+    utm_source: a?.utm_source,
+    utm_medium: a?.utm_medium,
+    utm_campaign: a?.utm_campaign,
+    utm_content: a?.utm_content,
+    utm_term: a?.utm_term,
+    in_app_browser: detectInApp(navigator.userAgent),
     viewport_w: window.innerWidth,
     ms_since_landing: Math.round(performance.now() - t0),
   };
@@ -84,5 +96,6 @@ export function track(name: EventName, props: EventProps = {}): void {
   updateJourney(name, props);
   const all = { ...common(), ...props };
   if (MIRROR) (window.__events ??= []).push({ name, props: all });
-  sink?.(name, all);
+  if (sink) sink(name, all);
+  else if (queue.length < QUEUE_MAX) queue.push([name, all]);
 }

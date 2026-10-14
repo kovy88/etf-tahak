@@ -1,6 +1,7 @@
 import { VARIANTS } from "@/content";
 import type { SectionId, VariantId } from "@/content";
 import { examples, etfsData } from "@/content/data";
+import { LandingAnalytics } from "./Analytics";
 import { AboutSection } from "./AboutSection";
 import { CalcSection } from "./CalcSection";
 import { CompareSection } from "./CompareSection";
@@ -44,7 +45,8 @@ function buildConfig(): CalcConfig {
 export function LandingPage({ variant }: { variant: VariantId }) {
   const order = VARIANTS[variant].sections.filter((s): s is Exclude<SectionId, "hero"> => s !== "hero");
   return (
-    <LandingState config={buildConfig()} variant={variant}>
+    <LandingState config={buildConfig()}>
+      <LandingAnalytics variant={variant} />
       <Hero variant={variant} />
       <main>
         {order.map((id) => {

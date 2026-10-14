@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { formCopy } from "@/content/form";
 import { EMAIL_ENABLED } from "@/lib/flags";
 import { submitProfile } from "@/lib/lead";
@@ -17,6 +17,14 @@ export function ThankYou({ lead, full }: { lead: LeadResult; full: boolean }) {
   const [broker, setBroker] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const hasPdf = Boolean(lead.downloadUrl);
+  const viewed = useRef(false);
+
+  // thankyou_viewed jednou za návštěvu, jen u formuláře, kde se odesílalo
+  useEffect(() => {
+    if (!full || viewed.current) return;
+    viewed.current = true;
+    track("thankyou_viewed", { location: lead.location, saved: Boolean(lead.leadId) });
+  }, [full, lead.location, lead.leadId]);
 
   const answer = async (b: string) => {
     setBroker(b);

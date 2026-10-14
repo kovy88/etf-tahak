@@ -3,6 +3,7 @@
  * volající stejně vydá PDF a chybu jen zaloguje.
  */
 import type { FormLocation } from "@/content/form";
+import { getDistinctId } from "./analytics";
 import { captureAttribution, detectInApp } from "./attribution";
 import { getJourney } from "./track";
 
@@ -33,6 +34,7 @@ export async function submitLead(input: LeadInput): Promise<LeadResponse> {
     ...a,
     in_app_browser: detectInApp(navigator.userAgent),
     consent_text_version: "2026-10-a",
+    posthog_id: getDistinctId(),
   };
   try {
     const r = await fetch("/api/lead", {

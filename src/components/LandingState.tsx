@@ -1,9 +1,8 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { createContext, useCallback, useContext, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { scenario, type Scenario } from "@/lib/calc";
 import { getLead, setLead, subscribeLead, type LeadResult } from "@/lib/leadStore";
-import { captureAttribution } from "@/lib/attribution";
 import { track } from "@/lib/track";
 
 export interface EtfOption {
@@ -58,11 +57,9 @@ export function useLanding(): Ctx {
 
 export function LandingState({
   config,
-  variant,
   children,
 }: {
   config: CalcConfig;
-  variant: string;
   children: React.ReactNode;
 }) {
   const [calc, setCalcState] = useState<CalcState>(config.defaults);
@@ -70,11 +67,6 @@ export function LandingState({
   const touched = useRef(false);
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
   const latest = useRef(calc);
-
-  useEffect(() => {
-    document.documentElement.dataset.variant = variant;
-    captureAttribution(); // first-touch UTM, referrer a vstupní stránka (ukládají se k leadu)
-  }, [variant]);
 
   const setCalc = useCallback(
     (patch: Partial<CalcState>) => {
