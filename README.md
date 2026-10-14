@@ -276,7 +276,7 @@ cd data && uv run pytest && uv run ruff check
 
 Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log/).
 
-**Postup.** Nejdřív jsem s Claude udělal plán ([`docs/PLAN.md`](docs/PLAN.md)). Je v něm cílovka, nabídka, pořadí sekcí, měření a 11 fází, každá s vlastním promptem. Pravidla, která musel dodržet vždycky, jsem dal do [`CLAUDE.md`](CLAUDE.md): jedno pole ve formuláři, žádné číslo bez zdroje, vykání, zakázané fráze a zakázané „AI“ vzory v designu. Každá fáze pak běžela v novém chatu, aby měl agent čistý kontext a jasné zadání. Na konci fáze commit, odškrtnutí v plánu a export logu.
+**Postup.** Nejdřív jsem s Claude udělal plán ([`docs/PLAN.md`](docs/PLAN.md)). Je v něm cílovka, nabídka, pořadí sekcí, měření a 11 fází, každá s vlastním promptem. Pravidla, která musel dodržet vždycky, jsem dal do [`CLAUDE.md`](CLAUDE.md): jedno pole ve formuláři, žádné číslo bez zdroje, vykání, zakázané fráze a zakázané „AI“ vzory v designu. Každá fáze pak běžela v novém chatu, aby měl agent čistý kontext a jasné zadání. Na konci fáze commit, odškrtnutí v plánu a export logu. Každý chat vedl jeden agent podle promptu fáze, subagenty jsem nepoužil, protože fáze na sobě stavěly. Na design a texty agent povinně volal skilly `frontend-design` a `ux-copy`. Účty, klíče a nastavení služeb (Supabase, PostHog, Vercel) jsem dělal já, agent mi vždy napsal přesně, co a kam vložit.
 
 **Jak jsem ho kontroloval.** Na nic jsem nespoléhal jen proto, že to agent napsal. Pravidla, která jde ohlídat strojově, hlídají testy: zdroj a datum u každého čísla, stejné číslo v reklamě, hero i kalkulačce, typografie a zakázané fráze v textech a pořadí událostí ve funnelu. Vzhled jsem kontroloval na screenshotech z Playwrightu na 375 px a nakonec ručně v Instagramu na telefonu. Výkon jsem měřil Lighthouse na produkci, ne lokálně.
 
@@ -288,6 +288,8 @@ Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log
 * Při úklidu textů předal agent funkci ze serverové komponenty do klientské a rozbil build. Chytil to E2E test ještě před nasazením.
 * Lokální Lighthouse ukazoval LCP 3,0 s i po opravě, protože lokálně všechno doběhne za pár ms a simulace pak počítá jinak. Rozhodující bylo měření na produkci.
 * Benchmark konverze 3,8 % pro finance v plánu byl ze starší edice reportu. Při dohledávání citace jsem ho opravil na 8,3 % (2024).
+* Testy dat v pythonu při každém běhu přepisovaly vygenerované JSON v `src/data`, které se ručně měnit nesmí. Ukázal to `git status` po testech.
+* Agent tvrdil, že export chatu neumí, a log fáze F7 se proto ztratil. Později ho dopsal ze surového přepisu relace. Při převodu logů navíc psal odpovědi Claude pod nadpis uživatele, takže nebylo poznat, kdo co říká. Všechny logy jsem nechal přegenerovat znovu.
 * Fakta, která agent nedokázal ověřit v primárním zdroji (dividenda VWO a SPY, stav Retail Investment Strategy), jsou označená jako neověřená. Na webu mají hvězdičku.
 
 **Co chybí nebo jsem vědomě nechal:**
@@ -296,4 +298,16 @@ Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log
 * E-mail je hotový, ale vypnutý, dokud nebude vlastní doména. Hodnotu návštěvník dostane hned na stránce.
 * Provozovatel v patičce je placeholder, doplní ho ten, kdo stránku spustí.
 * Ruční test jsem udělal v Instagramu na iPhonu. Android a Facebook ještě zbývají.
-* Log fáze F7 (PDF tahák) v repu chybí. Její práci ukazují commity `feat(pdf)` a záznam v plánu. Fáze F9 a F10 jsou v jednom logu `09-faze.md`.
+* Testy A/B hypotéz z §11 nemají v kódu rozdělení provozu. Varianty A a B jsou zatím dvě URL podle reklamy. Na split stačí feature flag v PostHogu, je to asi hodina práce.
+* Meta Pixel je připravený, ale bez ID účtu se nenačte. Konverze pro Metu tedy zatím chybí, leady se počítají v PostHogu a v databázi.
+* Fáze F9 a F10 jsou v jednom logu `09-faze.md`. Kontrola hotového řešení proti zadání je v `10-audit.md`.
+
+## 15. Nejasnosti v zadání a jak jsem rozhodl
+
+* **„ETF obchodované na NYSE“ pro českého investora.** Většinu z nich český drobný investor u evropského brokera nekoupí, chybí jim KID podle PRIIPs. Srovnání NYSE ETF jsem nechal, jak zadání chce, ale ke každému přidal evropské UCITS dvojče a napsal to otevřeně. Z omezení je hlavní argument stránky i reklamy B.
+* **Jazyk.** Zadání je slovensky, cílovka česká. Web, PDF i reklamy jsou česky s vykáním, README taky.
+* **„Kontakt“.** Beru jen e-mail. Telefon by snížil konverzi a lead magnet je digitální, takže víc nepotřebujeme.
+* **Bezplatný hosting bez domény.** Na `*.vercel.app` Resend nedoručí e-mail cizím adresám. Tahák proto návštěvník dostane hned na stránce a žádný text nic do e-mailu neslibuje. Odeslání e-mailu je hotové za přepínačem.
+* **Kdo stránku provozuje.** Zadání to neříká. Clientelo jsem jako správce osobních údajů neuvedl, protože by to nebyla pravda. V patičce je placeholder a je v launch checklistu.
+* **Dvě verze reklamy.** Udělal jsem dva různé úhly (poplatky vs. „VOO z Česka nekoupíte“), každý s vlastním hero a pořadím sekcí. Tak se dá rovnou měřit, který slib táhne víc.
+* **Měření bez provozu.** Reklama neběží, takže funnel je prázdný. Celou cestu jsem ověřil testovacím provozem s `utm_source=claude_test`, který PostHog filtruje. Očekávanou konverzi odhaduji z benchmarků (§10).
