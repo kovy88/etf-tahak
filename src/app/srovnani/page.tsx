@@ -7,8 +7,6 @@ const title = `${N.etfCount} ETF z NYSE: co z nich koupíte z Česka`;
 export const metadata: Metadata = {
   title,
   description: hero.srovnani.sub,
-  // stejný obsah jako „/“, kanonická je hlavní stránka
-  alternates: { canonical: "/" },
   openGraph: openGraph({ title, description: hero.srovnani.sub, url: "/srovnani", image: "srovnani" }),
 };
 
