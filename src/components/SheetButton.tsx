@@ -6,6 +6,7 @@ import type { FormLocation } from "@/content/form";
 import { EMAIL_ENABLED } from "@/lib/flags";
 import { track } from "@/lib/track";
 import { Button } from "./Button";
+import { useLanding } from "./LandingState";
 import { LeadForm } from "./LeadForm";
 
 /**
@@ -23,21 +24,36 @@ export function SheetButton({
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const c = formCopy(EMAIL_ENABLED);
+  const { lead } = useLanding();
   return (
     <>
-      <Button
-        type="button"
-        className={className}
-        onClick={() => {
-          track("cta_clicked", { location });
-          const d = ref.current;
-          if (!d) return;
-          d.showModal();
-          d.querySelector<HTMLInputElement>("input[type=email]")?.focus();
-        }}
-      >
-        {label}
-      </Button>
+      {/* Po odeslání se i hero a lepivá lišta přepnou do stavu „hotovo“ (PLAN §5) a rovnou stáhnou PDF.
+          Dialog zůstává připojený, aby děkovný stav v otevřeném sheetu nezmizel. */}
+      {lead?.downloadUrl ? (
+        <a
+          href={lead.downloadUrl}
+          download
+          data-state="done"
+          onClick={() => track("pdf_downloaded", { location })}
+          className={`flex h-[var(--btn-h)] w-full items-center justify-center bg-ink text-[1.0625rem] font-medium text-paper ${className}`}
+        >
+          {c.thanks.download}
+        </a>
+      ) : (
+        <Button
+          type="button"
+          className={className}
+          onClick={() => {
+            track("cta_clicked", { location });
+            const d = ref.current;
+            if (!d) return;
+            d.showModal();
+            d.querySelector<HTMLInputElement>("input[type=email]")?.focus();
+          }}
+        >
+          {label}
+        </Button>
+      )}
       <dialog
         ref={ref}
         aria-label={c.sheet.title}
