@@ -18,7 +18,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F7 Lead magnet (PDF)
 - [x] F8 Reklamy (kreativy)
 - [x] F9 QA a připravenost na spuštění
-- [x] F10 README, ai-log, odevzdání (zbývá jen export `09-faze.md` a odeslání e-mailu, dělá provozovatel)
+- [x] F10 README, ai-log, odevzdání (zbývá jen odeslání e-mailu, dělá provozovatel)
 
 ---
 
@@ -755,7 +755,8 @@ Commituj po opravách. Na konci odškrtni F9.
 **Stav (F10):**
 - `analytics/sample_size.py` (`uv run analytics/sample_size.py`, inline závislosti): H1 +30 % → ~2 000, H2 +15 % → ~7 500, H3 +5 % → ~65 000 návštěv na variantu.
 - README podle §19, screenshoty průchodu z produkce v `docs/img/` (`scripts/walkthrough.mjs`, odeslání je mockované).
-- `ai-log/`: chybí `07-faze.md` (zmíněno v README) a `09-faze.md` (export tohoto chatu).
+- `ai-log/`: všechny logy `00` až `10` jsou přegenerované ze surových přepisů relací (`~/.claude/projects/…/*.jsonl`). Uživatel a Claude mají vlastní nadpisy, text skillů je sbalený, data jiných projektů vynechaná a tajné hodnoty maskované. `07-faze.md` je dohledaný, `10-audit.md` je kontrola proti zadání.
+- README: §14 doplněný o nastavení agentů, konkrétní chyby AI a co chybí, nový §15 s nejasnostmi v zadání.
 
 ### F10 – README a odevzdání (~1,5 h)
 ```text
