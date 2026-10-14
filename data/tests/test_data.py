@@ -13,7 +13,7 @@ TICKERS = {"VOO", "SPY", "IVV", "VTI", "VT", "VEA", "VWO", "SCHD", "VYM", "VUG",
 
 @pytest.fixture(scope="module")
 def res():
-    return build.build()
+    return build.build(write=False)
 
 
 def sourced(o, path=""):

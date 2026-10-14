@@ -138,7 +138,7 @@ def dump(obj: Any, name: str) -> None:
     (OUT / name).write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def build() -> dict[str, Any]:
+def build(write: bool = True) -> dict[str, Any]:
     fx_end = fetch_fx(END)
     fx_start = {h: fetch_fx(date(END.year - h, 9, 30)) for h in HORIZONS}
     fx_src = {h: CNB_URL.format(d=date(END.year - h, 9, 30).strftime("%d.%m.%Y")) for h in HORIZONS}
@@ -251,9 +251,10 @@ def build() -> dict[str, Any]:
         },
     }
     facts = {k: v for k, v in facts_raw.items()}
-    dump({"meta": meta, "etfs": etf_out}, "etfs.json")
-    dump(facts, "facts.json")
-    dump(examples, "examples.json")
+    if write:
+        dump({"meta": meta, "etfs": etf_out}, "etfs.json")
+        dump(facts, "facts.json")
+        dump(examples, "examples.json")
     return {"etfs": etf_out, "examples": examples, "facts": facts, "meta": meta}
 
 
