@@ -17,8 +17,8 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F6 Měření a souhlas s cookies
 - [x] F7 Lead magnet (PDF)
 - [x] F8 Reklamy (kreativy)
-- [ ] F9 QA a připravenost na spuštění
-- [ ] F10 README, ai-log, odevzdání
+- [x] F9 QA a připravenost na spuštění
+- [x] F10 README, ai-log, odevzdání (zbývá jen export `09-faze.md` a odeslání e-mailu, dělá provozovatel)
 
 ---
 
@@ -499,11 +499,10 @@ Pravidla jsou podrobně v `CLAUDE.md`. Jediný zdroj textů je `src/content/` (t
 
 **Odhad: 9 % (pesimisticky 5 %, optimisticky 14 %).**
 
-**Kotvy:** Unbounce Conversion Benchmark 2024 uvádí medián 6,6 % napříč obory, 3,8 % pro finance a pojištění a 3,9 % pro investování. Tyto mediány ale zahrnují i formuláře s více poli a poptávky.
+**Kotvy (ověřeno v F10):** Unbounce Conversion Benchmark Report 2024 uvádí medián 6,6 % napříč obory, 8,3 % pro finanční služby, 3,9 % pro investování a 9,3 % pro finance z placených sociálních sítí. Údaj 3,8 % pro finance je ze starší edice. Mediány zahrnují i formuláře s více poli a poptávky. Přesné citace jsou v README §10.
 - Výš nás táhne lead magnet s jedním polem, který ukazuje hodnotu předem.
 - Níž nás táhne studený provoz ze sociálních sítí na mobilu.
 
-F10 má benchmarky dohledat a přesně ocitovat (URL, rok).
 
 **CPL** (ilustrativně, předpoklady v README označit):
 - CPC 10–15 Kč,
@@ -740,6 +739,23 @@ Fáze F9 z docs/PLAN.md: QA a připravenost na spuštění. Přečti §15 a §16
 7) Supabase free projekt se po týdnu bez aktivity pozastaví: před spuštěním ho zkontroluj a zajisti pravidelný dotaz. Přidej rate limit na /api/lead (Vercel Firewall).
 Commituj po opravách. Na konci odškrtni F9.
 ```
+
+**Stav (F9):**
+- **Lighthouse mobil (produkce, 3 běhy):** `/poplatky` i `/srovnani` výkon 99, přístupnost, best practices i SEO 100, LCP 1,4–2,0 s, CLS ≈ 0. Pomohlo inline kritické CSS (`experimental.inlineCss`) a fonty zmenšené na znaky češtiny bez preloadu (`data/subset_fonts.py` → `src/app/fonts/`, 64 kB místo 110 kB). Lighthouse (lantern) do LCP započítá všechny požadavky dokončené před vykreslením, proto vadily přednačtené fonty.
+- **Rozpočet JS nesplněn:** ~165 kB gzip při prvním načtení, z toho React + Next.js ~119 kB, náš kód ~46 kB. Vědomě akceptováno, LCP a výkon splňují cíl.
+- **Playwright:** `e2e/responsive.spec.ts` (320/360/375/414 px, na šířku, simulovaná klávesnice přes `visualViewport`). Na 320×568 je CTA v hero ~50 px pod okrajem, pravidlo 360×600 platí.
+- **Opravy z QA:** po odeslání se hero CTA přepne na „Stáhnout PDF“ a lepivá lišta zmizí. Skrytá lišta už nevykukuje nad lištou cookies. Texty z komponent přesunuté do `src/content` (nezlomitelné mezery, datum kurzu z dat a s odkazem na ČNB).
+- **OG obrázky** pro obě varianty a ikony generuje `npm run og` (`scripts/render-og.mjs`) z textů reklam. Vlastní 404.
+- **Bezpečnost:** v repu, historii ani `ai-log/` nejsou tajné hodnoty. Bezpečnostní hlavičky v `next.config.ts`. Rate limit ve Vercel Firewall (nastavený přes API, ne v repu): `POST /api/lead*`, 10/min na IP, pak 5 min deny (403). Klient 403 bere jako chybu serveru a PDF vydá.
+- **Supabase:** RLS bez policies (záměr), advisor hlásí jen `citext` v `public` (nízké riziko, ponecháno). Vercel Cron denně volá `/api/keepalive`, projekt se nepozastaví.
+- **Meta Special Ad Category:** podle dokumentace Mety povinná pro USA, v Evropě jen pro úvěry. Pro CZ kampaň s tahákem povinná není. Zapsáno v `ads/*/copy.md`.
+- **Checklist ručního testu v in-app prohlížeči IG/FB** je v README §12.
+- Nové události nejsou. Hero a lišta po odeslání posílají stávající `pdf_downloaded` s `location`.
+
+**Stav (F10):**
+- `analytics/sample_size.py` (`uv run analytics/sample_size.py`, inline závislosti): H1 +30 % → ~2 000, H2 +15 % → ~7 500, H3 +5 % → ~65 000 návštěv na variantu.
+- README podle §19, screenshoty průchodu z produkce v `docs/img/` (`scripts/walkthrough.mjs`, odeslání je mockované).
+- `ai-log/`: chybí `07-faze.md` (zmíněno v README) a `09-faze.md` (export tohoto chatu).
 
 ### F10 – README a odevzdání (~1,5 h)
 ```text
