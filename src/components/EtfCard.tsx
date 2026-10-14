@@ -20,6 +20,7 @@ export function EtfCard({ etf }: { etf: Etf }) {
   const twin = bestTwin(etf);
   const m = etf.ucits_twin.match;
   const c = compare.card;
+  const src = c.source(etf.issuer, dateCs(etf.return_5y_pct.as_of));
   const ret = etf.returns_czk_pct["5y"].value;
   return (
     <article className="border-t border-line py-5 first:border-t-0">
@@ -46,10 +47,10 @@ export function EtfCard({ etf }: { etf: Etf }) {
 
       <p className="mt-3 text-[0.8125rem] text-grey">{c.ret5Usd}</p>
       <p className="mono text-[0.9375rem]">
-        {pct(etf.return_5y_pct.value)} <span className="text-grey">v USD</span>
+        {pct(etf.return_5y_pct.value)} <span className="text-grey">{c.inUsd}</span>
         <span className="text-grey"> → </span>
         <span className={`font-semibold ${ret >= 0 ? "text-gain-text" : "text-loss"}`}>{pct(ret)}</span>{" "}
-        <span className="text-grey">v Kč</span>
+        <span className="text-grey">{c.inCzk}</span>
       </p>
 
       <div className="mt-3 flex items-start gap-2.5 bg-paper-deep px-3 py-2.5 text-[0.875rem] leading-snug">
@@ -59,7 +60,7 @@ export function EtfCard({ etf }: { etf: Etf }) {
           <>
             {m === "exact" ? (
               <Stamp tone="gain" className="shrink-0">
-                dvojče
+                {c.twinStamp}
               </Stamp>
             ) : null}
             <p>
@@ -75,11 +76,11 @@ export function EtfCard({ etf }: { etf: Etf }) {
       </div>
 
       <SourceNote className="mt-3">
-        Zdroj:{" "}
+        {src.before}
         <a href={etf.ter_pct.source ?? "#"} target="_blank" rel="noopener noreferrer" className="underline">
-          {etf.issuer}
+          {src.issuer}
         </a>
-        , údaje k {dateCs(etf.return_5y_pct.as_of)}.
+        {src.after}
       </SourceNote>
     </article>
   );

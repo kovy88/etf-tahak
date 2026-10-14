@@ -1,3 +1,4 @@
+import { compare } from "@/content";
 import { etfsData } from "@/content/data";
 import { pct } from "@/lib/format";
 
@@ -23,7 +24,7 @@ export function TickerStrip() {
     <div
       className="overflow-hidden bg-ink py-2.5 text-paper"
       role="img"
-      aria-label="Výnosy za 5 let ročně v korunách u 12 ETF z NYSE, podrobnosti ve srovnání níže"
+      aria-label={compare.tickerAria}
     >
       <div className="ticker-track" aria-hidden="true">
         {row("a")}

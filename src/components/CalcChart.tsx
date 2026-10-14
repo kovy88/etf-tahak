@@ -16,7 +16,7 @@ function niceStep(max: number): number {
 }
 
 /** Dvě čáry (ETF, průměrný fond) a vklady. Vlastní SVG, bez knihovny. */
-export function CalcChart({ legend }: { legend: { etf: string; avg: string; deposited: string; years: string } }) {
+export function CalcChart({ legend }: { legend: { etf: string; avg: string; deposited: string; years: string; unitMil: string; unitTis: string; aria: (years: number, etf: string, avg: string, dep: string) => string } }) {
   const { calc, result, config } = useLanding();
   const g = calc.gross / 100;
   const etf = series(calc.monthly, calc.years, g, result.etfTer / 100);
@@ -38,10 +38,15 @@ export function CalcChart({ legend }: { legend: { etf: string; avg: string; depo
         viewBox={`0 0 ${W} ${H}`}
         className="w-full"
         role="img"
-        aria-label={`Graf za ${calc.years} let: ETF ${czk(Math.round(etf.at(-1)! / 1000) * 1000)}, průměrný fond ${czk(Math.round(avg.at(-1)! / 1000) * 1000)}, vklady ${czk(dep.at(-1)!)}`}
+        aria-label={legend.aria(
+          calc.years,
+          czk(Math.round(etf.at(-1)! / 1000) * 1000),
+          czk(Math.round(avg.at(-1)! / 1000) * 1000),
+          czk(dep.at(-1)!),
+        )}
       >
         <text x={0} y={8} fontSize="9" fill="var(--grey)" className="mono">
-          {unitMil ? "mil. Kč" : "tis. Kč"}
+          {unitMil ? legend.unitMil : legend.unitTis}
         </text>
         {ticks.map((t) => (
           <g key={t}>

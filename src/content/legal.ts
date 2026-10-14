@@ -24,6 +24,12 @@ export const legal = typoDeep({
     sources: "Zdroje dat",
     privacy: "Zásady ochrany údajů",
     dataNote: `Data k ${N.dataDate}`,
+    sourceLabels: {
+      fx: "Kurzy ČNB",
+      esma: "ESMA: náklady fondů",
+      law: "Zákon č. 586/1992 Sb.",
+      priips: "Nařízení PRIIPs",
+    },
   },
   notFound: {
     title: "Tahle stránka neexistuje",

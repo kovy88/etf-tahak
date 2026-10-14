@@ -1,5 +1,7 @@
-import { typoDeep } from "@/lib/format";
-import { N } from "./data";
+import { dateCs, num, typoDeep } from "@/lib/format";
+import { etfsData, N } from "./data";
+
+const FX_END = etfsData.meta.fx_usd_czk_end;
 
 export const calc = typoDeep({
   id: "kalkulacka",
@@ -22,10 +24,20 @@ export const calc = typoDeep({
     feesPaid: "Poplatky vás vyjdou na",
     feesAvgSuffix: "(průměrný fond)",
     feesEtfSuffix: "(ETF)",
+    and: "a",
     etfFinal: "S ETF",
     avgFinal: "S průměrným fondem",
   },
-  chartLegend: { etf: "ETF", avg: "Průměrný fond", deposited: "Vaše vklady", years: "let" },
+  chartLegend: {
+    etf: "ETF",
+    avg: "Průměrný fond",
+    deposited: "Vaše vklady",
+    years: "let",
+    unitMil: "mil. Kč",
+    unitTis: "tis. Kč",
+    aria: (years: number, etf: string, avg: string, dep: string) =>
+      `Graf za ${years} let: ETF ${etf}, průměrný fond ${avg}, vklady ${dep}`,
+  },
   assumptionNote: `Modelový výpočet. Výnos ${N.gross} ročně před poplatky je předpoklad, ne předpověď. Skutečný výnos se bude lišit a může být záporný.`,
   avgFundNote: `Průměrný akciový fond v EU: průběžné náklady ${N.avgTer} ročně (ESMA, data za rok 2024). Vstupní poplatek jsme nezapočítali, rozdíl je proto spíš podhodnocený. Neplatí pro konkrétní fond.`,
   methodNote:
@@ -58,6 +70,10 @@ export const compare = typoDeep({
     twinNone: "Evropské dvojče jsme neověřili",
     twinSimilarNote: "jiný index, nejde o dvojče",
     unverified: "neověřeno",
+    inUsd: "v USD",
+    inCzk: "v Kč",
+    twinStamp: "dvojče",
+    source: (issuer: string, date: string) => ({ before: "Zdroj: ", issuer, after: `, údaje k ${date}.` }),
   },
   microInsight: {
     title: "Stejný index, jiný poplatek",
@@ -69,7 +85,14 @@ export const compare = typoDeep({
     empty: "Tomuhle filtru žádné ETF neodpovídá.",
     filterAria: "Filtr podle typu ETF",
   },
-  footnote: `Výnosy: NAV, v USD podle emitenta k 30. 9. 2026, v korunách přepočtené kurzem ČNB. Minulé výnosy nezaručují budoucí. Hvězdička (*) označuje údaj, který se nepodařilo plně ověřit.`,
+  footnote: `Výnosy: NAV, v USD podle emitenta k ${N.dataDate}, v korunách přepočtené kurzem ČNB. Minulé výnosy nezaručují budoucí. Hvězdička (*) označuje údaj, který se nepodařilo plně ověřit.`,
+  tickerAria: `Výnosy za 5 let ročně v korunách u ${N.etfCount} ETF z NYSE, podrobnosti ve srovnání níže`,
+  fx: {
+    before: "Kurz ",
+    link: "ČNB",
+    url: FX_END.source,
+    after: ` k ${dateCs(FX_END.as_of)}: ${num(FX_END.value, 3)} Kč za USD.`,
+  },
 });
 
 export const threeThings = typoDeep({
@@ -125,6 +148,7 @@ export const tahak = (emailEnabled: boolean) =>
 export const about = typoDeep({
   id: "o-nas",
   dataHeading: "Odkud jsou data",
+  dataStamp: `data k ${N.dataDate}`,
   dataText: `Poplatky, velikosti a výnosy ETF jsou ze stránek emitentů (Vanguard, iShares, State Street, Schwab) k ${N.dataDate}. Kurzy z ČNB, náklady fondů z ESMA, daně ze zákona. U každého čísla najdete zdroj a datum.`,
 });
 

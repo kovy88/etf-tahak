@@ -13,7 +13,7 @@ export const hero = typoDeep({
     subTemplate: POPLATKY_SUB.replace("{etfCount}", String(N.etfCount)),
     sub: POPLATKY_SUB.replace("{monthly}", N.monthly).replace("{gross}", N.gross).replace("{etfCount}", String(N.etfCount)),
     proof: {
-      labelTemplate: "Za {years} let",
+      labelTemplate: "Za {years}\u00a0let",
       annotation: "modelový výpočet",
       amountsLabel: "Měsíční vklad v Kč",
       captionTemplate: "rozdíl mezi průměrným akciovým fondem v EU ({avg} ročně) a vybraným ETF ({etf} ročně)",

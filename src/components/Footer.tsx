@@ -8,10 +8,10 @@ const SOURCES: { label: string; href: string }[] = [
   { label: "iShares", href: "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf" },
   { label: "State Street (SPDR)", href: "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy" },
   { label: "Schwab", href: "https://www.schwabassetmanagement.com/products/schd" },
-  { label: "Kurzy ČNB", href: etfsData.meta.fx_usd_czk_end.source },
-  { label: "ESMA: náklady fondů", href: facts.fund_costs.avg_equity_fund_ter_pct.source },
-  { label: "Zákon č. 586/1992 Sb.", href: facts.taxes.law.source },
-  { label: "Nařízení PRIIPs", href: facts.priips.regulation_art5_1.source },
+  { label: legal.footer.sourceLabels.fx, href: etfsData.meta.fx_usd_czk_end.source },
+  { label: legal.footer.sourceLabels.esma, href: facts.fund_costs.avg_equity_fund_ter_pct.source },
+  { label: legal.footer.sourceLabels.law, href: facts.taxes.law.source },
+  { label: legal.footer.sourceLabels.priips, href: facts.priips.regulation_art5_1.source },
 ];
 
 export function Footer() {

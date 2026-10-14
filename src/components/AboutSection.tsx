@@ -1,4 +1,4 @@
-import { about, AUTHOR, faq, N } from "@/content";
+import { about, AUTHOR, faq } from "@/content";
 import { EMAIL_ENABLED } from "@/lib/flags";
 import { Section } from "./Section";
 import { Stamp } from "./Stamp";
@@ -26,7 +26,7 @@ export function AboutSection() {
       <p className="mt-1.5 text-[1rem] leading-[1.55]">{about.dataText}</p>
       <p className="mt-2 text-[0.8125rem] text-grey">
         <Stamp tone="gain" className="mr-2">
-          data k {N.dataDate}
+          {about.dataStamp}
         </Stamp>
       </p>
 

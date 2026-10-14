@@ -24,7 +24,8 @@ export interface CalcLabels {
   avgFinal: string;
   feesAvgSuffix: string;
   feesEtfSuffix: string;
-  chartLegend: { etf: string; avg: string; deposited: string; years: string };
+  and: string;
+  chartLegend: { etf: string; avg: string; deposited: string; years: string; unitMil: string; unitTis: string; aria: (years: number, etf: string, avg: string, dep: string) => string };
 }
 
 const AMOUNTS = [1000, 3000, 5000, 10000];
@@ -170,7 +171,8 @@ export function CalcPanel({ labels }: { labels: CalcLabels }) {
         </div>
         <p className="mt-3 text-[0.875rem] text-grey">
           {labels.deposited}: <span className="mono">{czk(result.etf.deposited)}</span>. {labels.feesPaid}{" "}
-          <span className="mono text-loss">{czkRounded(result.avg.feeCost)}</span> {labels.feesAvgSuffix} a{" "}
+          <span className="mono text-loss">{czkRounded(result.avg.feeCost)}</span> {labels.feesAvgSuffix} {labels.and}
+          {NBSP}
           <span className="mono">{czkRounded(result.etf.feeCost)}</span> {labels.feesEtfSuffix}.
         </p>
       </div>

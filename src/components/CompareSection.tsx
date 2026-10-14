@@ -46,7 +46,11 @@ export function CompareSection() {
         insight={insight}
       />
       <SourceNote className="mt-6">
-        {compare.footnote} Kurz ČNB k 30. 9. 2026: {etfsData.meta.fx_usd_czk_end.value.toString().replace(".", ",")} Kč za USD.
+        {compare.footnote} {compare.fx.before}
+        <a href={compare.fx.url} target="_blank" rel="noopener noreferrer" className="underline">
+          {compare.fx.link}
+        </a>
+        {compare.fx.after}
       </SourceNote>
     </Section>
   );
