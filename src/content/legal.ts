@@ -25,4 +25,15 @@ export const legal = typoDeep({
     privacy: "Zásady ochrany údajů",
     dataNote: `Data k ${N.dataDate}`,
   },
+  notFound: {
+    title: "Tahle stránka neexistuje",
+    text: `Odkaz je asi neúplný. Srovnání ${N.etfCount} ETF z NYSE a kalkulačka poplatků jsou na hlavní stránce.`,
+    back: "Na hlavní stránku",
+  },
+  /** Sdílení odkazu (OG obrázky vyrábí scripts/render-og.mjs) */
+  share: {
+    siteName: "ETF tahák",
+    ogAltPoplatky: `Modelový výpočet: rozdíl ${N.diffHeadline} mezi poplatkem ${N.avgTer} a ${N.etfTer} ročně za ${N.years} let`,
+    ogAltSrovnani: "VOO, SPY, VTI, SCHD: z Česka je běžně nekoupíte. Tady je, co místo nich.",
+  },
 });

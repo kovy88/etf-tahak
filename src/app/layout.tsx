@@ -3,6 +3,7 @@ import { Fraunces, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import { legal } from "@/content/legal";
+import { openGraph, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/seo";
 import { CookieBar } from "@/components/CookieBar";
 
 const serif = Fraunces({
@@ -17,10 +18,17 @@ const mono = IBM_Plex_Mono({
   display: "swap",
 });
 
+/** Absolutní URL pro OG obrázky: produkční doména na Vercelu, jinak NEXT_PUBLIC_SITE_URL. */
+const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000");
+
 export const metadata: Metadata = {
-  title: "ETF tahák: 12 ETF z NYSE pro české investory",
-  description:
-    "Srovnání 12 ETF z NYSE, jejich evropských alternativ, poplatků a českých daní. Zdroje u každého čísla.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: openGraph({ title: SITE_TITLE, description: SITE_DESCRIPTION, url: "/", image: "srovnani" }),
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

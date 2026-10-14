@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "pdf": "next build && tsx scripts/render-pdf.ts",
-    "ads": "node ads/render.mjs"
+    "ads": "node ads/render.mjs",
+    "og": "node scripts/render-og.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.3",
