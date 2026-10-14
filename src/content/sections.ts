@@ -38,11 +38,17 @@ export const calc = typoDeep({
     /** šablona, funkce nejde předat klientské komponentě */
     ariaTemplate: "Graf za {years}\u00a0let: ETF {etf}, průměrný fond {avg}, vklady {dep}",
   },
-  assumptionNote: `Modelový výpočet. Výnos ${N.gross} ročně před poplatky je předpoklad, ne předpověď. Skutečný výnos se bude lišit a může být záporný.`,
+  /** Bez konkrétního čísla: výnos jde přepnout na 4 / 6 / 8 %, poznámka musí platit pro všechny. */
+  assumptionNote: "Modelový výpočet. Zvolený výnos před poplatky je předpoklad, ne předpověď. Skutečný výnos se bude lišit a může být záporný.",
   avgFundNote: `Průměrný akciový fond v EU: průběžné náklady ${N.avgTer} ročně (ESMA, data za rok 2024). Vstupní poplatek jsme nezapočítali, rozdíl je proto spíš podhodnocený. Neplatí pro konkrétní fond.`,
   methodNote:
     "Vklad na začátku měsíce, čistý výnos = hrubý výnos minus roční náklady fondu, měsíční připisování.",
   sourceLabel: "Zdroje a metoda",
+  /** Nadpis nad formulářem: navazuje na výsledek, čísla doplní klient podle stavu kalkulačky. */
+  lead: {
+    titleTemplate: "Rozdíl {difference} dělá poplatek",
+    textTemplate: `Která ETF s poplatkem od {etfTer} koupíte z Česka a jak je danit, najdete v taháku (PDF, ${N.pdfPages} stran).`,
+  },
 });
 
 export const compare = typoDeep({

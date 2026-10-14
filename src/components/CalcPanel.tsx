@@ -180,3 +180,16 @@ export function CalcPanel({ labels }: { labels: CalcLabels }) {
     </>
   );
 }
+
+/** Nadpis nad formulářem pod kalkulačkou: opakuje výsledek, aby výzva navázala na vrchol motivace (PLAN §5, místo #1). */
+export function CalcLeadIntro({ titleTemplate, textTemplate }: { titleTemplate: string; textTemplate: string }) {
+  const { result } = useLanding();
+  return (
+    <>
+      <h3 className="serif text-[1.25rem] leading-tight font-semibold">
+        {titleTemplate.replace("{difference}", czkRounded(result.difference))}
+      </h3>
+      <p className="mt-1.5 mb-4 text-[0.9375rem] leading-snug">{textTemplate.replace("{etfTer}", pct(result.etfTer))}</p>
+    </>
+  );
+}
