@@ -8,7 +8,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 
 ## 0. Stav (každý chat odškrtne svoji fázi)
 
-- [ ] F0 Setup: repo, GitHub, Vercel
+- [x] F0 Setup: repo, GitHub, Vercel
 - [ ] F1 Data a zdroje
 - [ ] F2 Texty (stránka + reklamy)
 - [ ] F3 Design systém + statická stránka
