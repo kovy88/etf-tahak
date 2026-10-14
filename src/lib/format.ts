@@ -47,6 +47,10 @@ export function typo(s: string): string {
   }
   out = out.replace(new RegExp(`(\\d) (${UNITS})(?![\\p{L}])`, "gu"), `$1${NBSP}$2`);
   out = out.replace(/p\. a\./g, `p.${NBSP}a.`);
+  // datum „30. 9. 2026“ se nesmí zalomit uprostřed
+  out = out.replace(/(\d{1,2})\. (\d{1,2})\. (\d{4})/g, `$1.${NBSP}$2.${NBSP}$3`);
+  // „W-8BEN“ se nesmí zalomit za pomlčkou (WORD JOINER)
+  out = out.replace(/W-8BEN/g, "W-\u20608BEN");
   return out;
 }
 

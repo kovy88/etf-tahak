@@ -20,3 +20,12 @@ describe("format", () => {
     expect(typo("výnos p. a.")).toBe(`výnos p.${NBSP}a.`);
   });
 });
+
+describe("typo: datum a W-8BEN", () => {
+  it("datum se nezlomí uprostřed", () => {
+    expect(typo("k 30. 9. 2026")).toBe(`k${NBSP}30.${NBSP}9.${NBSP}2026`);
+  });
+  it("W-8BEN se nezlomí za pomlčkou", () => {
+    expect(typo("formulář W-8BEN")).toContain("W-⁠8BEN");
+  });
+});

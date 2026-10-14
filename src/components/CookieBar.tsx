@@ -1,8 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { trackConsent } from "@/lib/analytics";
 import { getConsent, setConsent, subscribeConsent } from "@/lib/consent";
+import { isPrintPath } from "./Analytics";
 
 const noopSubscribe = () => () => {};
 
@@ -44,7 +46,8 @@ export function CookieBar({ copy: c }: { copy: CookieCopy }) {
     return () => window.removeEventListener("scroll", on);
   }, [consent, scrolled]);
 
-  const visible = mounted && ((consent === null && scrolled) || reopened);
+  const printing = isPrintPath(usePathname());
+  const visible = mounted && !printing && ((consent === null && scrolled) || reopened);
 
   useEffect(() => {
     const root = document.documentElement;

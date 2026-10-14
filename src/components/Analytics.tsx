@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { startAnalytics } from "@/lib/analytics";
 import { captureAttribution } from "@/lib/attribution";
@@ -8,12 +9,17 @@ import { observeWebVitals } from "@/lib/vitals";
 
 const DEPTHS = [25, 50, 75, 100] as const;
 
+/** Tisková verze taháku (zdroj pro PDF) se neměří a nezobrazuje na ní lištu cookies. */
+export const isPrintPath = (path: string | null) => Boolean(path?.startsWith("/tahak/print"));
+
 /** Spustí cíle událostí (PostHog, Meta Pixel) a posílá web vitals. Je v layoutu, takže běží na každé stránce. */
 export function Analytics() {
+  const skip = isPrintPath(usePathname());
   useEffect(() => {
+    if (skip) return;
     startAnalytics();
     return observeWebVitals();
-  }, []);
+  }, [skip]);
   return null;
 }
 

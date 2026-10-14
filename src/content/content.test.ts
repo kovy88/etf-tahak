@@ -14,6 +14,7 @@ import {
   tahak,
   threeThings,
 } from "./index";
+import { tahakPrint } from "./tahakPrint";
 import { NBSP } from "@/lib/format";
 
 /** Posbírá všechny řetězce z objektu. Funkce zavolá s ukázkovým argumentem. */
@@ -46,6 +47,7 @@ const bundle = (emailEnabled: boolean) => ({
   about,
   legal,
   AUTHOR,
+  tahakPrint,
   tahak: tahak(emailEnabled),
   finalCta: finalCta(emailEnabled),
   faq: faq(emailEnabled),
