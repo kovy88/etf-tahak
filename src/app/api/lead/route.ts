@@ -1,4 +1,5 @@
 import { after, NextResponse } from "next/server";
+import { leadPdfServerPath } from "@/lib/leadPdf";
 import { sendLeadEmail } from "@/lib/server/email";
 import { serverTrack } from "@/lib/server/analytics";
 import { domainCanReceiveMail } from "@/lib/server/mx";
@@ -7,7 +8,7 @@ import { admin } from "@/lib/server/supabase";
 
 
 const siteUrl = () => (process.env.NEXT_PUBLIC_SITE_URL ?? "https://etf-tahak.vercel.app").replace(/\/$/, "");
-const downloadUrl = () => process.env.LEAD_PDF_PATH || null;
+const downloadUrl = leadPdfServerPath;
 
 /**
  * POST /api/lead

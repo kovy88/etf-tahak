@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "pdf": "next build && tsx scripts/render-pdf.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.3",

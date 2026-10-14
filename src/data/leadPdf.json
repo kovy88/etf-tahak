@@ -1,0 +1,15 @@
+{
+  "path": "/tahak/9a91cdaed8.pdf",
+  "pages": 11,
+  "bytes": 1229220,
+  "content_hash": "9a91cdaed8",
+  "preview_size": {
+    "width": 640,
+    "height": 906
+  },
+  "previews": {
+    "compare": "/tahak/preview-compare.png",
+    "twins": "/tahak/preview-twins.png",
+    "tax": "/tahak/preview-tax.png"
+  }
+}

@@ -114,6 +114,12 @@ export const tahak = (emailEnabled: boolean) =>
       ...(emailEnabled ? ["Váš osobní výpočet z kalkulačky"] : []),
     ],
     cta: "Chci tahák zdarma",
+    /** Náhledy stran z PDF (public/tahak/preview-*.png), popisky pro čtečky obrazovky */
+    previews: [
+      { key: "tax", alt: "Strana 6 taháku: daň z prodeje ETF, časový a hodnotový test" },
+      { key: "twins", alt: "Strana 5 taháku: evropská dvojčata s ISIN, poplatkem a typem" },
+      { key: "compare", alt: `Strana 2 taháku: srovnání ${N.etfCount} ETF z NYSE s poplatky a výnosy` },
+    ] as const,
   });
 
 export const about = typoDeep({

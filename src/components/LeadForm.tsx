@@ -6,6 +6,7 @@ import type { FormLocation } from "@/content/form";
 import { isValidEmail, suggestEmail } from "@/lib/emailTypos";
 import { EMAIL_ENABLED } from "@/lib/flags";
 import { submitLead } from "@/lib/lead";
+import { LEAD_PDF_PATH } from "@/lib/leadPdf";
 import { track } from "@/lib/track";
 import { Button } from "./Button";
 import { useLanding } from "./LandingState";
@@ -119,7 +120,7 @@ export function LeadForm({ location, id }: { location: FormLocation; id?: string
     if (!r.ok) {
       // Za naše chyby návštěvníka netrestáme (PLAN §6): PDF vydáme i tak, chybu jen zaznamenáme.
       track("form_error", { location, reason: "server" });
-      markLead({ email, leadId: null, downloadUrl: process.env.NEXT_PUBLIC_LEAD_PDF_PATH ?? null, location });
+      markLead({ email, leadId: null, downloadUrl: LEAD_PDF_PATH, location });
       return;
     }
     markLead({ email, leadId: r.leadId, downloadUrl: r.downloadUrl, location });
