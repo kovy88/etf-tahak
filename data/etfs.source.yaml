@@ -1,0 +1,616 @@
+# Ruční vstup: každá hodnota má value, source (URL) a as_of. Neověřené hodnoty mají verified: false.
+# Procenta jsou čísla (0.03 = 0,03 %). Výnosy jsou NAV total return v USD, průměrný roční, k 30. 9. 2026.
+VOO:
+  ticker: VOO
+  name: Vanguard S&P 500 ETF
+  issuer: Vanguard
+  exchange:
+    value: NYSE Arca
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-10-14'
+  index:
+    value: S&P 500 Index
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-10-14'
+  category: sp500
+  ter_pct:
+    value: 0.03
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-04-28'
+    note: TER (expense ratio) dle stránky emitenta
+  aum_usd:
+    value: 1000000000000.0
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-09-30'
+    note: Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem
+  holdings:
+    value: 505
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-10-14'
+    note: Datum údaje stránka neuvádí, použito datum stažení
+  inception:
+    value: '2010-09-07'
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2010-09-07'
+  dividend_yield_pct:
+    value: 1.04
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-09-30'
+    note: 'Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)'
+  return_1y_pct:
+    value: 15.7
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 13.75
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 15.29
+    source: https://investor.vanguard.com/investment-products/etfs/profile/voo
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+VTI:
+  ticker: VTI
+  name: Vanguard Total Stock Market ETF
+  issuer: Vanguard
+  exchange:
+    value: NYSE Arca
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-10-14'
+  index:
+    value: Spliced Total Stock Market Index
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-10-14'
+  category: usa
+  ter_pct:
+    value: 0.03
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-04-28'
+    note: TER (expense ratio) dle stránky emitenta
+  aum_usd:
+    value: 689200000000.0
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-09-30'
+    note: Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem
+  holdings:
+    value: 3507
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-10-14'
+    note: Datum údaje stránka neuvádí, použito datum stažení
+  inception:
+    value: '2001-05-24'
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2001-05-24'
+  dividend_yield_pct:
+    value: 1.04
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-09-30'
+    note: 'Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)'
+  return_1y_pct:
+    value: 15.33
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 12.56
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 14.7
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vti
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+VT:
+  ticker: VT
+  name: Vanguard Total World Stock ETF
+  issuer: Vanguard
+  exchange:
+    value: NYSE Arca
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-10-14'
+  index:
+    value: Spliced Total World Stock Index
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-10-14'
+  category: world
+  ter_pct:
+    value: 0.06
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-02-27'
+    note: TER (expense ratio) dle stránky emitenta
+  aum_usd:
+    value: 81800000000.0
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-09-30'
+    note: Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem
+  holdings:
+    value: 10088
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-10-14'
+    note: Datum údaje stránka neuvádí, použito datum stažení
+  inception:
+    value: '2008-06-24'
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2008-06-24'
+  dividend_yield_pct:
+    value: 1.52
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-09-30'
+    note: 'Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)'
+  return_1y_pct:
+    value: 16.32
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 11.34
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 12.32
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vt
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+VEA:
+  ticker: VEA
+  name: Vanguard FTSE Developed Markets ETF
+  issuer: Vanguard
+  exchange:
+    value: NYSE Arca
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-10-14'
+  index:
+    value: Spliced Developed ex US Index
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-10-14'
+  category: world
+  ter_pct:
+    value: 0.03
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-04-28'
+    note: TER (expense ratio) dle stránky emitenta
+  aum_usd:
+    value: 231600000000.0
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-09-30'
+    note: Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem
+  holdings:
+    value: 3895
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-10-14'
+    note: Datum údaje stránka neuvádí, použito datum stažení
+  inception:
+    value: '2007-07-20'
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2007-07-20'
+  dividend_yield_pct:
+    value: 2.44
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-09-30'
+    note: 'Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)'
+  return_1y_pct:
+    value: 20.77
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 10.32
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 9.76
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vea
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+VWO:
+  ticker: VWO
+  name: Vanguard FTSE Emerging Markets ETF
+  issuer: Vanguard
+  exchange:
+    value: NYSE Arca
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-10-14'
+  index:
+    value: Spliced Emerging Markets Index
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-10-14'
+  category: world
+  ter_pct:
+    value: 0.06
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-02-27'
+    note: TER (expense ratio) dle stránky emitenta
+  aum_usd:
+    value: 125400000000.0
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-09-30'
+    note: Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem
+  holdings:
+    value: 6348
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-10-14'
+    note: Datum údaje stránka neuvádí, použito datum stažení
+  inception:
+    value: '2005-03-04'
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2005-03-04'
+  dividend_yield_pct:
+    value: 2.04
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-09-30'
+    note: Vlastní výpočet z tabulky Distributions, ale tabulka obsahuje jen 5 výplat za 12 měsíců (chybí březen). Hodnota je pravděpodobně podhodnocená.
+    verified: false
+  return_1y_pct:
+    value: 12.54
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 6.62
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 7.66
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vwo
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+VYM:
+  ticker: VYM
+  name: Vanguard High Dividend Yield ETF
+  issuer: Vanguard
+  exchange:
+    value: NYSE Arca
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-10-14'
+  index:
+    value: FTSE High Dividend Yield Index
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-10-14'
+  category: dividend
+  ter_pct:
+    value: 0.04
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-02-27'
+    note: TER (expense ratio) dle stránky emitenta
+  aum_usd:
+    value: 78900000000.0
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-09-30'
+    note: Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem
+  holdings:
+    value: 603
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-10-14'
+    note: Datum údaje stránka neuvádí, použito datum stažení
+  inception:
+    value: '2006-11-10'
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2006-11-10'
+  dividend_yield_pct:
+    value: 2.31
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-09-30'
+    note: 'Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)'
+  return_1y_pct:
+    value: 12.72
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 11.63
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 11.28
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vym
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+VUG:
+  ticker: VUG
+  name: Vanguard Growth ETF
+  issuer: Vanguard
+  exchange:
+    value: NYSE Arca
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-10-14'
+  index:
+    value: Spliced Growth Index
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-10-14'
+  category: usa
+  ter_pct:
+    value: 0.03
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-04-28'
+    note: TER (expense ratio) dle stránky emitenta
+  aum_usd:
+    value: 232900000000.0
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-09-30'
+    note: Třída ETF Shares (ne celý fond), hodnota zaokrouhlená emitentem
+  holdings:
+    value: 147
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-10-14'
+    note: Datum údaje stránka neuvádí, použito datum stažení
+  inception:
+    value: '2004-01-26'
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2004-01-26'
+  dividend_yield_pct:
+    value: 1.27
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-09-30'
+    note: 'Vlastní výpočet: součet dividend s ex-datem 1. 10. 2025 – 30. 9. 2026 / NAV z 13. 10. 2026 (tabulka Distributions na stránce emitenta)'
+  return_1y_pct:
+    value: 13.09
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 13.87
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 17.94
+    source: https://investor.vanguard.com/investment-products/etfs/profile/vug
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+IVV:
+  ticker: IVV
+  name: iShares Core S&P 500 ETF
+  issuer: iShares (BlackRock)
+  exchange:
+    value: NYSE Arca
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-10-14'
+  index:
+    value: S&P 500 Index
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-10-14'
+  category: sp500
+  ter_pct:
+    value: 0.03
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-10-14'
+  aum_usd:
+    value: 896463527326
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-10-13'
+  holdings:
+    value: 504
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-10-12'
+  inception:
+    value: '2000-05-15'
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2000-05-15'
+  dividend_yield_pct:
+    value: 1.1
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-09-30'
+    note: 12m trailing yield dle emitenta
+  return_1y_pct:
+    value: 15.71
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 13.76
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 15.3
+    source: https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+AGG:
+  ticker: AGG
+  name: iShares Core U.S. Aggregate Bond ETF
+  issuer: iShares (BlackRock)
+  exchange:
+    value: NYSE Arca
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-10-14'
+  index:
+    value: Bloomberg US Aggregate Bond Index
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-10-14'
+  category: bonds_gold
+  ter_pct:
+    value: 0.03
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-10-14'
+  aum_usd:
+    value: 137554936373
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-10-13'
+  holdings:
+    value: 13406
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-10-12'
+  inception:
+    value: '2003-09-22'
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2003-09-22'
+  dividend_yield_pct:
+    value: 4.19
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-10-09'
+    note: 12m trailing yield dle emitenta (30denní SEC yield je 5,11 %)
+  return_1y_pct:
+    value: -1.87
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: -0.64
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 1.11
+    source: https://www.ishares.com/us/products/239458/ishares-core-us-aggregate-bond-etf
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+SPY:
+  ticker: SPY
+  name: SPDR S&P 500 ETF Trust
+  issuer: State Street (SPDR)
+  exchange:
+    value: NYSE Arca
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-10-14'
+  index:
+    value: S&P 500 Index
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-10-14'
+  category: sp500
+  ter_pct:
+    value: 0.0945
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-10-14'
+    note: Gross expense ratio dle emitenta
+  aum_usd:
+    value: 821107580000
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-10-12'
+    note: 821 107,58 mil. USD
+  holdings:
+    value: 504
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-10-12'
+  inception:
+    value: '1993-01-22'
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '1993-01-22'
+  dividend_yield_pct:
+    value: 0.94
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-10-14'
+    note: Fund distribution yield (součet výplat za 365 dní / NAV). Datum výpočtu stránka neuvádí.
+    verified: false
+  return_1y_pct:
+    value: 15.6
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 13.65
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 15.18
+    source: https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+SCHD:
+  ticker: SCHD
+  name: Schwab U.S. Dividend Equity ETF
+  issuer: Schwab Asset Management
+  exchange:
+    value: NYSE Arca
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-10-13'
+  index:
+    value: Dow Jones U.S. Dividend 100 Index
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-10-13'
+  category: dividend
+  ter_pct:
+    value: 0.06
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-10-13'
+  aum_usd:
+    value: 111605748620.78
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-10-13'
+  holdings:
+    value: 102
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-10-13'
+  inception:
+    value: '2011-10-20'
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2011-10-20'
+  dividend_yield_pct:
+    value: 3.24
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-09-30'
+    note: Distribution yield (TTM) dle emitenta
+  return_1y_pct:
+    value: 23.36
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_5y_pct:
+    value: 9.48
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+  return_10y_pct:
+    value: 12.44
+    source: https://www.schwabassetmanagement.com/products/schd
+    as_of: '2026-09-30'
+    note: NAV, průměrný roční total return v USD
+GLD:
+  ticker: GLD
+  name: SPDR Gold Shares
+  issuer: World Gold Trust Services (SPDR)
+  exchange:
+    value: NYSE Arca
+    source: https://www.spdrgoldshares.com/usa/gld/
+    as_of: '2026-10-14'
+  index:
+    value: LBMA Gold Price PM
+    source: https://www.spdrgoldshares.com/usa/gld/
+    as_of: '2026-10-14'
+  category: bonds_gold
+  ter_pct:
+    value: 0.4
+    source: https://www.spdrgoldshares.com/usa/gld/
+    as_of: '2026-10-14'
+  aum_usd:
+    value: 141298596529.96
+    source: https://www.spdrgoldshares.com/usa/gld/
+    as_of: '2026-10-13'
+  holdings:
+    value: null
+    source: https://www.spdrgoldshares.com/usa/gld/
+    as_of: '2026-10-14'
+    note: Fyzické zlato, žádné pozice
+  inception:
+    value: '2004-11-18'
+    source: https://www.spdrgoldshares.com/usa/gld/
+    as_of: '2004-11-18'
+  dividend_yield_pct:
+    value: 0.0
+    source: https://www.spdrgoldshares.com/usa/gld/
+    as_of: '2026-10-14'
+    note: Fond je držitelem zlata a nevyplácí dividendy
+  return_1y_pct:
+    value: 8.74
+    source: https://api.spdrgoldshares.com/api/v1/historical-archive?product=gld&exchange=NYSE&lang=en
+    as_of: '2026-09-30'
+    note: Vlastní výpočet z denního NAV/akcii v historickém archivu emitenta (data/raw/gld-historical-archive-2026-10-14.xlsx), NAV z 30. 9. 2026 vs. začátek období, anualizováno. Fond nevyplácí dividendy.
+  return_5y_pct:
+    value: 18.63
+    source: https://api.spdrgoldshares.com/api/v1/historical-archive?product=gld&exchange=NYSE&lang=en
+    as_of: '2026-09-30'
+    note: Vlastní výpočet z denního NAV/akcii v historickém archivu emitenta (data/raw/gld-historical-archive-2026-10-14.xlsx), NAV z 30. 9. 2026 vs. začátek období, anualizováno. Fond nevyplácí dividendy.
+  return_10y_pct:
+    value: 11.74
+    source: https://api.spdrgoldshares.com/api/v1/historical-archive?product=gld&exchange=NYSE&lang=en
+    as_of: '2026-09-30'
+    note: Vlastní výpočet z denního NAV/akcii v historickém archivu emitenta (data/raw/gld-historical-archive-2026-10-14.xlsx), NAV z 30. 9. 2026 vs. začátek období, anualizováno. Fond nevyplácí dividendy.
