@@ -93,6 +93,8 @@ export const compare = typoDeep({
   },
   footnote: `Výnosy: NAV, v USD podle emitenta k ${N.dataDate}, v korunách přepočtené kurzem ČNB. Minulé výnosy nezaručují budoucí. Hvězdička (*) označuje údaj, který se nepodařilo plně ověřit.`,
   tickerAria: `Výnosy za 5 let ročně v korunách u ${N.etfCount} ETF z NYSE, podrobnosti ve srovnání níže`,
+  /** Pevný popisek pruhu: bez něj by výnosy neměly období ani měnu (pravidlo 5). */
+  tickerLabel: "5 let p. a. v Kč",
   fx: {
     before: "Kurz ",
     link: "ČNB",

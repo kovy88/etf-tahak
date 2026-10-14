@@ -4,7 +4,7 @@ import { pct } from "@/lib/format";
 
 /**
  * Burzovní pruh s reálnými daty: výnos za 5 let p. a. v Kč (kurz ČNB), se znaménkem.
- * Dekorativní, zdroje a metoda jsou ve srovnání níže.
+ * Pevný popisek vlevo říká období a měnu, zdroje a metoda jsou ve srovnání níže.
  */
 export function TickerStrip() {
   const items = etfsData.etfs.map((e) => {
@@ -21,14 +21,18 @@ export function TickerStrip() {
       </span>
     ));
   return (
-    <div
-      className="overflow-hidden bg-ink py-2.5 text-paper"
-      role="img"
-      aria-label={compare.tickerAria}
-    >
-      <div className="ticker-track" aria-hidden="true">
-        {row("a")}
-        {row("b")}
+    <div className="flex bg-ink text-paper" role="img" aria-label={compare.tickerAria}>
+      <span
+        className="mono relative z-10 shrink-0 border-r border-paper/30 bg-ink py-2.5 pl-[var(--gutter)] pr-2.5 text-[11px] leading-[13px] text-paper/70"
+        aria-hidden="true"
+      >
+        {compare.tickerLabel}
+      </span>
+      <div className="min-w-0 flex-1 overflow-hidden py-2.5">
+        <div className="ticker-track" aria-hidden="true">
+          {row("a")}
+          {row("b")}
+        </div>
       </div>
     </div>
   );
