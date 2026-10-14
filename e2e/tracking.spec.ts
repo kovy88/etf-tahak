@@ -122,8 +122,15 @@ test("na první obrazovce lišta není a tlačítko v hero je celé vidět (360�
   await page.goto("/poplatky");
   await page.waitForTimeout(500);
   await expect(page.getByRole("region", { name: "Souhlas s cookies" })).toHaveCount(0);
-  const cta = await page.locator("header").getByRole("button", { name: /tahák zdarma/i }).boundingBox();
-  expect((cta?.y ?? 0) + (cta?.height ?? 0)).toBeLessThanOrEqual(600);
+  const cta = page.locator("header").getByRole("button", { name: /tahák zdarma/i });
+  const bottom = async () => {
+    const b = await cta.boundingBox();
+    return (b?.y ?? 0) + (b?.height ?? 0);
+  };
+  expect(await bottom()).toBeLessThanOrEqual(600);
+  // nejdelší věta pod číslem (10 000 Kč) nesmí tlačítko posunout pod okraj
+  await page.getByRole("group", { name: "Měsíční vklad" }).first().getByRole("button", { name: /10\s000/ }).click();
+  expect(await bottom()).toBeLessThanOrEqual(600);
 });
 
 test("po odrolování lišta nezakrývá lepivé CTA a sticky odskočí nad ni", async ({ page }) => {

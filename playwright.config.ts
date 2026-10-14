@@ -17,7 +17,13 @@ export default defineConfig({
     command: `npm run dev -- -p ${PORT}`,
     url: `http://localhost:${PORT}/poplatky`,
     reuseExistingServer: true,
-    env: { NEXT_PUBLIC_TEST_MODE: "true", NEXT_PUBLIC_LEAD_PDF_PATH: "/favicon.ico" },
+    env: {
+      NEXT_PUBLIC_TEST_MODE: "true",
+      NEXT_PUBLIC_LEAD_PDF_PATH: "/favicon.ico",
+      // testy nesmí posílat události do skutečného projektu PostHogu, i když je klíč v .env.local
+      NEXT_PUBLIC_POSTHOG_KEY: "",
+      NEXT_PUBLIC_META_PIXEL_ID: "",
+    },
     timeout: 120_000,
   },
 });
