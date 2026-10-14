@@ -14,7 +14,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F3 Design systém + statická stránka
 - [x] F4 Interaktivní prvky + varianty
 - [x] F5 Formulář, leady, děkovný stav, e-mail
-- [ ] F6 Měření a souhlas s cookies (kód hotový a otestovaný, čeká na klíč PostHogu, funnel a ověření na produkci)
+- [x] F6 Měření a souhlas s cookies
 - [ ] F7 Lead magnet (PDF)
 - [ ] F8 Reklamy (kreativy)
 - [ ] F9 QA a připravenost na spuštění
@@ -374,6 +374,8 @@ Breakdown podle `variant`, `utm_content`, `location` a `in_app_browser`.
 2. `form_viewed`
 3. `form_started`
 4. `lead_created` (serverová událost)
+
+Stav: funnel „Funnel: hlavní“ je v PostHogu hotový (okno 1 den, unikátní uživatelé, breakdown `variant`) a leží v dashboardu „ETF tahák“. V nastavení projektu je filtr testovacích uživatelů (`$host` neobsahuje `localhost`, `utm_source` není `claude_test`), proto je funnel do spuštění reklamy prázdný. Testovací leady označujte `utm_source=claude_test`.
 
 Breakdown podle `variant`, pak `utm_content`, `form_location`/`location` a `in_app_browser`. „Engaged“ krok (`calc_interacted` nebo `compare_filter_changed` nebo `scroll_depth ≥ 50`) se v PostHogu nedá spojit jedním OR, proto ho sledujte jako samostatný trend.
 
