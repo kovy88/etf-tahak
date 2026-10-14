@@ -13,7 +13,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F2 Texty (stránka + reklamy)
 - [x] F3 Design systém + statická stránka
 - [x] F4 Interaktivní prvky + varianty
-- [ ] F5 Formulář, leady, děkovný stav, e-mail
+- [x] F5 Formulář, leady, děkovný stav, e-mail
 - [ ] F6 Měření a souhlas s cookies
 - [ ] F7 Lead magnet (PDF)
 - [ ] F8 Reklamy (kreativy)
@@ -708,6 +708,7 @@ Fáze F9 z docs/PLAN.md: QA a připravenost na spuštění. Přečti §15 a §16
 4) OG obrázek, favicon, title/description, 404.
 5) Napiš mi checklist pro ruční test v in-app prohlížeči Instagramu a Facebooku (odkaz si pošlu) a oprav, co z testu vyjde.
 6) Security: spusť /security-review. Žádné tajné klíče v repu ani v ai-log.
+7) Supabase free projekt se po týdnu bez aktivity pozastaví: před spuštěním ho zkontroluj a zajisti pravidelný dotaz. Přidej rate limit na /api/lead (Vercel Firewall).
 Commituj po opravách. Na konci odškrtni F9.
 ```
 
