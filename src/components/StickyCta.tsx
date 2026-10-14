@@ -3,17 +3,19 @@
 import { useEffect, useState } from "react";
 import { formCopy } from "@/content/form";
 import { EMAIL_ENABLED } from "@/lib/flags";
+import { useLanding } from "./LandingState";
 import { SheetButton } from "./SheetButton";
 
 /**
  * Lepivá lišta dole. Ukáže se, když odroluje hero (od S2), a schová se, když je vidět
- * formulář nebo je otevřená klávesnice (visualViewport).
+ * formulář, je otevřená klávesnice (visualViewport) nebo už návštěvník e-mail poslal (PDF má v děkovném stavu i v hero).
  */
 export function StickyCta() {
   const c = formCopy(EMAIL_ENABLED);
   const [pastHero, setPastHero] = useState(false);
   const [formsVisible, setFormsVisible] = useState(0);
   const [keyboard, setKeyboard] = useState(false);
+  const { leadDone } = useLanding();
 
   useEffect(() => {
     const first = document.querySelector("main > section");
@@ -63,7 +65,7 @@ export function StickyCta() {
     return () => vv.removeEventListener("resize", on);
   }, []);
 
-  const show = pastHero && formsVisible === 0 && !keyboard;
+  const show = pastHero && formsVisible === 0 && !keyboard && !leadDone;
   return (
     <div
       data-visible={show}

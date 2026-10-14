@@ -130,7 +130,9 @@ test("hero CTA otevře sheet s fokusem na poli a odeslání přepne všechna mí
   // hero i lepivá lišta už nenabízí formulář, ale rovnou PDF
   await expect(page.locator("header").getByRole("link", { name: "Stáhnout PDF" })).toBeVisible();
   await expect(page.locator("header").getByRole("button", { name: "Chci tahák zdarma" })).toHaveCount(0);
-  await expect(page.locator("[data-past-hero] a[data-state=done]")).toHaveText("Stáhnout PDF");
+  // lepivá lišta po odeslání zmizí, PDF je v děkovném stavu i v hero
+  await page.locator("main > section").nth(1).scrollIntoViewIfNeeded();
+  await expect(page.locator("[data-past-hero]")).toHaveAttribute("data-visible", "false");
 });
 
 test("sticky lišta: schovaná v hero a u formuláře, ukáže se mezi nimi", async ({ page }) => {
