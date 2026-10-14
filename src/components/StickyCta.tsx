@@ -72,7 +72,7 @@ export function StickyCta() {
       data-keyboard={keyboard}
       aria-hidden={!show}
       inert={!show}
-      className={`fixed inset-x-0 bottom-0 z-20 border-t border-ink bg-paper px-[var(--gutter)] py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] transition-transform duration-200 motion-reduce:transition-none ${
+      className={`fixed inset-x-0 bottom-[var(--cookie-h,0px)] z-20 border-t border-ink bg-paper px-[var(--gutter)] py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] transition-transform duration-200 motion-reduce:transition-none ${
         show ? "translate-y-0" : "translate-y-full"
       }`}
     >

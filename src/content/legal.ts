@@ -13,9 +13,11 @@ export const legal = typoDeep({
     `Údaje o ETF jsou k ${N.dataDate}. Údaje o daních a regulaci nejsou právní ani daňové poradenství.`,
   ],
   cookie: {
-    text: "Měříme návštěvnost. Bez souhlasu to děláme anonymně a bez cookies. Se souhlasem si pamatujeme, co jste na stránce dělali, a měříme reklamy.",
+    text: "Návštěvnost měříme anonymně a bez cookies. Se souhlasem si pamatujeme vaši cestu po stránce a měříme reklamy.",
     accept: "Přijmout",
     decline: "Odmítnout",
+    settings: "Nastavení cookies",
+    label: "Souhlas s cookies",
   },
   footer: {
     operator: "Provozovatel: [doplní zadavatel]",

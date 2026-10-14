@@ -1,6 +1,7 @@
 import { legal } from "@/content";
 import { dateCs } from "@/lib/format";
 import { etfsData, facts } from "@/content/data";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 
 const SOURCES: { label: string; href: string }[] = [
   { label: "Vanguard", href: "https://investor.vanguard.com/investment-products/etfs/profile/voo" },
@@ -37,7 +38,8 @@ export function Footer() {
           {legal.footer.operator} · {legal.footer.dataNote} ·{" "}
           <a href="/zasady-ochrany-udaju" className="underline underline-offset-2">
             {legal.footer.privacy}
-          </a>
+          </a>{" "}
+          · <CookieSettingsButton label={legal.cookie.settings} />
         </p>
         <p className="mono mt-2 text-[0.6875rem]">Vygenerováno {dateCs(etfsData.meta.generated_at.slice(0, 10))}</p>
       </div>

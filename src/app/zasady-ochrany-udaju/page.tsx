@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <h1 className="serif text-[1.875rem] leading-[1.1] font-semibold">{privacy.title}</h1>
       <p className="mono mt-2 text-[0.8125rem] text-grey">{privacy.updated}</p>
       {privacy.sections.map((s) => (
-        <section key={s.h} className="mt-7">
+        <section key={s.h} id={"id" in s ? s.id : undefined} className="mt-7 scroll-mt-4">
           <h2 className="serif text-[1.25rem] font-semibold">{s.h}</h2>
           {s.p.map((t) => (
             <p key={t} className="mt-2 text-[1rem] leading-[1.6]">
