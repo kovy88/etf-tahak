@@ -46,3 +46,7 @@ __pycache__/
 .venv/
 .pytest_cache/
 .ruff_cache/
+
+# playwright
+test-results/
+playwright-report/

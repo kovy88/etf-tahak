@@ -12,7 +12,7 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F1 Data a zdroje
 - [x] F2 Texty (stránka + reklamy)
 - [x] F3 Design systém + statická stránka
-- [ ] F4 Interaktivní prvky + varianty
+- [x] F4 Interaktivní prvky + varianty
 - [ ] F5 Formulář, leady, děkovný stav, e-mail
 - [ ] F6 Měření a souhlas s cookies
 - [ ] F7 Lead magnet (PDF)
