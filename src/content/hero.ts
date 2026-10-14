@@ -1,12 +1,17 @@
 import { typoDeep } from "@/lib/format";
 import { N } from "./data";
 
+const POPLATKY_SUB =
+  "Při {monthly} měsíčně a výnosu {gross} ročně před poplatky. Spočítejte si to na svých číslech a stáhněte si tahák: {etfCount} ETF z newyorské burzy, co z nich koupíte z Česka a jak je danit.";
+
 /** Hero obou variant. Slib a čísla musí odpovídat reklamám (ads/A-poplatky a ads/B-voo, copy.md). */
 export const hero = typoDeep({
   poplatky: {
     eyebrow: `Kalkulačka + srovnání ${N.etfCount} ETF z NYSE · data k ${N.dataDate}`,
     h1: `Rozdíl mezi poplatkem ${N.avgTer} a ${N.etfTer} ročně? Za ${N.years} let ${N.diffHeadline}.`,
-    sub: `Při ${N.monthly} měsíčně a výnosu ${N.gross} ročně před poplatky. Spočítejte si to na svých číslech a stáhněte si tahák: ${N.etfCount} ETF z newyorské burzy, co z nich koupíte z Česka a jak je danit.`,
+    /** Šablona s {monthly} a {gross}, hero ji přepočítává podle kalkulačky. `sub` je výchozí stav (stejný jako v reklamě). */
+    subTemplate: POPLATKY_SUB.replace("{etfCount}", String(N.etfCount)),
+    sub: POPLATKY_SUB.replace("{monthly}", N.monthly).replace("{gross}", N.gross).replace("{etfCount}", String(N.etfCount)),
     proof: {
       labelTemplate: "Za {years} let",
       annotation: "modelový výpočet",

@@ -127,6 +127,8 @@ describe("texty v src/content", () => {
     expect(hero.poplatky.h1).toContain(N.diffHeadline);
     expect(hero.poplatky.proof.value).toBe(N.diffHeadline);
     expect(hero.poplatky.sub).toContain(N.monthly);
+    expect(hero.poplatky.subTemplate).toContain("{monthly}");
+    expect(hero.poplatky.subTemplate.replace("{monthly}", N.monthly).replace("{gross}", N.gross)).toBe(hero.poplatky.sub);
   });
 
   it("každé číslo v hero B pochází z dat", () => {

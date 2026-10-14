@@ -1,6 +1,6 @@
 import { hero } from "@/content";
 import type { VariantId } from "@/content";
-import { HeroAmounts, HeroNumber } from "./HeroProof";
+import { HeroAmounts, HeroNumber, HeroSub } from "./HeroProof";
 import { Stamp } from "./Stamp";
 import { SheetButton } from "./SheetButton";
 import { TickerBadge } from "./TickerBadge";
@@ -39,7 +39,7 @@ function HeroPoplatky() {
           amountsLabel={h.proof.amountsLabel}
           amounts={[1000, 3000, 5000, 10000].map((v) => ({ value: v }))}
         />
-        <p className="mt-3 text-[0.9375rem] leading-snug">{h.sub}</p>
+        <HeroSub template={h.subTemplate} />
         <div className="mt-4">
           <SheetButton label={h.cta} location="hero" />
           <Secondary href="#kalkulacka">{h.secondary}</Secondary>

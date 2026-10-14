@@ -46,6 +46,8 @@ test("volba částky v hero přepočítá číslo okamžitě i v kalkulačce", a
   await page.getByRole("group", { name: "Měsíční vklad" }).first().getByRole("button", { name: /5\s000/ }).click();
   expect(await heroNumber(page)).toBe(num(czkRounded(diff(5000))));
   await expect(page.locator("#kalkulacka button[aria-pressed=true]").first()).toContainText(/5\s000/);
+  // věta pod číslem musí říkat stejnou částku jako zvolené tlačítko
+  await expect(page.locator("header").getByText(/^Při\s5\s000\sKč\směsíčně\sa\svýnosu\s6\s%\sročně/)).toBeVisible();
   const ev = await events(page);
   expect(ev).toContain("calc_interacted");
 });

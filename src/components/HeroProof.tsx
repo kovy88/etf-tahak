@@ -1,6 +1,6 @@
 "use client";
 
-import { czkRounded, num, pct } from "@/lib/format";
+import { czk, czkRounded, num, pct } from "@/lib/format";
 import { Marker } from "./Marker";
 import { useLanding } from "./LandingState";
 
@@ -59,4 +59,11 @@ export function HeroAmounts({
       </div>
     </>
   );
+}
+
+/** Věta pod hero čísly: částka a výnos v ní odpovídají aktuálnímu stavu kalkulačky. */
+export function HeroSub({ template }: { template: string }) {
+  const { calc } = useLanding();
+  const text = template.replace("{monthly}", czk(calc.monthly)).replace("{gross}", pct(calc.gross, 0));
+  return <p className="mt-3 text-[0.9375rem] leading-snug">{text}</p>;
 }
