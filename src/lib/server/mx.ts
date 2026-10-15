@@ -11,7 +11,8 @@ export async function domainCanReceiveMail(domain: string): Promise<boolean> {
   const lookup = async (): Promise<boolean> => {
     try {
       const mx = await resolveMx(domain);
-      if (mx.length > 0) return true;
+      // Null MX (RFC 7505) výslovně říká, že doména poštu nepřijímá; A záznam to nepřebije.
+      if (mx.length > 0) return mx.some((record) => record.exchange !== "" && record.exchange !== ".");
     } catch (e) {
       const code = (e as NodeJS.ErrnoException).code;
       if (code !== "ENODATA" && code !== "ENOTFOUND") return true;

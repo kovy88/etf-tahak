@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const insert = vi.fn();
 const update = vi.fn();
 const eq = vi.fn();
+let updateError: { code: string } | null = null;
 vi.mock("@/lib/server/supabase", () => ({
   admin: () => ({
     from: () => ({
@@ -13,7 +14,7 @@ vi.mock("@/lib/server/supabase", () => ({
       },
       update: (v: unknown) => {
         update(v);
-        return { eq: (...a: unknown[]) => { eq(...a); return Promise.resolve({ error: null }); } };
+        return { eq: (...a: unknown[]) => { eq(...a); return Promise.resolve({ error: updateError }); } };
       },
     }),
   }),
@@ -22,6 +23,8 @@ let insertResult: () => Promise<{ data: { id: string } | null; error: { code: st
 const mx = vi.fn();
 vi.mock("@/lib/server/mx", () => ({ domainCanReceiveMail: (d: string) => mx(d) }));
 const sendEmail = vi.fn();
+const serverTrack = vi.fn();
+vi.mock("@/lib/server/analytics", () => ({ serverTrack: (...a: unknown[]) => serverTrack(...a) }));
 vi.mock("@/lib/server/email", async (orig) => ({
   ...(await orig<typeof import("@/lib/server/email")>()),
   sendLeadEmail: (...a: unknown[]) => sendEmail(...a),
@@ -42,6 +45,8 @@ const good = { email: "Jan.Novak@Seznam.cz", location: "calc", elapsed_ms: 5000,
 
 beforeEach(() => {
   vi.clearAllMocks();
+  updateError = null;
+  serverTrack.mockResolvedValue(undefined);
   mx.mockResolvedValue(true);
   sendEmail.mockResolvedValue({ sent: true, id: "x" });
   insertResult = async () => ({ data: { id: NEW_ID }, error: null });
@@ -74,6 +79,14 @@ describe("POST /api/lead", () => {
     expect(j.lead_id).not.toBe(NEW_ID);
     expect(j.lead_id).toMatch(/^[0-9a-f-]{36}$/);
     expect(sendEmail).not.toHaveBeenCalled();
+    expect(serverTrack).not.toHaveBeenCalled();
+  });
+
+  it("výpadek analytiky nezablokuje doručení e-mailu", async () => {
+    serverTrack.mockRejectedValue(new Error("tracking unavailable"));
+    const r = await leadPost(req(good));
+    expect(r.status).toBe(200);
+    await vi.waitFor(() => expect(sendEmail).toHaveBeenCalledTimes(1));
   });
 
   it("honeypot: fingovaný úspěch, nic se neukládá", async () => {
@@ -120,6 +133,11 @@ describe("POST /api/lead", () => {
 });
 
 describe("POST /api/lead/profile", () => {
+  it("chyba Supabase ve výsledku vrací 503", async () => {
+    updateError = { code: "XX000" };
+    const r = await profilePost(req({ lead_id: NEW_ID, broker: "XTB" }));
+    expect(r.status).toBe(503);
+  });
   it("uloží broker podle lead_id", async () => {
     const r = await profilePost(req({ lead_id: NEW_ID, broker: "XTB" }));
     expect(r.status).toBe(200);
@@ -134,6 +152,13 @@ describe("POST /api/lead/profile", () => {
 });
 
 describe("odhlášení", () => {
+  it("chyba DB nepotvrdí úspěšné odhlášení", async () => {
+    updateError = { code: "XX000" };
+    const url = `http://localhost/api/unsubscribe?id=${NEW_ID}`;
+    const get = await unsubGet(new Request(url));
+    expect(get.headers.get("location")).toBe("http://localhost/odhlaseno/chyba");
+    expect((await unsubPost(new Request(url, { method: "POST" }))).status).not.toBe(200);
+  });
   it("GET nastaví unsubscribed_at a přesměruje na /odhlaseno", async () => {
     const r = await unsubGet(new Request(`http://localhost/api/unsubscribe?id=${NEW_ID}`));
     expect(r.status).toBe(303);

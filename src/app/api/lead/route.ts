@@ -78,7 +78,8 @@ export async function POST(req: Request) {
 
   after(async () => {
     try {
-      await serverTrack("lead_created", b.posthog_id ?? publicId, {
+      // Konverze znamená nový záznam v DB. Opakované zadání adresy nesmí navyšovat funnel.
+      if (leadId) await serverTrack("lead_created", b.posthog_id ?? publicId, {
         location: b.location,
         is_duplicate: isDuplicate,
         variant: b.variant,
@@ -87,7 +88,7 @@ export async function POST(req: Request) {
         utm_campaign: b.utm_campaign,
         utm_content: b.utm_content,
         in_app_browser: b.in_app_browser,
-      });
+      }).catch((e: unknown) => console.error("lead analytics failed", e instanceof Error ? e.message : e));
       if (leadId && !flags.includes("too_fast")) {
         const r = await sendLeadEmail(b.email, {
           siteUrl: siteUrl(),

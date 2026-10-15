@@ -4,6 +4,16 @@ const LEAD_OK = { ok: true, lead_id: "11111111-2222-4333-8444-555555555555", dow
 
 const events = (page: Page) => page.evaluate(() => window.__events ?? []);
 
+test("dlouhé srovnání se zaznamená, když zabírá polovinu obrazovky", async ({ page }) => {
+  await page.goto("/srovnani");
+  await page.waitForTimeout(150); // první záznam IO ještě před pomalým příchodem do sekce
+  await page.evaluate(() => {
+    const section = document.querySelector("#srovnani")!;
+    window.scrollTo(0, section.getBoundingClientRect().top + window.scrollY - window.innerHeight / 3);
+  });
+  await expect.poll(async () => (await events(page)).some((e) => e.name === "section_viewed" && e.props.section_id === "srovnani")).toBe(true);
+});
+
 /** Lišta se ukáže až po odrolování první obrazovky. */
 async function showBar(page: Page) {
   await page.evaluate(() => window.scrollTo(0, 900));

@@ -29,6 +29,8 @@ for (const variant of ["poplatky", "srovnani"] as const) {
     test(`${variant} ${label}: bez vodorovného posunu, CTA v hero je vidět`, async ({ page }) => {
       await page.setViewportSize({ width: s.w, height: s.h });
       await page.goto(`/${variant}`);
+      // Screenshot nesmí změnit caret style před dokončením hydratace formulářů.
+      await page.waitForFunction(() => window.__events?.some((e) => e.name === "landing_viewed"));
       await page.evaluate(() => document.fonts.ready);
       const o = await overflow(page);
       expect(o.scroll, o.wide.join("\n")).toBeLessThanOrEqual(0);

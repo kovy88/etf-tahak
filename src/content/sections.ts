@@ -53,7 +53,7 @@ export const calc = typoDeep({
 
 export const compare = typoDeep({
   id: "srovnani",
-  title: `${N.etfCount} nejpopulárnějších ETF z NYSE`,
+  title: `${N.etfCount} ETF z NYSE vedle sebe`,
   intro: "Co z nich koupíte jako drobný investor z Česka a čím je nahradit.",
   filters: {
     all: "Vše",
@@ -138,7 +138,7 @@ export const tahak = (emailEnabled: boolean) =>
     updated: `Aktualizováno 10/2026. Zdroje u každého čísla.`,
     items: [
       `Srovnání ${N.etfCount} ETF z NYSE: poplatek, velikost, dividenda, výnos za 1, 5 a 10 let v USD i v Kč`,
-      "Které z nich koupíte z Česka a jejich evropská dvojče: ticker, ISIN, poplatek, akumulační nebo distribuční",
+      "Které z nich koupíte z Česka a jejich evropské alternativy: ticker, ISIN, poplatek, akumulační nebo distribuční",
       `Daně v ČR: časový test ${N.timeTestYears} roky, limit ${N.valueTestCzk}, kdy podat přiznání`,
       "Na co se dívat při výběru brokera a kolik stojí převod měny",
       "Prvních 5 kroků jako checklist",

@@ -12,8 +12,10 @@ const KEY = "etf_lead";
 const listeners = new Set<() => void>();
 let cache: LeadResult | null | undefined;
 let raw: string | null = null;
+let memoryOnly = false;
 
 function load(): LeadResult | null {
+  if (memoryOnly) return cache ?? null;
   try {
     const s = sessionStorage.getItem(KEY);
     if (s === raw && cache !== undefined) return cache;
@@ -36,6 +38,7 @@ export function setLead(r: LeadResult): void {
     raw = JSON.stringify(r);
     sessionStorage.setItem(KEY, raw);
   } catch {
+    memoryOnly = true;
     /* zůstane v paměti */
   }
   listeners.forEach((l) => l());

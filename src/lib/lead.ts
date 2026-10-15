@@ -7,6 +7,7 @@ import { getDistinctId } from "./analytics";
 import { captureAttribution, detectInApp } from "./attribution";
 import { getJourney } from "./track";
 
+export const LEAD_TIMEOUT_MS = 10_000;
 export interface LeadInput {
   email: string;
   location: FormLocation;
@@ -41,6 +42,7 @@ export async function submitLead(input: LeadInput): Promise<LeadResponse> {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
+      signal: AbortSignal.timeout(LEAD_TIMEOUT_MS),
     });
     if (r.status === 422) return { ok: false, reason: "invalid" };
     if (!r.ok) return { ok: false, reason: "server" };
@@ -57,6 +59,7 @@ export async function submitProfile(leadId: string, broker: string): Promise<boo
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ lead_id: leadId, broker }),
+      signal: AbortSignal.timeout(LEAD_TIMEOUT_MS),
     });
     return r.ok;
   } catch {

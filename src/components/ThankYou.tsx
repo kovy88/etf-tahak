@@ -16,6 +16,8 @@ export function ThankYou({ lead, full }: { lead: LeadResult; full: boolean }) {
   const c = formCopy(EMAIL_ENABLED);
   const [broker, setBroker] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [profileBusy, setProfileBusy] = useState(false);
+  const [profileError, setProfileError] = useState(false);
   const hasPdf = Boolean(lead.downloadUrl);
   const viewed = useRef(false);
 
@@ -27,9 +29,17 @@ export function ThankYou({ lead, full }: { lead: LeadResult; full: boolean }) {
   }, [full, lead.location, lead.leadId]);
 
   const answer = async (b: string) => {
+    if (!lead.leadId || profileBusy) return;
+    setProfileBusy(true);
+    setProfileError(false);
+    const saved = await submitProfile(lead.leadId, b);
+    setProfileBusy(false);
+    if (!saved) {
+      setProfileError(true);
+      return;
+    }
     setBroker(b);
     track("profile_answered", { broker: b });
-    if (lead.leadId) await submitProfile(lead.leadId, b);
   };
 
   const share = async () => {
@@ -88,6 +98,7 @@ export function ThankYou({ lead, full }: { lead: LeadResult; full: boolean }) {
                 <button
                   key={o}
                   type="button"
+                  disabled={profileBusy}
                   onClick={() => answer(o)}
                   className="inline-flex h-11 items-center border border-line px-3 text-[0.9375rem] hover:border-ink"
                 >
@@ -96,6 +107,7 @@ export function ThankYou({ lead, full }: { lead: LeadResult; full: boolean }) {
               ))}
             </div>
           )}
+          {profileError ? <p role="alert" className="mt-2 text-[0.875rem] text-loss">{c.profile.error}</p> : null}
         </div>
       ) : null}
 

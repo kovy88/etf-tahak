@@ -17,7 +17,7 @@ type Err = "empty" | "invalid" | "server" | null;
 /**
  * Jediné pole: e-mail (PLAN §11). Validace až na blur nebo při odeslání, návrh opravy domény,
  * po odeslání se všechna místa přepnou do stavu „hotovo“ (PLAN §5).
- * Odeslání je zatím stub (src/lib/lead.ts), F5 ho napojí na server.
+ * Odesílá přes src/lib/lead.ts; při výpadku serveru zůstává dostupné PDF.
  */
 export function LeadForm({ location, id }: { location: FormLocation; id?: string }) {
   const c = formCopy(EMAIL_ENABLED);
@@ -86,6 +86,7 @@ export function LeadForm({ location, id }: { location: FormLocation; id?: string
 
   const onSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
+    if (busy) return;
     const e = validate(value);
     if (e) {
       setErr(e);

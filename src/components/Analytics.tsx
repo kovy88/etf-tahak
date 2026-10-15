@@ -40,25 +40,33 @@ export function LandingAnalytics({ variant }: { variant: string }) {
 
   // section_viewed: sekce je z ≥ 50 % ve viewportu, jednou
   useEffect(() => {
-    if (typeof IntersectionObserver === "undefined") return;
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section[id]"));
     const seen = new Set<string>();
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          const id = (e.target as HTMLElement).id;
-          const half = e.intersectionRatio >= 0.5 || e.intersectionRect.height >= window.innerHeight * 0.5;
-          if (!half || seen.has(id)) continue;
-          seen.add(id);
-          track("section_viewed", { section_id: id, order: sections.indexOf(e.target as HTMLElement) + 2 });
-          io.unobserve(e.target);
-        }
-      },
-      // Vysoké sekce nikdy nedosáhnou 50 % své výšky, proto stačí i 50 % výšky okna.
-      { threshold: [0, 0.25, 0.5, 0.75, 1] },
-    );
-    sections.forEach((s) => io.observe(s));
-    return () => io.disconnect();
+    let raf = 0;
+    const check = () => {
+      raf = 0;
+      for (const [index, section] of sections.entries()) {
+        if (seen.has(section.id)) continue;
+        const r = section.getBoundingClientRect();
+        const visible = Math.min(r.bottom, window.innerHeight) - Math.max(r.top, 0);
+        // IO s pevnými poměry u dlouhého srovnání nepřekročil žádný threshold,
+        // přestože sekce vyplnila většinu obrazovky. Nejvýše šest měření za snímek.
+        if (visible < Math.min(r.height, window.innerHeight) * 0.5) continue;
+        seen.add(section.id);
+        track("section_viewed", { section_id: section.id, order: index + 2 });
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   // scroll_depth: 25/50/75/100 % výšky stránky

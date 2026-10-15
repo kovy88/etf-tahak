@@ -67,6 +67,43 @@ test("chyba serveru: návštěvník stejně dostane PDF", async ({ page }) => {
   expect(ev).toContain("server");
 });
 
+test("zablokovaný zápis do sessionStorage neztratí PDF ani odemčení", async ({ page }) => {
+  await mock(page, 200, LEAD_OK);
+  await page.addInitScript(() => {
+    const original = Storage.prototype.setItem;
+    Storage.prototype.setItem = function (key, value) {
+      if (key === "etf_lead") throw new DOMException("Full", "QuotaExceededError");
+      original.call(this, key, value);
+    };
+  });
+  await page.goto("/srovnani");
+  const f = finalForm(page);
+  await f.getByLabel("Váš e-mail").fill("test@example.com");
+  await f.getByRole("button", { name: /tahák zdarma/i }).click();
+  await expect(page.locator("#zaver").getByRole("link", { name: "Stáhnout PDF" })).toBeVisible();
+  await expect(page.locator("form[data-location]")).toHaveCount(0);
+  await expect(page.locator("#srovnani article")).toHaveCount(12);
+});
+
+test("neuložená odpověď na brokera nehlásí úspěch a lze ji zkusit znovu", async ({ page }) => {
+  await mock(page, 200, LEAD_OK);
+  let attempts = 0;
+  await page.route("**/api/lead/profile", (route) => {
+    attempts++;
+    return route.fulfill({ status: attempts === 1 ? 503 : 200, json: { ok: attempts > 1 } });
+  });
+  await page.goto("/srovnani");
+  const f = finalForm(page);
+  await f.getByLabel("Váš e-mail").fill("test@example.com");
+  await f.getByRole("button", { name: /tahák zdarma/i }).click();
+  const done = page.locator("#zaver");
+  await done.getByRole("button", { name: "XTB" }).click();
+  await expect(done.getByRole("alert")).toContainText("Odpověď se neuložila");
+  await expect(done.getByText("Díky, zapsali jsme si to.")).toHaveCount(0);
+  await done.getByRole("button", { name: "XTB" }).click();
+  await expect(done.getByText("Díky, zapsali jsme si to.")).toBeVisible();
+});
+
 test("doména bez MX (422) ukáže chybu zadání a formulář zůstane", async ({ page }) => {
   await mock(page, 422, { ok: false, error: "invalid_email" });
   await page.goto("/srovnani");

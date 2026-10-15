@@ -14,7 +14,8 @@ export async function POST(req: Request) {
   const p = profileSchema.safeParse(json);
   if (!p.success) return NextResponse.json({ ok: false }, { status: 422 });
   try {
-    await admin().from("leads").update({ broker: p.data.broker }).eq("id", p.data.lead_id);
+    const { error } = await admin().from("leads").update({ broker: p.data.broker }).eq("id", p.data.lead_id);
+    if (error) throw error;
   } catch (e) {
     console.error("profile update failed", e instanceof Error ? e.message : e);
     return NextResponse.json({ ok: false }, { status: 503 });

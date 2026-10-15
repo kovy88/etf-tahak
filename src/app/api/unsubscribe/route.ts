@@ -9,7 +9,8 @@ async function unsubscribe(id: string | null): Promise<boolean> {
   const p = idSchema.safeParse(id);
   if (!p.success) return false;
   try {
-    await admin().from("leads").update({ unsubscribed_at: new Date().toISOString() }).eq("id", p.data);
+    const { error } = await admin().from("leads").update({ unsubscribed_at: new Date().toISOString() }).eq("id", p.data);
+    if (error) throw error;
     return true;
   } catch (e) {
     console.error("unsubscribe failed", e instanceof Error ? e.message : e);
@@ -20,7 +21,9 @@ async function unsubscribe(id: string | null): Promise<boolean> {
 /** Odhlášení jedním klikem z odkazu v e-mailu. */
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  await unsubscribe(url.searchParams.get("id"));
+  if (!(await unsubscribe(url.searchParams.get("id")))) {
+    return NextResponse.redirect(new URL("/odhlaseno/chyba", url.origin), 303);
+  }
   return NextResponse.redirect(new URL("/odhlaseno", url.origin), 303);
 }
 

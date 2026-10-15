@@ -26,19 +26,21 @@ const BLURRED_SHOWN = 3;
 
 /** Filtry, 3 karty zdarma a rozmazaný zbytek s bránou. Po odeslání formuláře se odemkne bez reloadu. */
 export function CompareList({ cards, filters, filterAria, unlockLabels, hint, empty, insight }: CompareListProps) {
-  const { unlocked } = useLanding();
+  const { unlocked, lead } = useLanding();
   const [filter, setFilter] = useState("all");
   const [gateOpen, setGateOpen] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
   const inView = cards.filter((c) => filter === "all" || c.category === filter);
-  const free = unlocked ? inView : inView.filter((c) => c.free);
+  const free = inView.filter((c) => c.free);
+  const rest = inView.filter((c) => !c.free);
   const locked = unlocked ? [] : inView.filter((c) => !c.free);
   const showInsight = filter === "all" || filter === "sp500";
 
   useEffect(() => {
-    if (gateOpen) formRef.current?.querySelector<HTMLInputElement>("input[type=email]")?.focus();
-  }, [gateOpen]);
+    if (gateOpen && !unlocked) formRef.current?.querySelector<HTMLInputElement>("input[type=email]")?.focus();
+    if (unlocked && lead?.location === "compare_gate") formRef.current?.scrollIntoView({ block: "center" });
+  }, [gateOpen, unlocked, lead?.location]);
 
   return (
     <>
@@ -72,6 +74,15 @@ export function CompareList({ cards, filters, filterAria, unlockLabels, hint, em
 
       {showInsight ? insight : null}
 
+      {/* Slot zůstává na místě i po odemčení: PDF, otázka i thankyou_viewed nesmí s bránou zmizet. */}
+      {gateOpen || lead?.location === "compare_gate" ? (
+        <div className="mt-4" ref={formRef} id="srovnani-form">
+          <LeadForm location="compare_gate" />
+        </div>
+      ) : null}
+
+      {unlocked ? rest.map((c) => <div key={c.ticker}>{c.node}</div>) : null}
+
       {locked.length > 0 ? (
         <>
           <div className="relative mt-4">
@@ -80,7 +91,7 @@ export function CompareList({ cards, filters, filterAria, unlockLabels, hint, em
                 <div key={c.ticker}>{c.node}</div>
               ))}
             </div>
-            <div className="absolute inset-x-0 top-6 flex justify-center px-2">
+            {!gateOpen ? <div className="absolute inset-x-0 top-6 flex justify-center px-2">
               <button
                 type="button"
                 onClick={() => {
@@ -91,14 +102,9 @@ export function CompareList({ cards, filters, filterAria, unlockLabels, hint, em
               >
                 {unlockLabels[locked.length] ?? unlockLabels[0]}
               </button>
-            </div>
+            </div> : null}
           </div>
           <p className="mt-3 text-[0.875rem] text-grey">{hint}</p>
-          {gateOpen ? (
-            <div className="mt-4" ref={formRef} id="srovnani-form">
-              <LeadForm location="compare_gate" />
-            </div>
-          ) : null}
         </>
       ) : null}
     </>

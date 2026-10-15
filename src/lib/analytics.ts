@@ -15,6 +15,8 @@ const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
 let ph: PostHog | null = null;
 let started = false;
+// Rychlé odeslání může předběhnout lazy import SDK. Server i fronta pak musí použít stejné ID.
+let earlyDistinctId: string | undefined;
 const pending: [EventName, EventProps][] = [];
 
 type Fbq = ((...a: unknown[]) => void) & { callMethod?: (...a: unknown[]) => void; queue: unknown[][]; loaded?: boolean; version?: string; push?: unknown };
@@ -63,11 +65,12 @@ function applyConsentToPixel(c: Consent | null): void {
 }
 
 function dispatch(name: EventName, props: EventProps): void {
-  // Meta Pixel: Lead jen pro skutečně uložený lead (ne při výpadku serveru)
+  // Meta Pixel: úspěšná odpověď API, nikoli fallback při výpadku serveru.
+  // Kvůli ochraně adres rozhraní nerozlišuje duplicity; nové kontakty měří serverový lead_created a DB.
   if (name === "thankyou_viewed" && props.saved === true && getConsent()?.marketing) window.fbq?.("track", "Lead");
   if (!KEY) return;
   if (ph) ph.capture(name, props);
-  else pending.push([name, props]);
+  else if (pending.length < 100) pending.push([name, props]);
 }
 
 async function loadPostHog(): Promise<void> {
@@ -76,6 +79,7 @@ async function loadPostHog(): Promise<void> {
   const c = getConsent();
   posthog.init(KEY, {
     api_host: HOST,
+    bootstrap: earlyDistinctId ? { distinctID: earlyDistinctId, isIdentifiedID: false } : {},
     persistence: PERSISTENCE(c),
     autocapture: false,
     capture_pageview: false,
@@ -94,7 +98,8 @@ async function loadPostHog(): Promise<void> {
 
 /** ID návštěvníka v PostHogu, posílá se s leadem, aby šly spojit klientské a serverové události. */
 export function getDistinctId(): string | undefined {
-  return ph?.get_distinct_id();
+  if (typeof window === "undefined") return undefined;
+  return ph?.get_distinct_id() ?? (earlyDistinctId ??= crypto.randomUUID());
 }
 
 export function startAnalytics(): void {
@@ -112,7 +117,9 @@ export function startAnalytics(): void {
   });
 
   // Knihovnu načteme, až stránka vykreslí první obrazovku.
-  const go = () => void loadPostHog();
+  const go = () => void loadPostHog().catch((e: unknown) => {
+    console.error("analytics unavailable", e instanceof Error ? e.message : e);
+  });
   const idle = () => (window.requestIdleCallback ? window.requestIdleCallback(go, { timeout: 2000 }) : setTimeout(go, 1500));
   if (document.readyState === "complete") idle();
   else window.addEventListener("load", idle, { once: true });

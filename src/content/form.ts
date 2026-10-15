@@ -50,6 +50,7 @@ export const formCopy = (emailEnabled: boolean) =>
       question: "Kde investujete nebo chcete začít?",
       options: ["XTB", "Trading 212", "Revolut", "Fio", "Portu", "IBKR", "Jinde", "Zatím nikde"],
       thanks: "Díky, zapsali jsme si to.",
+      error: "Odpověď se neuložila. Zkuste to prosím znovu.",
       optional: "Dobrovolné, stačí jeden ťuk.",
     },
     share: {

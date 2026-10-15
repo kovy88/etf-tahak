@@ -98,10 +98,16 @@ test("srovnávač: filtr, brána, překlep v e-mailu a odemknutí bez reloadu", 
 
   await expect(cmp.locator("form[data-location=compare_gate]")).toHaveCount(0);
   await expect(cmp.locator("article")).toHaveCount(12);
+  // Brána musí po odemčení zachovat celé poděkování i PDF, nejen zpřístupnit karty.
+  const thanks = cmp.locator("#srovnani-form");
+  await expect(thanks.getByText("Hotovo. Tahák je váš.")).toBeVisible();
+  await expect(thanks.getByRole("link", { name: "Stáhnout PDF" })).toBeInViewport();
+  await thanks.getByRole("button", { name: "XTB" }).click();
+  await expect(thanks.getByText("Díky, zapsali jsme si to.")).toBeVisible();
   // všechna místa přepnutá do stavu „hotovo“
   await expect(page.locator("form[data-location]")).toHaveCount(0);
   const ev = await events(page);
-  for (const n of ["compare_filter_changed", "compare_gate_clicked", "form_started", "email_typo_suggested", "email_typo_accepted", "form_submitted"])
+  for (const n of ["compare_filter_changed", "compare_gate_clicked", "form_started", "email_typo_suggested", "email_typo_accepted", "form_submitted", "thankyou_viewed", "profile_answered"])
     expect(ev).toContain(n);
 });
 

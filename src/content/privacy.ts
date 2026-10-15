@@ -40,7 +40,7 @@ export const privacy = typoDeep({
       id: "cookies",
       h: "Cookies a měření",
       p: [
-        "Bez vašeho souhlasu měříme návštěvnost anonymně a bez cookies. Událost, například zobrazení sekce nebo odeslání formuláře, se zaznamená bez trvalého identifikátoru a po zavření stránky ji nelze spojit s dalšími návštěvami.",
+        "Bez souhlasu s cookies používáme dočasný identifikátor v paměti stránky. Neukládáme analytické cookies. Pokud odešlete formulář, spojíme tuto návštěvu s uloženým kontaktem pro vyhodnocení zdroje a cesty k odeslání.",
         "Se souhlasem si v prohlížeči uložíme identifikátor (cookie a localStorage), abychom poznali opakovanou návštěvu, a zapneme záznam obrazovky s maskovanými poli formuláře. Zároveň můžeme načíst Meta Pixel, který měří úspěšnost reklam na Facebooku a Instagramu.",
         "Volbu ukládáme v prohlížeči (localStorage, klíč etf_consent). Změnit ji můžete kdykoli tlačítkem „Nastavení cookies“ v patičce.",
       ],
@@ -57,5 +57,7 @@ export const privacy = typoDeep({
     title: "Odhlášeno",
     text: "Další e-maily vám už nepošleme.",
     back: "Zpět na stránku",
+    errorTitle: "Odhlášení se nepovedlo",
+    errorText: "Odhlášení se nám nepodařilo potvrdit. Zkuste odkaz z e-mailu znovu. Pokud problém trvá, napište na",
   },
 });
