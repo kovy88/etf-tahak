@@ -1,15 +1,26 @@
 <!doctype html>
 <html lang="cs"><head><meta charset="utf-8"><title>A – Poplatky</title>
 <link rel="stylesheet" href="ad.css">
-<style>
-  .num { font-size: 168px; line-height: 1; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
-  body.story .num { font-size: 168px; }
-  .lead { font-size: 56px; line-height: 1.18; font-weight: 500; max-width: 15em; }
-  .tag { font-family: var(--mono); font-size: 28px; letter-spacing: .04em; text-transform: uppercase; color: var(--loss); font-weight: 600; }
-</style></head>
+ </head>
 <body class="{{format}}"><main class="ad">
-  <p class="tag">modelový výpočet</p>
-  <p class="num serif"><span class="hl">{{bigNumber}}</span></p>
-  <p class="lead">{{caption}}</p>
-  <p class="fine">{{fine}}</p>
+  <header class="masthead"><p class="brand"><span>ETF</span> tahák</p><p class="edition">PRO ČESKÉ INVESTORY</p></header>
+  <section class="concept">
+    <h1 class="headline">{{headline}}</h1>
+    <div>
+      <p class="result-label">{{resultLabel}}</p>
+      <p class="result-number"><span class="amount">{{amount}}</span><span class="currency">Kč</span></p>
+    </div>
+    <div class="costs">
+      <div><p class="cost-label">{{fundLabel}}</p><p class="cost-value">{{fundTer}}</p></div>
+      <div><p class="cost-label">{{etfLabel}}</p><p class="cost-value etf">{{etfTer}}</p></div>
+    </div>
+  </section>
+  <section class="delivery">
+    <div class="product">
+      <img src="../../public/tahak/preview-compare.png" alt="Skutečná strana ETF taháku">
+      <div><p class="product-label">PDF ZDARMA · {{pages}} STRAN</p><p class="product-title">{{offer}}</p><p class="product-detail">{{offerDetail}}</p></div>
+    </div>
+    <p class="cta"><span>{{cta}}</span><span class="arrow">↗</span></p>
+  </section>
+  <footer><p class="fine">{{fine}}</p><p class="domain">etf-tahak.vercel.app</p></footer>
 </main></body></html>

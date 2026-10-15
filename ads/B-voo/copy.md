@@ -5,18 +5,26 @@
 ## Texty
 
 - **Primární text:** Drobní investoři v EU VOO u běžného brokera obvykle nekoupí. Srovnali jsme 12 ETF z NYSE a našli evropské alternativy.
-- **Pokračování primárního textu:** U 4 z 12 existuje evropské dvojče se stejným indexem, u dalších 6 podobná alternativa. S poplatky, výnosy v korunách a českými daněmi. Zdarma.
+- **Pokračování primárního textu:** U 4 z 12 existuje evropské dvojče se stejným indexem, u dalších 6 podobná alternativa. Zjistěte, v čem se liší, kolik stojí a jak se daní v Česku. Tahák má 11 stran a stáhnete ho hned po zadání e-mailu.
 - **Titulek:** 12 ETF z NYSE: co koupíte z Česka
 - **Popis:** Srovnání + tahák zdarma
 - **Tlačítko:** Zjistit více
 
 ## Kreativa (text v obrázku)
 
-- **Tabule:** VOO · SPY · VTI · SCHD jako burzovní tabule.
-- **Razítko:** z ČR běžně nekoupíte*
-- **Výzva:** Tady je, co místo nich →
-- **Drobně:** * Drobní investoři u běžného brokera v EU. Nejde o investiční doporučení. Zdroje na webu.
-- **Formáty:** feed 1080×1350, story 1080×1920 (horních a dolních ~250 px bez textu).
+- **Nadpis:** VOO z Česka běžně nekoupíte.
+- **Podnadpis:** Evropské alternativy najdete v taháku.
+- **Sloupec USA:** Americké ETF
+- **Sloupec Evropa:** Evropská alternativa
+- **Ukázka:** VOO → SPYL · SPY → VUAA
+- **Poznámka srovnání:** Stejný index S&P 500. Evropské fondy UCITS.
+- **Nabídka:** 12 ETF. Jeden český tahák.
+- **Detail nabídky:** Poplatky, evropské alternativy a české daně.
+- **Výzva:** Získat tahák zdarma
+- **Drobně:** * Jako drobný investor u běžného brokera v EU. Ukázky alternativ, ne investiční doporučení. Dostupnost ověřte u brokera. Zdroje na webu.
+- **Formáty:** feed 1080×1350, story 1080×1920; ve Stories je horních a dolních 270 px bez obsahu.
+
+Ukázka ukazuje dvě konkrétní dvojice s přesnou shodou indexu, ne doporučené portfolio. Tickery se generují z ověřených listingů na Xetře. Miniatura je skutečná strana taháku. Záměr: doložit hodnotu ještě v reklamě a zároveň říct, že celý přehled je zdarma za e-mail. Nemícháme do jedné ukázky přesná dvojčata a pouze podobné fondy.
 
 ## Náhledy
 
@@ -32,7 +40,7 @@ Znovu vygenerujete příkazem `npm run ads` (šablony v `ads/_src/`, texty z toh
 
 ## Návaznost na hero
 
-Hero na `/srovnani` má stejnou tabuli tickerů a větu (viz `src/content/hero.ts`):
+Hero na `/srovnani` navazuje stejným problémem a nabízí celý přehled (viz `src/content/hero.ts`):
 „VOO, SPY, VTI. Z Česka je běžně nekoupíte. Tady je, co místo nich.“ Pod ní je srovnání.
 
 ## Kontrola zásad Mety

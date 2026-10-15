@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { N, hero } from "@/content";
+import { etfsData } from "@/content/data";
 import { NBSP } from "@/lib/format";
 
 const read = (dir: string) =>
@@ -47,6 +48,30 @@ describe("reklamy", () => {
   it("čísla v B shodná s daty", () => {
     expect(b).toContain(`U ${N.exactTwins} z ${N.etfCount}`);
     expect(b).toContain(`dalších ${N.similarTwins}`);
+  });
+
+  it("ukázka B používá skutečná evropská dvojčata se stejným indexem a listingem", () => {
+    const pairs = field(b, "Ukázka").split("·");
+    expect(pairs).toHaveLength(2);
+    for (const pair of pairs) {
+      const [ticker, id] = pair.split("→").map((x) => x.trim());
+      const etf = etfsData.etfs.find((e) => e.ticker === ticker);
+      const fund = etf?.ucits_twin.funds.find((f) => f.id === id);
+      expect(etf?.ucits_twin.match).toBe("exact");
+      expect(fund?.index.value).toBe(etf?.index.value);
+      expect(fund?.listings.xetra).toBeTruthy();
+      expect(fund?.ter_pct.verified).not.toBe(false);
+    }
+  });
+
+  it("obě kreativy mají vlastní nabídku a výzvu i bez primárního textu", () => {
+    for (const md of [a, b]) {
+      expect(field(md, "Nabídka")).toContain("tahák");
+      expect(field(md, "Výzva").length).toBeGreaterThan(10);
+      expect(field(md, "Detail nabídky")).toContain("daně");
+      expect(field(md, "Pokračování primárního textu")).toContain("e-mailu");
+    }
+    expect(field(b, "Pokračování primárního textu")).toContain(`${N.pdfPages} stran`);
   });
 
   it("nemá zakázané fráze ani osobní oslovení", () => {

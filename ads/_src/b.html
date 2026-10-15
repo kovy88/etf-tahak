@@ -1,22 +1,24 @@
 <!doctype html>
 <html lang="cs"><head><meta charset="utf-8"><title>B – VOO</title>
 <link rel="stylesheet" href="ad.css">
-<style>
-  .board { background: var(--ink); color: var(--paper); padding: 36px 44px 130px; position: relative; }
-  .row { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid #3a382f; padding: 20px 0; }
-  .row:last-child { border-bottom: 0; }
-  .t { font-family: var(--mono); font-weight: 600; font-size: 118px; line-height: 1; letter-spacing: .02em; }
-  .x { font-family: var(--mono); font-size: 30px; color: #b8b2a3; text-transform: uppercase; letter-spacing: .06em; }
-  body.feed .t { font-size: 104px; }
-  .stamp { position: absolute; right: -14px; bottom: -34px; transform: rotate(-5deg); border: 6px solid var(--loss); color: var(--loss); background: var(--paper);
-    font-family: var(--mono); font-weight: 600; font-size: 44px; padding: 14px 26px; text-transform: uppercase; letter-spacing: .03em; }
-  .cta { font-size: 64px; line-height: 1.15; font-weight: 600; margin-top: 30px; }
-</style></head>
+</head>
 <body class="{{format}}"><main class="ad">
-  <div class="board">
-    {{rows}}
-    <p class="stamp">{{stamp}}</p>
-  </div>
-  <p class="cta"><span class="hl">{{cta}}</span></p>
-  <p class="fine">{{fine}}</p>
+  <header class="masthead"><p class="brand"><span>ETF</span> tahák</p><p class="edition">PRO ČESKÉ INVESTORY</p></header>
+  <section class="concept">
+    <h1 class="headline">{{headline}}<sup>*</sup></h1>
+    <p class="subhead">{{subhead}}</p>
+    <div class="comparison">
+      <div class="comparison-head"><span>{{usLabel}}</span><span>{{euLabel}}</span></div>
+      {{rows}}
+      <p class="comparison-note">{{comparisonNote}}</p>
+    </div>
+  </section>
+  <section class="delivery">
+    <div class="product">
+      <img src="../../public/tahak/preview-twins.png" alt="Skutečná strana taháku s evropskými alternativami">
+      <div><p class="product-label">PDF ZDARMA · {{pages}} STRAN</p><p class="product-title">{{offer}}</p><p class="product-detail">{{offerDetail}}</p></div>
+    </div>
+    <p class="cta"><span>{{cta}}</span><span class="arrow">↗</span></p>
+  </section>
+  <footer><p class="fine">{{fine}}</p><p class="domain">etf-tahak.vercel.app</p></footer>
 </main></body></html>

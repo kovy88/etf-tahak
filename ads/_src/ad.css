@@ -50,20 +50,58 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 1080px; background: var(--paper); color: var(--ink); }
-body { font-family: var(--serif); -webkit-font-smoothing: antialiased; overflow: hidden; }
-body.feed { height: 1350px; --pad-top: 90px; --pad-bottom: 90px; }
-/* Stories: horních a dolních ~250 px bez textu (překrývá je rozhraní Instagramu). */
-body.story { height: 1920px; --pad-top: 270px; --pad-bottom: 270px; }
-
-.ad {
-  height: 100%;
-  padding: var(--pad-top) 84px var(--pad-bottom);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 44px;
-  background-image: repeating-linear-gradient(to bottom, transparent 0 63px, var(--line) 63px 64px);
-}
+body { font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; overflow: hidden; }
+body.feed { height: 1350px; --safe-top: 76px; --safe-bottom: 70px; }
+/* Rozhraní Stories/Reels nesmí zakrýt značku, nabídku, výzvu ani podmínky. */
+body.story { height: 1920px; --safe-top: 270px; --safe-bottom: 270px; }
+.ad { height: 100%; padding: var(--safe-top) 72px var(--safe-bottom); display: flex; flex-direction: column; justify-content: space-between; gap: 26px; }
 .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
-.fine { font-family: var(--mono); font-size: 26px; line-height: 1.45; color: var(--grey); }
-.hl { background: linear-gradient(transparent 52%, var(--marker) 52% 94%, transparent 94%); padding: 0 .06em; }
+.masthead { display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 2px solid var(--ink); }
+.brand { font-family: var(--serif); font-size: 40px; font-weight: 600; letter-spacing: -.035em; }
+.brand span { background: var(--marker); padding: 0 5px; margin-right: 6px; }
+.edition { font-family: var(--mono); font-size: 23px; color: var(--grey); }
+.concept, .delivery { display: flex; flex-direction: column; gap: 26px; }
+.headline { font-family: var(--serif); font-size: 80px; line-height: 1.06; font-weight: 600; letter-spacing: -.035em; }
+.subhead { font-size: 34px; line-height: 1.25; max-width: 870px; }
+.result-label { font-family: var(--mono); font-size: 25px; color: var(--grey); margin-bottom: 10px; }
+.result-number { display: flex; align-items: baseline; gap: 20px; font-family: var(--serif); font-size: 160px; font-weight: 600; letter-spacing: -.02em; line-height: 1; }
+.headline sup { font-family: Arial, sans-serif; font-size: .38em; vertical-align: super; line-height: 0; }
+.result-number .amount { position: relative; isolation: isolate; }
+.result-number .amount::after { content: ''; position: absolute; z-index: -1; left: -6px; right: -8px; bottom: 5px; height: 48px; background: var(--marker); }
+.currency { font-size: 82px; letter-spacing: -.04em; }
+.costs { display: grid; grid-template-columns: 1fr 1fr; padding: 26px 32px; background: var(--ink); color: var(--paper); }
+.costs > div + div { border-left: 1px solid #625e52; padding-left: 32px; }
+.cost-label { font-size: 26px; line-height: 1.25; color: #d9d3c7; }
+.cost-value { font-family: var(--mono); font-size: 58px; font-weight: 600; line-height: 1.15; margin-top: 12px; }
+.cost-value.etf { color: var(--marker); }
+.product { display: flex; align-items: center; gap: 28px; }
+.product img { display: block; width: 106px; height: 150px; object-fit: cover; border: 1px solid #aaa395; flex: none; }
+.product-label { font-family: var(--mono); font-size: 22px; color: var(--grey); margin-bottom: 9px; }
+.product-title { font-size: 37px; line-height: 1.16; font-weight: 600; letter-spacing: -.025em; }
+.product-detail { font-size: 27px; line-height: 1.25; color: var(--grey); margin-top: 9px; }
+.cta { display: flex; justify-content: space-between; align-items: center; min-height: 86px; padding: 19px 28px; border: 2px solid var(--ink); background: var(--marker); font-size: 33px; font-weight: 600; letter-spacing: -.02em; }
+.cta .arrow { font-size: 44px; font-weight: 400; line-height: 1; }
+.fine { font-size: 26px; line-height: 1.3; color: var(--grey); }
+.domain { font-family: var(--mono); font-size: 22px; margin-top: 12px; color: var(--ink); }
+.comparison { background: var(--ink); color: var(--paper); padding: 25px 32px 27px; }
+.comparison-head { display: grid; grid-template-columns: 1fr 70px 1fr; color: #c8c2b5; font-size: 22px; padding-bottom: 14px; border-bottom: 1px solid #625e52; }
+.comparison-head span:last-child { grid-column: 3; }
+.comparison-row { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; padding-top: 24px; }
+.comparison-row + .comparison-row { padding-top: 20px; }
+.ticker { font-family: var(--mono); font-size: 65px; font-weight: 600; line-height: 1; }
+.ticker.eu { color: var(--marker); }
+.comparison-arrow { font-size: 40px; color: #c8c2b5; }
+.comparison-note { border-top: 1px solid #625e52; margin-top: 24px; padding-top: 16px; font-size: 25px; color: #d9d3c7; }
+body.story .ad { gap: 30px; }
+body.story .concept { gap: 32px; }
+body.story .headline { font-size: 91px; }
+body.story .result-number { font-size: 178px; }
+body.story .currency { font-size: 90px; }
+body.story .costs { padding-top: 32px; padding-bottom: 32px; }
+body.story .cost-value { font-size: 65px; }
+body.story .product img { width: 130px; height: 184px; }
+body.story .product-title { font-size: 40px; }
+body.story .cta { min-height: 96px; font-size: 36px; }
+body.story .comparison { padding-top: 32px; padding-bottom: 32px; }
+body.story .comparison-row { padding-top: 30px; }
+body.story .ticker { font-size: 79px; }
