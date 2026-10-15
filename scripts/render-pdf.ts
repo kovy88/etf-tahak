@@ -5,7 +5,7 @@
  * Bez PDF_BASE_URL skript sám nastartuje `next start` na portu 3110 (potřebuje hotový build).
  *
  * Výstup:
- *  - public/tahak/<hash>.pdf          (hash = prvních 10 znaků SHA-256 obsahu stránky; staré PDF se smažou)
+ *  - public/tahak/<hash>.pdf          (hash = prvních 10 znaků SHA-256 obsahu stránky; starší odkazy zůstávají funkční)
  *  - public/tahak/preview-*.png       (náhledy 3 stran pro sekci „Co je v taháku“)
  *  - src/data/leadPdf.json            (cesta k PDF; web ji použije, když nejsou nastavené LEAD_PDF_PATH)
  *
@@ -13,7 +13,7 @@
  */
 import { spawn, type ChildProcess } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
@@ -89,7 +89,7 @@ async function main() {
     const hash = createHash("sha256").update(html).digest("hex").slice(0, 10);
 
     mkdirSync(OUT, { recursive: true });
-    for (const f of readdirSync(OUT)) if (f.endsWith(".pdf")) rmSync(join(OUT, f));
+    // Staré verze ponecháváme: odkazy v e-mailech a v již odemčených relacích nesmí vracet 404.
 
     // PDF
     const file = `${hash}.pdf`;

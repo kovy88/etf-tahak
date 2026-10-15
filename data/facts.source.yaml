@@ -86,6 +86,11 @@ taxes:
     source: https://www.zakonyprolidi.cz/cs/1992-586
     as_of: "2026-10-14"
     note: "§ 38g odst. 1: přiznání podává ten, jehož roční příjmy, které jsou předmětem daně, přesáhly 50 000 Kč, mimo příjmy osvobozené nebo zdaněné srážkou. Platí i pro hrubé příjmy z prodeje, pokud nejsou osvobozené. Osvobozený prodej (časový nebo hodnotový test) se do přiznání neuvádí."
+  filing_employee_other_income_threshold_czk:
+    value: 20000
+    source: https://financnisprava.gov.cz/cs/dane/dane/dan-z-prijmu/fyzicke-osoby/obecne-informace
+    as_of: "2026-10-15"
+    note: "§ 38g odst. 2: zaměstnanec s příjmy jen od jednoho nebo postupně více zaměstnavatelů a podepsaným prohlášením k dani nemusí podat přiznání, pokud jiné příjmy podle § 7 až 10 nepřesáhnou 20 000 Kč. Osvobozené příjmy a příjmy zdaněné srážkou se nepočítají. Další důvody pro podání se posuzují zvlášť. Ověřeno ve vysvětlení Finanční správy i v zákoně."
   foreign_dividend_in_return:
     value: "Podíl na zisku podílového fondu, je-li podíl představován cenným papírem, a dividendy jsou příjem z kapitálového majetku (§ 8 odst. 1 písm. a). Do přiznání se uvádějí všechny příjmy, které jsou předmětem daně (§ 38g odst. 3). Daň zaplacenou v zahraničí lze započíst podle mezinárodní smlouvy (§ 38f)."
     source: https://www.zakonyprolidi.cz/cs/1992-586

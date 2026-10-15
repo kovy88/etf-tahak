@@ -19,7 +19,7 @@ def res():
 def sourced(o, path=""):
     """Všechny dict s klíčem value a nenulovou hodnotou musí mít source a as_of."""
     if isinstance(o, dict):
-        if "value" in o and "as_of" in o:
+        if "value" in o:
             yield path, o
         for k, v in o.items():
             yield from sourced(v, f"{path}.{k}")
@@ -41,6 +41,21 @@ def test_every_value_has_source_and_date(res):
 
 def test_all_twelve_etfs(res):
     assert {e["ticker"] for e in res["etfs"]} == TICKERS
+
+
+@pytest.mark.parametrize("field", ["source", "as_of"])
+def test_build_rejects_fact_without_source_or_date(monkeypatch, field):
+    original = build.load_yaml
+
+    def broken(name):
+        obj = original(name)
+        if name == "facts.source.yaml":
+            del obj["fund_costs"]["avg_equity_fund_ter_pct"][field]
+        return obj
+
+    monkeypatch.setattr(build, "load_yaml", broken)
+    with pytest.raises(ValueError, match=field):
+        build.build(write=False)
 
 
 def test_ter_and_ranges(res):

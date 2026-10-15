@@ -138,6 +138,19 @@ def dump(obj: Any, name: str) -> None:
     (OUT / name).write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def validate_facts(obj: Any) -> None:
+    """I fakta mimo ETF musí mít zdroj a datum; nechybějící klíč nesmí obejít kontrolu."""
+    if isinstance(obj, dict):
+        if "value" in obj:
+            Sourced.model_validate(obj)
+        else:
+            for value in obj.values():
+                validate_facts(value)
+    elif isinstance(obj, list):
+        for value in obj:
+            validate_facts(value)
+
+
 def build(write: bool = True) -> dict[str, Any]:
     fx_end = fetch_fx(END)
     fx_start = {h: fetch_fx(date(END.year - h, 9, 30)) for h in HORIZONS}
@@ -146,6 +159,7 @@ def build(write: bool = True) -> dict[str, Any]:
     etfs_raw = load_yaml("etfs.source.yaml")
     ucits_raw = load_yaml("ucits.source.yaml")
     facts_raw = load_yaml("facts.source.yaml")
+    validate_facts(facts_raw)
 
     etfs = {t: EtfSource(**v) for t, v in etfs_raw.items()}
     funds = {k: UcitsFund(**v) for k, v in ucits_raw["funds"].items()}

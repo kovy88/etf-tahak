@@ -166,9 +166,9 @@ export const tahakPrint = typoDeep({
       `Formulář W-8BEN odevzdáváte brokerovi, ne americkému úřadu IRS. Platí zpravidla do konce třetího kalendářního roku po roce podpisu. Při změně okolností to oznamte do 30 dnů ${irs2}.`,
     ],
     czHeading: "Dividendy a česká daň",
-    cz: `Dividendy a podíly na zisku podílového fondu jsou příjem z kapitálového majetku (§ 8 odst. 1 písm. a). Uvádíte je v přiznání spolu s dalšími příjmy. Daň zaplacenou v USA lze podle mezinárodní smlouvy a § 38f započítat ${lawRef}.`,
+    cz: `Dividendy a podíly na zisku podílového fondu jsou příjem z kapitálového majetku (§ 8 odst. 1 písm. a). Pokud podáváte přiznání, zahrnete i zdanitelné zahraniční dividendy. Daň zaplacenou v USA lze podle mezinárodní smlouvy a § 38f započítat ${lawRef}.`,
     returnHeading: "Kdy podat přiznání",
-    returnRule: `Přiznání podává ten, jehož roční příjmy, které jsou předmětem daně, přesáhly ${czk(tax.filing_threshold_czk.value)}. Osvobozené příjmy se nepočítají ${lawRef}.`,
+    returnRule: `Obecná hranice je ${czk(tax.filing_threshold_czk.value)} ročně. U zaměstnance s jedním nebo postupně více zaměstnavateli a podepsaným prohlášením k dani je hranice jiných příjmů podle § 7 až 10 jen ${czk(tax.filing_employee_other_income_threshold_czk.value)}. Osvobozené příjmy a příjmy zdaněné srážkou se nepočítají. Další důvody pro podání, například daňová ztráta, se posuzují zvlášť ${lawRef}.`,
     deadlinesHeading: "Termíny na příkladu roku 2025",
     deadlines: [
       { who: "Na papíře", when: "1. 4. 2026" },
