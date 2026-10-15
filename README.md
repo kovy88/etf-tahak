@@ -6,9 +6,13 @@ Konverzní landing page (lead magnet) se srovnáním 12 ETF z NYSE pro české d
 |---|---|
 | Produkce | https://etf-tahak.vercel.app (varianta A `/poplatky`, varianta B `/srovnani` = `/`) |
 | Reklamy | [`ads/A-poplatky/`](ads/A-poplatky/copy.md), [`ads/B-voo/`](ads/B-voo/copy.md): texty, kreativy 4:5 a 9:16, UTM, cílení |
-| Lead magnet | [PDF tahák, 11 stran, 483 kB](public/tahak/c616ae54ee.pdf), generovaný ze stejných dat jako web |
-| Lighthouse mobil (produkce) | výkon 99, přístupnost 100, best practices 100, SEO 100. LCP 1,4 až 2,0 s, CLS ≈ 0 |
+| Lead magnet | [PDF tahák, 11 stran, 484 kB](public/tahak/d3f0a12bbd.pdf), generovaný ze stejných dat jako web |
+| Lighthouse mobil (produkce, 15. 10.) | výkon A 98 / B 100, přístupnost 100, best practices 100, SEO 100. LCP 1,4 s, CLS 0 až 0,001 |
 | AI log | [`ai-log/`](ai-log/): exporty chatů s Claude Code |
+
+**Závěrečný audit (15. 10. 2026):** [kontrola zadání, opravy a zbývající provozní kroky](docs/AUDIT.md). Navazující kontrolu provedl Codex; původní realizace a její exporty jsou z Claude Code.
+
+[Mobilní náhled přepracovaných reklam A/B](docs/img/ads-preview.png). Finální PNG pro feed a Stories jsou v `ads/`.
 
 <p>
 <img src="docs/img/01-poplatky-hero.png" width="180" alt="Hero varianty A">
@@ -67,11 +71,12 @@ Průchod na 375 px z produkce: hero A → výsledek kalkulačky → formulář p
 |---|---|---|
 | Úhel | averze ke ztrátě | zvědavost, insider |
 | Kreativa | <img src="ads/A-poplatky/feed-1080x1350.png" width="200"> | <img src="ads/B-voo/feed-1080x1350.png" width="200"> |
-| Slib | „377 000 Kč“: rozdíl mezi poplatkem 1,46 % a 0,03 % ročně za 25 let (modelový výpočet) | tickery VOO · SPY · VTI · SCHD přeškrtnuté, „z ČR běžně nekoupíte“, „Tady je, co místo nich“ |
-| Hero na webu | stejné číslo a věta, volba měsíční částky přímo v hero | stejná tabule tickerů a věta, pod ní srovnání |
+| Slib | „377 000 Kč“: rozdíl mezi poplatkem 1,46 % a 0,03 % ročně za 25 let (modelový výpočet) + vlastní kalkulačka | „VOO z Česka běžně nekoupíte“ + ukázka evropských dvojčat VOO → SPYL a SPY → VUAA |
+| Hero na webu | stejné číslo a sazby, volba měsíční částky přímo v hero | stejný problém s dostupností amerických ETF a nabídka evropských alternativ, pod ní srovnání |
 
 - **Čísla jsou na jednom místě:** reklama, hero, výchozí kalkulačka i OG obrázek berou hodnoty ze `src/data/examples.json`. Hlídá to test `ads/ads.test.ts`.
 - **Kreativy:** generuje je kód (HTML → PNG přes Playwright, `npm run ads`). Mají stejné tokeny a fonty jako web. Stories mají horních a dolních 270 px bez textu.
+- **Úprava reklam podle finálního review:** obě mají značku, jasnou nabídku PDF zdarma, skutečný náhled strany a výzvu k akci. A dokládá kontext výpočtu srovnáním obou sazeb. B ukazuje dvě konkrétní dvojice místo samotné tabule amerických tickerů. Čísla, počet stran i evropské listingy čte generátor z dat; u B povolí jen přesná dvojčata se stejným indexem. Nejsou použité AI obrázky, smyšlené recenze ani imitace brokerových značek. Bezpečnou plochu Stories a načtení náhledu PDF kontroluje generátor.
 - **Zásady Mety:** reklamy netvrdí osobní vlastnosti adresáta a neslibují výnos, výpočet označují jako „modelový“. Special Ad Category „Financial products and services“ je podle [dokumentace Mety](https://developers.facebook.com/docs/marketing-api/audiences/special-ad-category) povinná pro USA. V Evropě platí jen u úvěrů, pro CZ kampaň tedy povinná není (ověřeno 14. 10. 2026).
 
 ## 5. Pořadí sekcí a proč
@@ -98,7 +103,7 @@ Pořadí je konfigurace podle varianty (`src/content/variants.ts`).
 
 ## 7. Co se stane po odeslání
 
-1. **Okamžitě (optimisticky):** „Hotovo. Tahák je váš.“, tlačítko **Stáhnout PDF** a odemčené srovnání. Když selže server, PDF návštěvník dostane i tak a chybu jen zalogujeme.
+1. **Po odpovědi serveru:** „Hotovo. Tahák je váš.“, tlačítko **Stáhnout PDF** a odemčené srovnání, včetně odeslání přes bránu srovnávače. Když selže server nebo požadavek přesáhne 10 sekund, PDF návštěvník dostane i tak a chyba se změří. Tento fallback se nepočítá jako uložený lead.
 2. **Jedna dobrovolná otázka na 1 ťuk:** „Kde investujete nebo chcete začít?“ Odpověď se uloží k leadu pro kvalifikaci.
 3. **Sdílení** přes Web Share API (fallback kopírování odkazu) s `utm_source=share`.
 4. **E-mail** (Resend) je hotový a otestovaný ([náhled](docs/img/email-preview.png)), ale v produkci je vypnutý přepínačem `NEXT_PUBLIC_EMAIL_ENABLED=false`, dokud nebude vlastní doména. Bez domény Resend doručí jen na adresu vlastníka účtu. Texty proto e-mail neslibují.
@@ -132,6 +137,8 @@ Pak `npm run pdf` (tahák a náhledy), `npm run ads` (kreativy) a `npm run og` (
 
 **Funnel (PostHog EU, dashboard „ETF tahák“):** `landing_viewed` → `form_viewed` → `form_started` → `lead_created` (serverová událost), okno 1 den, breakdown `variant`, pak `utm_content`, `location` a `in_app_browser`.
 
+`lead_created` vzniká pouze po vložení **nové** adresy do DB. Opakované zadání e-mailu zpřístupní obsah, ale nezvýší počet nových kontaktů. Klientský Meta `Lead` znamená přijaté odeslání; kvůli ochraně existujících adres API veřejně nerozlišuje duplicity. Pro CPL nových kontaktů je rozhodující DB. Při rychlém odeslání před načtením SDK má klientská fronta a server stejný dočasný identifikátor.
+
 - **Události** (úplný seznam v [`docs/PLAN.md` §12](docs/PLAN.md)): `landing_viewed`, `section_viewed`, `scroll_depth`, `cta_clicked`, `calc_interacted`, `calc_changed`, `compare_filter_changed`, `compare_gate_clicked`, `form_viewed`, `form_started`, `form_error`, `email_typo_suggested/accepted`, `form_submitted`, `lead_created`, `thankyou_viewed`, `pdf_downloaded`, `profile_answered`, `share_clicked`, `consent_updated`, `web_vitals`. Všechny jdou přes jediný modul `src/lib/track.ts`.
 - **Společné vlastnosti:** `variant`, `utm_*`, `in_app_browser` (FB/IG/TikTok z User-Agentu), `viewport_w`, `ms_since_landing`.
 - **Souhlas:** do volby běží PostHog bez cookies (`persistence: memory`). Meta Pixel se načte až po souhlasu a jen s ID v env.
@@ -141,7 +148,7 @@ Pak `npm run pdf` (tahák a náhledy), `npm run ads` (kreativy) a `npm run og` (
 
 ## 10. Očekávaná konverze
 
-**Metrika:** leady / unikátní `landing_viewed`.
+**Metrika:** nové kontakty / měřené návštěvy (`landing_viewed`). Bez souhlasu s cookies nelze spolehlivě rozpoznat opakovaného člověka po obnovení stránky; nejde tedy o přesný počet unikátních osob. Blokování analytiky může zmenšit jmenovatel, proto výsledky porovnáváme i s kliky z reklamy a počtem kontaktů v DB.
 
 | Krok | Na 100 návštěv | Předpoklad |
 |---|---|---|
@@ -176,7 +183,7 @@ Velikost vzorku počítá [`analytics/sample_size.py`](analytics/sample_size.py)
 |---|---|---|---|---|---|
 | 1 | **Hloubka gate.** Protože zvědavost na zbylých 9 ETF je druhý nejsilnější spouštěč, zamčení zvýší počet leadů. | karty 4 až 12 a dvojčata zamčené vs. vše zdarma, za e-mail jen PDF | +30 až 50 % leadů. Riziko: horší kvalita, proto sledujeme i stažení PDF a odpověď na otázku | `lead_created` / `landing_viewed` | ~2 000 (při +30 %) |
 | 2 | **Interaktivní vs. statický hero.** Protože číslo, které reaguje na ťuk, dovede víc lidí k prvnímu „aha“. | volba částky a živé číslo v hero vs. jen text a CTA | +15 až 25 % | konverze landing page | ~7 500 (při +15 %) |
-| 3 | **Formulace CTA.** Protože osobní nabídka v 1. osobě zní jako služba, ne jako marketing. | „Pošlete mi můj výpočet“ vs. „Chci tahák zdarma“ | +5 až 15 % | `form_started` → `lead_created` | ~65 000 (při +5 %), ~7 500 (při +15 %) |
+| 3 | **Formulace CTA.** Konkrétní akce může lépe vysvětlit, co návštěvník dostane. | „Stáhnout tahák zdarma“ vs. „Chci tahák zdarma“ | +5 až 15 % | `lead_created` / `landing_viewed` | ~65 000 (při +5 %), ~7 500 (při +15 %) |
 
 H3 je při testovacím rozpočtu (5 000 Kč ≈ 330 kliků na variantu) neprůkazná, dává smysl až při větším provozu. **Backlog:** tykání vs. vykání, skutečné počítadlo stažení, lepivá lišta ano/ne, pořadí kalkulačky a srovnání. Test úhlů reklam A vs. B běží od spuštění, není to hypotéza pro landing page.
 
@@ -252,9 +259,9 @@ npx playwright test
 cd data && uv run pytest && uv run ruff check
 ```
 
-- vitest: kalkulačka, texty (zakázané fráze, typografie, povinná upozornění), e-mail, server, tahák (83 testů),
-- Playwright: interakce, odeslání a chyby, události funnelu pro obě varianty, cookie lišta, šířky 320 až 414 px, na šířku, klávesnice, tisk PDF (38 testů),
-- pytest: každé číslo má zdroj a datum, rozsahy, shoda příkladů s `calc.ts`.
+- vitest: kalkulačka, texty (zakázané fráze, typografie, povinná upozornění), reklamy a shoda ukázek s daty, e-mail, server, DNS, tahák, identita analytiky a úložiště (95 testů),
+- Playwright: interakce, odeslání a chyby, události funnelu pro obě varianty včetně brány, blokované úložiště, cookie lišta, šířky 320 až 414 px, na šířku, klávesnice, tisk PDF (42 testů),
+- pytest: každé číslo má zdroj a datum, rozsahy, shoda příkladů s `calc.ts`, odmítnutí faktu bez zdroje nebo data (21 testů).
 
 **Struktura repa:**
 
@@ -274,7 +281,7 @@ cd data && uv run pytest && uv run ruff check
 
 ## 14. Jak jsem pracoval s Claude Code
 
-Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log/).
+Realizaci jsem dělal v Claude Code. Její logy jsou v [`ai-log/`](ai-log/). Závěrečný audit a opravy z 15. 10. proběhly v Codexu; jeho export je odděleně v [`ai-log/11-codex-audit.md`](ai-log/11-codex-audit.md).
 
 **Postup.** Nejdřív jsem s Claude udělal plán ([`docs/PLAN.md`](docs/PLAN.md)). Je v něm cílovka, nabídka, pořadí sekcí, měření a 11 fází, každá s vlastním promptem. Pravidla, která musel dodržet vždycky, jsem dal do [`CLAUDE.md`](CLAUDE.md): jedno pole ve formuláři, žádné číslo bez zdroje, vykání, zakázané fráze a zakázané „AI“ vzory v designu. Každá fáze pak běžela v novém chatu, aby měl agent čistý kontext a jasné zadání. Na konci fáze commit, odškrtnutí v plánu a export logu. Každý chat vedl jeden agent podle promptu fáze, subagenty jsem nepoužil, protože fáze na sobě stavěly. Na design a texty agent povinně volal skilly `frontend-design` a `ux-copy`. Účty, klíče a nastavení služeb (Supabase, PostHog, Vercel) jsem dělal já, agent mi vždy napsal přesně, co a kam vložit.
 
@@ -291,6 +298,8 @@ Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log
 * Testy dat v pythonu při každém běhu přepisovaly vygenerované JSON v `src/data`, které se ručně měnit nesmí. Ukázal to `git status` po testech.
 * Agent tvrdil, že export chatu neumí, a log fáze F7 se proto ztratil. Později ho dopsal ze surového přepisu relace. Při převodu logů navíc psal odpovědi Claude pod nadpis uživatele, takže nebylo poznat, kdo co říká. Všechny logy jsem nechal přegenerovat znovu.
 * Fakta, která agent nedokázal ověřit v primárním zdroji (dividenda VWO a SPY, stav Retail Investment Strategy), jsou označená jako neověřená. Na webu mají hvězdičku.
+* Závěrečný audit našel chybu, kterou původní E2E test nekontroloval: po odeslání brány srovnávače zmizelo poděkování i PDF a neodeslal se `thankyou_viewed`. Nový test nejprve selhal na původním kódu; po opravě ověřuje i stažení a dobrovolnou otázku. Stejně se reprodukovalo chybějící měření dlouhé sekce při pomalém scrollování. Doplněné serverové testy kontrolují chyby Supabase a to, že duplicita nezvýší nové kontakty.
+* PDF uvádělo jen obecnou hranici 50 000 Kč pro přiznání. Audit doplnil pravidlo pro jiné příjmy zaměstnanců (20 000 Kč) podle Finanční správy a § 38g odst. 2. Aktualizovaný tahák prošel kontrolou přetečení i vizuální kontrolou strany 7.
 
 **Co chybí nebo jsem vědomě nechal:**
 
@@ -307,6 +316,6 @@ Celé jsem to dělal v Claude Code. Logy všech chatů jsou v [`ai-log/`](ai-log
 * **Jazyk.** Zadání je slovensky, cílovka česká. Web, PDF i reklamy jsou česky s vykáním, README taky.
 * **„Kontakt“.** Beru jen e-mail. Telefon by snížil konverzi a lead magnet je digitální, takže víc nepotřebujeme.
 * **Bezplatný hosting bez domény.** Na `*.vercel.app` Resend nedoručí e-mail cizím adresám. Tahák proto návštěvník dostane hned na stránce a žádný text nic do e-mailu neslibuje. Odeslání e-mailu je hotové za přepínačem.
-* **Kdo stránku provozuje.** Zadání to neříká. Clientelo jsem jako správce osobních údajů neuvedl, protože by to nebyla pravda. V patičce je placeholder a je v launch checklistu.
+* **Kdo stránku provozuje.** Zadání to neříká. Pro tuto ukázku je provozovatelem a správcem Matěj Koval, jeho jméno i kontakt jsou v patičce a zásadách. Clientelo jako správce neuvádím. Při převzetí projektu se musí správce i texty přizpůsobit skutečnému provozu.
 * **Dvě verze reklamy.** Udělal jsem dva různé úhly (poplatky vs. „VOO z Česka nekoupíte“), každý s vlastním hero a pořadím sekcí. Tak se dá rovnou měřit, který slib táhne víc.
 * **Měření bez provozu.** Reklama neběží, takže funnel je prázdný. Celou cestu jsem ověřil testovacím provozem s `utm_source=claude_test`, který PostHog filtruje. Očekávanou konverzi odhaduji z benchmarků (§10).

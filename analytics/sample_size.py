@@ -23,7 +23,7 @@ POWER = 0.8
 HYPOTHESES = {
     "H1 hloubka gate (zamčeno vs. vše zdarma)": 0.30,
     "H2 interaktivní vs. statický hero": 0.15,
-    "H3 CTA „Pošlete mi můj výpočet“ vs. „Chci tahák zdarma“": 0.05,
+    "H3 CTA „Stáhnout tahák zdarma“ vs. „Chci tahák zdarma“": 0.05,
 }
 
 

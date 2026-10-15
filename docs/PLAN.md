@@ -20,6 +20,8 @@ Hodnoticí otázka zní: *„Mohli bychom na to zítra pustit reklamu?"* Podle n
 - [x] F9 QA a připravenost na spuštění
 - [x] F10 README, ai-log, odevzdání (zbývá jen odeslání e-mailu, dělá provozovatel)
 - [x] F11 Opravy z UI/UX review (14. 10.): lišty se nevrství, hero B říká nabídku, miniatura taháku v hero, sticky hlídá formulář v gate, nadpis s výsledkem nad formulářem kalkulačky, popisek pruhu tickerů, vyplněný provozovatel
+- [x] F12 Audit v Codexu (15. 10.): zachování PDF po bráně, chyby zápisů do DB, deduplikace konverzí, propojení rychlého leadu s analytikou, měření dlouhých sekcí, fallback úložiště a timeout, doplnění zaměstnanecké výjimky v PDF. Podrobnosti a důkazy: `docs/AUDIT.md`.
+- [x] F13 Priorita reklam podle doplnění uživatele: nová sazba A/B, značka a nabídka v obou, skutečné náhledy PDF, A s kontextem modelu, B s reálnou ukázkou evropských dvojčat. Feed 4:5 a Stories 9:16 včetně bezpečných ploch, shoda dat kontrolovaná generátorem a testy.
 
 ---
 

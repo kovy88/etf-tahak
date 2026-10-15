@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-15",
+  "timezone": "Europe/Prague",
+  "productionCodeRevision": "5294881ef6d7beca76f8e9020bde1175540e6b59",
+  "production": {
+    "realDatabaseInsert": true,
+    "attributionAndJourney": true,
+    "gatePdfVisible": true,
+    "profileSaved": true,
+    "duplicateRowCount": 1,
+    "unsubscribeSaved": true,
+    "nullMxRejected": true,
+    "oldAndNewPdfAvailable": true,
+    "clientServerIdentityMatches": true,
+    "clientEvents": [
+      "landing_viewed",
+      "compare_gate_clicked",
+      "section_viewed",
+      "form_viewed",
+      "consent_updated",
+      "form_started",
+      "form_submitted",
+      "thankyou_viewed"
+    ],
+    "pageErrors": [],
+    "emailSent": false,
+    "auditContactRemoved": true
+  },
+  "lighthouse": {
+    "poplatky": {
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp_ms": 1419.962,
+      "cls": 0.0005042740244216342
+    },
+    "srovnani": {
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp_ms": 1356.9165,
+      "cls": 0.00003694488225701092
+    }
+  },
+  "tests": {
+    "vitest": 95,
+    "playwright": 42,
+    "pytest": 21
+  },
+  "notes": [
+    "Production flow used a single audit contact; it was removed afterward.",
+    "Client PostHog events were observed in outgoing requests; no admin dashboard API was used.",
+    "Lighthouse is one laboratory run per variant.",
+    "Final ad render checks both formats, PDF previews, exact twin listings and Stories safe zones."
+  ]
+}
